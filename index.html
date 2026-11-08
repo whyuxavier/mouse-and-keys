@@ -416,6 +416,166 @@ header{height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;backg
 .bub{animation:bubble 1.2s ease-out forwards;position:absolute;border-radius:50%;pointer-events:none}
 #stage.kbmode #toast{top:8px;z-index:5}
 @keyframes bubble{to{transform:translateY(-90px) scale(.3);opacity:0}}
+/* ===== «Справжній комп'ютер» ===== */
+.mode.pc{background:#e3f1ff;box-shadow:0 6px 0 #b9d8f5}.mode.pc .mico{background:#4fa8ff}
+.menu .mtools{display:flex;gap:10px;align-items:center;margin:-10px 0 18px}
+.repbtn{display:inline-flex;align-items:center;gap:8px;background:#fff;color:#1b2b3b;font-weight:800;font-size:15px;padding:9px 16px;border-radius:999px;box-shadow:0 4px 0 #c9d6e8}
+.repbtn svg{width:20px;height:20px}
+.pcdesk{position:absolute;left:40px;top:80px;width:1120px;height:566px;border-radius:18px;overflow:hidden;z-index:1;
+  background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.35) 0,transparent 30%),radial-gradient(circle at 15% 85%,rgba(255,255,255,.25) 0,transparent 35%),linear-gradient(135deg,#5bb4ff,#7b8cff 55%,#b48cff);
+  box-shadow:0 8px 0 rgba(60,90,140,.25);font-family:"Segoe UI",var(--font);color:#1b2b3b}
+:root[data-theme="halloween"] .pcdesk{background:radial-gradient(circle at 80% 20%,rgba(255,210,63,.3) 0,transparent 25%),linear-gradient(135deg,#3b2f7e,#6b4fd8 60%,#ff8a2b)}
+:root[data-theme="newyear"] .pcdesk{background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.5) 0,transparent 25%),linear-gradient(135deg,#7cc4ff,#3fb27f 70%,#e8463c)}
+.pcarea{position:absolute;left:0;top:0;right:0;bottom:56px;touch-action:none}
+.pcbar{position:absolute;left:0;right:0;bottom:0;height:56px;background:rgba(20,30,60,.85);display:flex;align-items:center;gap:8px;padding:0 10px}
+.pcstart{width:50px;height:46px;border-radius:10px;background:transparent;display:grid;place-items:center;padding:9px}
+.pctasks{flex:1;display:flex;gap:6px;min-width:0}
+.pctask{height:46px;padding:0 14px;border-radius:10px;background:rgba(255,255,255,.1);color:#fff;display:flex;align-items:center;gap:8px;font-weight:700;font-size:16px;border-bottom:3px solid transparent;font-family:inherit}
+.pctask.on{background:rgba(255,255,255,.22);border-bottom-color:#7cc4ff}
+.pctask .ti2{width:32px;height:28px}
+.pctray{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:16px}
+.pclang{min-width:58px;height:46px;border-radius:10px;background:rgba(255,255,255,.15);color:#fff;font-weight:900;font-size:18px;font-family:inherit}
+.pcclip{width:46px;height:46px;border-radius:10px;background:rgba(255,255,255,.12);display:grid;place-items:center;padding:8px}
+.pcclip:empty::before{content:"";width:22px;height:26px;border:3px solid rgba(255,255,255,.6);border-radius:4px}
+.pcclip.on{background:rgba(255,201,74,.35)}
+.pcicon{position:absolute;width:108px;padding:6px 4px 8px;border-radius:12px;display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff;font-weight:700;font-size:15px;text-align:center;text-shadow:0 1px 3px rgba(0,0,0,.55);border:2px solid transparent;touch-action:none;cursor:default}
+.pcicon .ico{width:76px;height:64px;display:grid;place-items:center;pointer-events:none}
+.pcicon .ico svg{width:100%;height:100%}
+.pcicon>span{pointer-events:none;line-height:1.2}
+.pcicon.sel{background:rgba(160,210,255,.38);border-color:#e3f1ff}
+.pcicon.dragging2{z-index:20;opacity:.85}
+.pcicon.drop-over,.drop-over{background:rgba(255,226,122,.5)!important;border-color:#ffd23f!important}
+.pcicon.st{position:relative;color:#1b2b3b;text-shadow:none}
+.pcicon.st.sel{background:#d6eaff;border-color:#7cc4ff}
+.pcwin{position:absolute;background:#fff;border-radius:12px;box-shadow:0 16px 40px rgba(20,30,60,.35);overflow:hidden;display:flex;flex-direction:column;z-index:5;
+  transition:left .3s,top .3s,width .3s,height .3s,transform .3s,opacity .3s;animation:winopen .25s ease-out}
+@keyframes winopen{from{transform:scale(.85);opacity:0}}
+.pcwin.max{left:0!important;top:0!important;width:100%!important;height:100%!important;border-radius:0}
+.pcwin.min{transform:translateY(460px) scale(.12);opacity:0;pointer-events:none}
+.pcwin.closing,.pcpop.closing,.brtab.closing{transform:scale(.85);opacity:0;transition:transform .25s,opacity .25s}
+.pct{height:56px;flex:none;display:flex;align-items:center;gap:10px;padding-left:14px;background:#eef3fb;color:#1b2b3b;font-weight:800;font-size:18px}
+.pct .pcti{width:34px;height:30px;flex:none}
+.pct b{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pcbtns{display:flex;height:100%}
+.pcbtns button{width:60px;height:100%;background:transparent;font-size:22px;font-weight:700;color:#1b2b3b;display:grid;place-items:center;font-family:inherit}
+.pcbtns button:hover{background:#dce8f8}.pcbtns button.x:hover{background:#ff5f57;color:#fff}
+.pcb{flex:1;overflow:hidden;position:relative;min-height:0}
+.pcgrid{display:flex;flex-wrap:wrap;gap:14px;padding:18px;align-content:flex-start}
+.pcgrid .pic{width:200px;height:170px;border-radius:14px;background:#f3f7fd;display:grid;place-items:center;padding:14px}
+.pcview{height:100%;display:grid;place-items:center;padding:20px;background:#f3f7fd}
+.pcview svg{height:200px}
+.pcmenu{position:absolute;z-index:30;background:#fff;border-radius:12px;box-shadow:0 12px 30px rgba(20,30,60,.35);padding:6px;width:270px;animation:winopen .15s}
+.pcmenu button{display:flex;align-items:center;gap:12px;width:100%;height:56px;padding:0 14px;border-radius:8px;background:transparent;font-size:19px;font-weight:700;color:#1b2b3b;text-align:left;font-family:inherit}
+.pcmenu button:hover{background:#e3f1ff}
+.pcmenu i{width:34px;height:34px;display:grid;place-items:center;flex:none}
+.pc-hl{outline:4px solid #ffc94a!important;outline-offset:3px;animation:pchl 1s ease-in-out infinite}
+@keyframes pchl{50%{outline-color:rgba(255,201,74,.2)}}
+.pcflash{animation:kshake .35s!important}
+.pcsel{position:absolute;border:2px solid #7cc4ff;background:rgba(124,196,255,.25);pointer-events:none;z-index:25}
+.pczone{position:absolute;border:3px dashed #ffd23f;border-radius:18px;pointer-events:none;animation:pchl 1s infinite}
+.mbadge>.in{background:#fff;border-radius:14px;padding:4px;box-shadow:0 4px 0 #d3deef}
+.mbadge{z-index:8;pointer-events:none}
+.keyshowo{z-index:8;pointer-events:none}
+.keyshow{display:flex;justify-content:center;align-items:center;gap:12px;height:100%}
+.keyshow .plus{font-size:40px;color:#1b2b3b}
+.kchip.big{height:86px;min-width:86px;font-size:34px;padding:0 24px;transition:transform .1s,background .1s}
+.kchip.down{transform:translateY(4px);box-shadow:0 0 0 #c2cfe0;background:#ffc94a}
+.kchip.sm{font-size:18px}
+.pcbtnpic{display:grid;place-items:center;width:54px;height:46px;border-radius:10px;background:#eef3fb;border:2px solid #c2cfe0;font-size:22px;font-weight:800;color:#1b2b3b}
+.pcwin input,.pcedit,.pcdoc,.pcren{user-select:text;-webkit-user-select:text}
+.pcren{width:104px;height:30px;font-size:16px;font-weight:800;border:2px solid #4fa8ff;border-radius:6px;text-align:center;text-transform:uppercase;outline:none;font-family:inherit;color:#1b2b3b}
+.pcsample{position:absolute;display:flex;align-items:center;gap:14px;background:#fff;border-radius:18px;padding:10px 22px;box-shadow:0 6px 0 rgba(0,0,0,.12)}
+.pcsample .sp,.brsample .sp{width:84px;height:84px}
+.lt{font-size:44px;font-weight:900;letter-spacing:4px;font-family:var(--font)}
+.lt i{font-style:normal;color:#c2cfe0}.lt b{color:#1b2b3b}.lt u{color:#4fa8ff;text-decoration:none;border-bottom:5px solid #4fa8ff}
+.pcmenubar{height:38px;display:flex;gap:18px;align-items:center;padding:0 16px;font-size:15px;color:#5d7189;border-bottom:1px solid #e3ecf8}
+.pcedwrap{position:relative;height:calc(100% - 38px)}
+.pcedit{outline:none;padding:28px 34px;font-size:52px;font-weight:800;letter-spacing:2px;line-height:1.35;color:#1b2b3b;white-space:pre-wrap;height:100%;caret-color:#4fa8ff;font-family:var(--font)}
+.pcmarks{position:absolute;inset:0;pointer-events:none}
+.pcmark{position:absolute;border-radius:6px}
+.pcmark.bad{background:rgba(255,95,87,.22);border-bottom:5px solid #ff5f57}
+.pcmark.gap,.pcmark.goal{width:10px;background:#ffc94a;animation:pchl 1s infinite;outline:3px solid transparent}
+.pcmark.goal{background:#5fd39b}
+.pcform{padding:26px 34px;display:flex;flex-direction:column;gap:12px;font-size:22px;font-weight:800}
+.pcform label{display:flex;align-items:center;gap:16px}
+.pcform .lb{width:64px;height:64px;flex:none}
+.pcform input{height:64px;border-radius:14px;border:3px solid #dce8f8;font-size:32px;font-weight:800;padding:0 18px;width:360px;outline:none;font-family:var(--font);color:#1b2b3b;letter-spacing:2px}
+.pcform input:focus,.pcform .f3:focus{border-color:#4fa8ff;box-shadow:0 0 0 5px rgba(79,168,255,.3)}
+.pcform .f3{align-self:flex-start;margin-left:80px;height:64px;border-radius:16px;background:#5fd39b;color:#fff;font-size:26px;font-weight:900;width:280px;border:3px solid transparent;outline:none;font-family:inherit}
+.pcform .pcsamp1,.pcform .pcsamp2{margin-left:82px;height:56px}
+.pcform .lt{font-size:36px}
+.hint6{font-size:34px;color:#c2cfe0;font-weight:900}
+.pclock{width:80px;height:64px;border-radius:14px;background:#e3ecf8;color:#9aa9bd;display:flex;align-items:center;justify-content:center;gap:4px;padding:8px;font-family:inherit}
+.pclock svg{width:34px;height:34px}.pclock b{font-size:24px}
+.pclock.on{background:#ffc94a;color:#1b2b3b}.pclock.on .arc{transform:translateY(0)}.pclock:not(.on) .arc{transform:translate(6px,-3px)}
+.flag{font-size:20px;font-weight:900;background:#ffe08a;color:#1b2b3b;border-radius:10px;padding:8px 12px}.flag.en{background:#cfe6ff}
+.pctool{height:64px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#f3f7fd;border-bottom:1px solid #e3ecf8}
+.pctool button{width:58px;height:50px;border-radius:10px;background:#fff;font-size:26px;color:#1b2b3b;box-shadow:0 3px 0 #d3deef;display:grid;place-items:center;padding:10px;font-family:Georgia,serif}
+.pctool .sep{width:2px;height:36px;background:#dce8f8;margin:0 6px}
+.pcdoc{padding:26px 36px;font-size:36px;line-height:1.5;outline:none;color:#1b2b3b;height:calc(100% - 64px);font-family:var(--font)}
+.pcdoc .h,.pcdoc>div:first-child{font-size:46px;font-weight:900}
+.pcchecks{position:absolute;right:14px;top:14px;width:270px;background:rgba(255,255,255,.94);border-radius:16px;padding:10px;display:grid;gap:6px;z-index:6}
+.pcchecks div{display:flex;align-items:center;gap:10px;height:52px;padding:0 10px;border-radius:12px;font-weight:800;font-size:15px;color:#5d7189}
+.pcchecks div.cur{background:#fff1c9;color:#1b2b3b}
+.pcchecks div.done{color:#2a8a5a}
+.pcchecks .ci{width:34px;height:34px;flex:none;display:grid;place-items:center;background:#f3f7fd;border-radius:8px;font-family:Georgia,serif;font-size:20px;padding:5px}
+.pcchecks .tick2{margin-left:auto;width:28px;height:28px;flex:none;border-radius:50%;background:#e3ecf8;display:grid;place-items:center;color:#fff;font-weight:900}
+.pcchecks .done .tick2{background:#5fd39b}
+.pcstick{position:absolute;left:40px;top:60px;width:260px;height:300px;background:rgba(255,255,255,.92);border-radius:20px;display:grid;place-items:center}
+.pcstick .sh{width:170px;height:170px;padding:12px;border-radius:18px;border:3px solid transparent}
+.pcstick .sh.sel,.pccard.sel{border-color:#4fa8ff;box-shadow:0 0 0 6px rgba(79,168,255,.3)}
+.pccard{position:absolute;left:360px;top:40px;width:700px;height:400px;background:#fffaf0;border-radius:22px;border:3px solid #ffd9a8;box-shadow:0 8px 0 rgba(0,0,0,.12)}
+.pccard .ck{position:absolute;right:20px;bottom:16px;width:120px;height:130px}
+.pccard .cz{position:absolute;inset:0}
+.pccard .pst{position:absolute;width:130px;height:130px;transition:transform .5s,opacity .5s}
+.pcpop{position:absolute;z-index:40;left:50%;top:50%;margin:-150px 0 0 -230px;width:460px;height:300px;background:#fff;border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,.35);overflow:hidden;animation:winopen .25s}
+.pcpop .pct{background:#ffe0da}
+.pcpb{display:flex;align-items:center;justify-content:center;gap:16px;height:calc(100% - 56px);font-size:48px;font-weight:900;color:#e8463c}
+.pcpb svg{width:150px;height:150px}
+.pcsent{height:100%;display:grid;place-items:center;position:relative}
+.pcsent svg{width:220px;height:200px}.pcsent b{position:absolute;font-size:80px;color:#5fd39b}
+.pcscroll{height:100%;overflow-y:auto;touch-action:pan-y;overscroll-behavior:contain}
+.pcgal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:16px}
+.pcgal .gi{height:150px;border-radius:14px;background:#f3f7fd;display:grid;place-items:center;padding:16px}
+.pcgal .gi.cat{background:#fff1c9}
+.pcarrow{position:absolute;right:26px;top:50%;margin-top:-50px;width:70px;height:100px;border-radius:35px;background:#ffc94a;color:#1b2b3b;font-size:56px;font-weight:900;display:none;place-items:center;pointer-events:none;box-shadow:0 5px 0 #e0a400}
+.pcarrow.on{display:grid;animation:pchl 1s infinite}
+.br{display:flex;flex-direction:column;height:100%}
+.brtabs{height:56px;flex:none;background:#dfe6f2;display:flex;align-items:flex-end;gap:6px;padding:0 10px}
+.brtab{height:48px;padding:0 6px 0 14px;border-radius:12px 12px 0 0;background:#c9d3e3;display:flex;align-items:center;gap:8px;font-weight:800;font-size:17px;min-width:200px}
+.brtab.on{background:#fff}
+.brtab .bti{width:30px;height:26px}
+.brtab .tx{margin-left:auto;width:44px;height:44px;border-radius:8px;background:transparent;font-size:22px;font-weight:700;color:#1b2b3b;font-family:inherit}
+.brtab .tx:hover{background:#ffd0cc}
+.brbar{height:64px;flex:none;display:flex;align-items:center;gap:8px;padding:0 12px;background:#fff;border-bottom:1px solid #e3ecf8}
+.brbar button{width:58px;height:50px;border-radius:12px;background:#f3f7fd;font-size:26px;font-weight:800;color:#1b2b3b;font-family:inherit}
+.brbar button.dis{opacity:.35}
+.braddr{flex:1;height:50px;border-radius:25px;background:#f3f7fd;border:3px solid #dce8f8;display:flex;align-items:center;padding:0 22px;font-size:22px;font-weight:800;color:#1b2b3b;font-family:var(--font);min-width:0}
+input.braddr{outline:none;letter-spacing:1px}
+input.braddr:focus{border-color:#4fa8ff;background:#fff}
+.brpage{flex:1;overflow:auto;padding:20px;display:flex;gap:24px;justify-content:center;align-items:center;flex-wrap:wrap;min-height:0}
+.brlink{width:230px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:14px;border-radius:18px;background:#f7faff;cursor:pointer}
+.brlink:hover{background:#e3f1ff}
+.brlink .pic{width:150px;height:140px;pointer-events:none}
+.brlink span:last-child{color:#2d6fd6;text-decoration:underline;font-size:24px;font-weight:800;pointer-events:none}
+.brbig{display:flex;gap:30px;align-items:center}.brbig svg{width:190px;height:200px}
+.brsample{display:flex;align-items:center;gap:18px;background:#f3f7fd;border-radius:20px;padding:20px 30px}
+.brspin{width:70px;height:70px;border-radius:50%;border:8px solid #dce8f8;border-top-color:#4fa8ff;animation:spin .6s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+#report{position:fixed;inset:0;background:rgba(40,60,90,.55);display:none;place-items:center;z-index:21;padding:16px}
+#report.show{display:grid}
+table.rep{width:100%;border-collapse:collapse;font-size:15px}
+table.rep th,table.rep td{text-align:left;padding:6px 8px;border-bottom:1px solid #e3ecf8}
+table.rep th{color:#5d7189;font-size:13px}
+td.rs{white-space:nowrap}td.rs svg{width:16px;height:16px;display:inline-block}
+.errs{display:grid;gap:6px}
+.er{display:grid;grid-template-columns:minmax(0,1fr) 120px 34px;gap:10px;align-items:center;font-size:14.5px;font-weight:700}
+.er i{height:12px;border-radius:6px;background:#e3ecf8;overflow:hidden;display:block}.er i b{display:block;height:100%;background:#ff7f6e;border-radius:6px}
+.er em{font-style:normal;text-align:right;font-weight:900}
+.repnote{color:#5d7189!important;font-size:14px!important;margin-top:12px!important}
+body.novoice #instr .say{display:none}
+#stage.pcmode #toast{top:auto;bottom:96px}
+
 @media (max-width:860px){.hero{grid-template-columns:1fr;padding-top:24px}.hero-art{max-width:440px}}
 @media (max-width:600px){#crumb{max-width:60vw}.cats{grid-template-columns:1fr}}
 
@@ -447,6 +607,7 @@ header{height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;backg
         <div class="modes">
           <button class="mode mouse" data-go="mouse"><span class="mico" id="icoMouse"></span><span><b>Мишка</b><small id="mStat"></small></span></button>
           <button class="mode keys" data-go="keys"><span class="mico" id="icoKeys"></span><span><b>Клавіатура</b><small id="kStat"></small></span></button>
+          <button class="mode pc" data-go="pc"><span class="mico" id="icoPc"></span><span><b>Справжній комп’ютер</b><small id="pStat"></small></span></button>
         </div>
       </div>
       <div class="hero-art" id="heroArt"></div>
@@ -454,6 +615,7 @@ header{height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;backg
   </section>
   <section class="screen" id="s-mouse"><div class="menu"><h1>Мишка</h1><p>Обери вправу. Наступний рівень відкривається після проходження попереднього.</p><div class="cats" id="mouseCats"></div></div></section>
   <section class="screen" id="s-keys"><div class="menu"><h1>Клавіатура</h1><p>Обери гру. Натискай справжні клавіші на клавіатурі.</p><div class="cats" id="keyCats"></div></div></section>
+  <section class="screen" id="s-pc"><div class="menu"><h1>Справжній комп’ютер</h1><p>Вправи як у Windows: папки, вікна, меню, браузер, текст. Нічого на твоєму комп’ютері не змінюється.</p><div class="mtools"><button class="repbtn" id="bReport"><svg viewBox="0 0 24 24"><rect x="4" y="12" width="4" height="8" rx="1" fill="#4fa8ff"/><rect x="10" y="7" width="4" height="13" rx="1" fill="#5fd39b"/><rect x="16" y="4" width="4" height="16" rx="1" fill="#ff7f6e"/></svg>Звіт</button></div><div class="cats" id="pcCats"></div></div></section>
   <section class="screen" id="s-game">
     <div id="wrap">
       <div id="stage">
@@ -487,6 +649,15 @@ header{height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;backg
         <li>Вгорі: назад, пауза, рівень заново, звук.</li>
         <li>Сайт сам змінює оформлення: з 24 жовтня до 7 листопада — геловінське, з 18 грудня до 15 січня — новорічне, решту року — звичайне.</li>
       </ul>
+      <h3>Справжній комп’ютер</h3>
+      <ul>
+        <li>Вправи імітують Windows: робочий стіл, папки, вікна з кнопками — ☐ ✕, панель задач, контекстне меню, Кошик, браузер, Блокнот, документ, анкета.</li>
+        <li><b>Мишка:</b> один клік — виділити, подвійний — відкрити, права кнопка — меню, затиснути й тягнути — перенести або обвести рамкою, коліщатко — прокрутка.</li>
+        <li><b>Клавіатура:</b> Пробіл, Backspace, Delete, Enter, стрілки, Shift і Caps Lock, Ctrl + C / V / Z, Tab і Esc, адреса сайту, зміна мови (Alt + Shift або Win + Пробіл).</li>
+        <li><b>Планшет:</b> довге натискання — права кнопка, подвійний дотик — подвійний клік, перетягування пальцем; для клавіатурних вправ потрібна клавіатура.</li>
+        <li>Це лише імітація: нічого на комп’ютері дитини не створюється, не видаляється й не змінюється.</li>
+        <li>Кнопка «Звіт» у розділі показує зірки й помилки за типом дії — що варто потренувати.</li>
+      </ul>
       <h3>Для батьків і вчителів</h3>
       <ul id="skillsList"></ul>
       <div class="i-links">
@@ -496,6 +667,15 @@ header{height:64px;display:flex;align-items:center;gap:12px;padding:0 16px;backg
       </div>
       <button class="i-close" id="bClose" type="button">Зрозуміло</button>
     </div>
+  </div>
+</div>
+
+<div id="report" role="dialog" aria-modal="true" aria-labelledby="rt">
+  <div class="mbox">
+    <div class="i-head"><div class="i-badge"><svg viewBox="0 0 24 24" style="width:28px;height:28px"><rect x="4" y="12" width="4" height="8" rx="1" fill="#fff"/><rect x="10" y="7" width="4" height="13" rx="1" fill="#fff"/><rect x="16" y="4" width="4" height="16" rx="1" fill="#fff"/></svg></div><div><h2 id="rt">Звіт</h2><span>Справжній комп’ютер</span></div></div>
+    <div class="i-body"><div id="repBody"></div>
+      <div class="i-links"><button type="button" id="bRepReset"><i style="background:#ffe0da"><svg viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.05-4.95" stroke="#1b2b3b" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M18.5 3v5h-5" stroke="#1b2b3b" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Очистити статистику помилок<small>Зірочки залишаться</small></span></button></div>
+      <button class="i-close" id="bRepClose" type="button">Закрити</button></div>
   </div>
 </div>
 
@@ -585,8 +765,8 @@ const CANDY_COLORS=[['#ff5fa2','#ff9ecb'],['#7fe8c8','#bff5e4'],['#ffd23f','#ffe
 const STAR_SVG=`<svg viewBox="0 0 100 100"><polygon points="50,6 61,38 95,38 67,58 78,92 50,72 22,92 33,58 5,38 39,38" fill="#ffd23f" stroke="#e09b00" stroke-width="4" stroke-linejoin="round"/></svg>`;
 const STAR_OFF=`<svg viewBox="0 0 100 100"><polygon points="50,6 61,38 95,38 67,58 78,92 50,72 22,92 33,58 5,38 39,38" fill="#e6dcc4" stroke="#cbbd9e" stroke-width="4" stroke-linejoin="round"/></svg>`;
 function mouseIcon(m){
-  const L=m==='L'||m==='drag'||m==='D',R=m==='R',mv=m==='move'||m==='drag';
-  return `<svg class="mi" viewBox="0 0 92 80"><rect x="8" y="6" width="44" height="68" rx="22" fill="#fff" stroke="#2a1d4f" stroke-width="4"/><path class="bl ${L?'on':''}" d="M10 31V28A20 20 0 0 1 28 8.5V31z" fill="${L?'#ff8a2b':'none'}"/><path class="br ${R?'on':''}" d="M50 31V28A20 20 0 0 0 32 8.5V31z" fill="${R?'#ff8a2b':'none'}"/><path d="M8 32h44M30 6v26" stroke="#2a1d4f" stroke-width="4"/>${mv?'<path d="M62 40h24M78 32l8 8-8 8" stroke="#6b4fd8" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>':''}${m==='D'?'<text x="58" y="56" font-size="28" font-weight="900" fill="#6b4fd8" font-family="Arial,sans-serif">2×</text>':''}</svg>`;
+  const L=m==='L'||m==='drag'||m==='D',R=m==='R',mv=m==='move'||m==='drag',WH=m==='W';
+  return `<svg class="mi" viewBox="0 0 92 80"><rect x="8" y="6" width="44" height="68" rx="22" fill="#fff" stroke="#2a1d4f" stroke-width="4"/><path class="bl ${L?'on':''}" d="M10 31V28A20 20 0 0 1 28 8.5V31z" fill="${L?'#ff8a2b':'none'}"/><path class="br ${R?'on':''}" d="M50 31V28A20 20 0 0 0 32 8.5V31z" fill="${R?'#ff8a2b':'none'}"/><path d="M8 32h44M30 6v26" stroke="#2a1d4f" stroke-width="4"/>${mv?'<path d="M62 40h24M78 32l8 8-8 8" stroke="#6b4fd8" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>':''}${WH?'<rect class="bl on" x="26" y="12" width="8" height="16" rx="4" fill="#ff8a2b"/><path d="M66 30l8-9 8 9M66 50l8 9 8-9" stroke="#6b4fd8" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>':''}${m==='D'?'<text x="58" y="56" font-size="28" font-weight="900" fill="#6b4fd8" font-family="Arial,sans-serif">2×</text>':''}</svg>`;
 }
 
 const PRAISE=['Чудово!','У тебе виходить!','Молодець!','Супер!'];
@@ -656,8 +836,8 @@ const ICON={
 const pkCandy=()=>`<div style="position:relative;width:100%;height:100%"><div style="position:absolute;left:22%;width:56%;top:0;height:46%">${G.candy()}</div><div style="position:absolute;left:0;right:0;bottom:0;height:68%">${SK().cont()}</div></div>`;
 /* voice: only when a Ukrainian voice exists */
 let ukVoice=null;
-function pickVoice(){try{const v=speechSynthesis.getVoices();ukVoice=v.find(x=>/^uk/i.test(x.lang))||null;}catch(e){}}
-if('speechSynthesis' in window){pickVoice();try{speechSynthesis.addEventListener('voiceschanged',pickVoice)}catch(e){}}
+function pickVoice(){try{const v=speechSynthesis.getVoices();ukVoice=v.find(x=>/^uk/i.test(x.lang))||null;}catch(e){}document.body.classList.toggle('novoice',!ukVoice);}
+document.body.classList.add('novoice');if('speechSynthesis' in window){pickVoice();try{speechSynthesis.addEventListener('voiceschanged',pickVoice)}catch(e){}}
 function say(t,interrupt){
   if(!t||!S.sound||!S.started||!ukVoice)return;
   try{
@@ -1417,7 +1597,7 @@ function KCAT(lv){return function(){
 }}
 
 /* ===== 3. key trainer ===== */
-const kchip=c=>{const m={Space:['','Пробіл','space'],Enter:['↵','Enter',''],Backspace:['⌫','Backspace',''],ShiftLeft:['⇧','Shift',''],ArrowRight:['','→',''],ArrowUp:['','↑','']}[c];
+const kchip=c=>{const m={Delete:['⌦','Delete',''],ArrowLeft:['','←',''],CapsLock:['⇪','Caps Lock',''],Tab:['⇥','Tab',''],Escape:['','Esc',''],Space:['','Пробіл','space'],Enter:['↵','Enter',''],Backspace:['⌫','Backspace',''],ShiftLeft:['⇧','Shift',''],ArrowRight:['','→',''],ArrowUp:['','↑','']}[c];
   return m?`<span class="kchip ${m[2]}">${m[0]?`<i>${m[0]}</i>`:''}${m[1]}</span>`:`<span class="kchip">${KLABEL[c]||c}</span>`;};
 /* ===== 3a. notebook: what Space, Backspace and Enter are for ===== */
 function KT_note(){
@@ -1724,6 +1904,708 @@ function DC3(){
   demo([{x:600,y:640},{x:270,y:230,ms:900},{press:1},{press:1}]);
 }
 
+/* =====================================================================
+   «Справжній комп'ютер» — imitation of real Windows actions
+   ===================================================================== */
+const ERRT={click:'Клік лівою кнопкою',dbl:'Подвійний клік',rmb:'Права кнопка',drag:'Перетягування',select:'Виділення',scroll:'Прокрутка коліщатком',type:'Друк тексту',edit:'Пробіл, Backspace, Delete, стрілки',enter:'Enter',shift:'Shift і Caps Lock',ctrl:'Ctrl + C / V / Z',tabesc:'Tab і Esc',lang:'Зміна мови'};
+S.errs={};try{S.errs=JSON.parse(localStorage.getItem('kt_errs')||'{}')||{};}catch(e){}
+const saveErrs=()=>{try{localStorage.setItem('kt_errs',JSON.stringify(S.errs))}catch(e){}};
+
+const PCI={
+  folder:()=>G.folder(),
+  img:()=>`<svg viewBox="0 0 64 56"><rect x="6" y="4" width="52" height="48" rx="7" fill="#fff" stroke="#4fa8ff" stroke-width="3"/><circle cx="22" cy="19" r="6" fill="#ffc94a"/><path d="M10 48l15-17 10 10 7-7 13 14z" fill="#5fd39b"/></svg>`,
+  music:()=>`<svg viewBox="0 0 64 56"><rect x="6" y="4" width="52" height="48" rx="7" fill="#fff" stroke="#a98bff" stroke-width="3"/><path d="M28 40V16l16-4v24" stroke="#a98bff" stroke-width="4" fill="none" stroke-linejoin="round"/><circle cx="23" cy="40" r="6" fill="#a98bff"/><circle cx="39" cy="36" r="6" fill="#a98bff"/></svg>`,
+  junk:()=>`<svg viewBox="0 0 64 56"><path d="M14 14l12-6 14 4 12-2 2 16-6 12 4 10-16 4-14-4-10 2 2-14-4-10z" fill="#eef1f6" stroke="#9aa9bd" stroke-width="2.5" stroke-linejoin="round"/><path d="M20 22l10 6 8-4 8 8M18 38l12-4 10 6" stroke="#9aa9bd" stroke-width="2" fill="none"/></svg>`,
+  txt:()=>`<svg viewBox="0 0 64 56"><path d="M14 3h26l12 12v38H14z" fill="#fff" stroke="#5d7189" stroke-width="3" stroke-linejoin="round"/><path d="M40 3v12h12" fill="#dce8f8" stroke="#5d7189" stroke-width="3" stroke-linejoin="round"/><path d="M20 26h26M20 34h26M20 42h18" stroke="#9aa9bd" stroke-width="3" stroke-linecap="round"/></svg>`,
+  bin:(full)=>`<svg viewBox="0 0 64 56">${full?'<path d="M20 14l7-11 6 7 8-7 4 11z" fill="#fff" stroke="#9aa9bd" stroke-width="2" stroke-linejoin="round"/>':''}<path d="M16 17h32l-3 36H19z" fill="#cfe6ff" stroke="#4f7fbf" stroke-width="3" stroke-linejoin="round"/><rect x="12" y="11" width="40" height="7" rx="3" fill="#4f7fbf"/><path d="M26 23v24M32 23v24M38 23v24" stroke="#4f7fbf" stroke-width="2.5"/></svg>`,
+  binFull:()=>PCI.bin(true),
+  web:()=>`<svg viewBox="0 0 64 56"><circle cx="32" cy="28" r="24" fill="#e3f1ff" stroke="#4fa8ff" stroke-width="3"/><path d="M8 28h48M32 4c-10 12-10 36 0 48M32 4c10 12 10 36 0 48" stroke="#4fa8ff" stroke-width="3" fill="none"/></svg>`,
+  doc:()=>`<svg viewBox="0 0 64 56"><path d="M14 3h36v50H14z" fill="#fff" stroke="#2d6fd6" stroke-width="3" stroke-linejoin="round"/><rect x="14" y="3" width="36" height="12" fill="#2d6fd6"/><path d="M20 24h24M20 32h24M20 40h16" stroke="#9aa9bd" stroke-width="3" stroke-linecap="round"/></svg>`,
+  form:()=>`<svg viewBox="0 0 64 56"><rect x="12" y="6" width="40" height="48" rx="6" fill="#fff" stroke="#5fd39b" stroke-width="3"/><rect x="24" y="2" width="16" height="9" rx="3" fill="#5fd39b"/><path d="M20 24h24M20 33h24M20 42h14" stroke="#9aa9bd" stroke-width="3" stroke-linecap="round"/></svg>`,
+  card:()=>`<svg viewBox="0 0 64 56"><rect x="6" y="8" width="52" height="40" rx="6" fill="#fff" stroke="#ff7f6e" stroke-width="3"/><path d="M6 14l26 18 26-18" stroke="#ff7f6e" stroke-width="3" fill="none"/></svg>`,
+};
+const fbadge=pic=>`<svg viewBox="0 0 100 86"><g>${G.folder().replace('<svg viewBox="0 0 100 80">','').replace('</svg>','')}</g><g transform="translate(52 36) scale(.46)"><rect width="100" height="100" rx="16" fill="#fff"/><g transform="translate(10 10) scale(.8)">${pic.replace(/<svg[^>]*>/,'').replace('</svg>','')}</g></g></svg>`;
+PCI.fPhoto=()=>fbadge(PCI.img());
+PCI.fMusic=()=>fbadge(PCI.music());
+PCI.fStar=()=>fbadge(G.star());
+PCI.fFruit=()=>fbadge(G.apple());
+const MI={
+  open:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="#e3f1ff" stroke="#4fa8ff" stroke-width="2.4"/><path d="M3 9h18" stroke="#4fa8ff" stroke-width="2.4"/></svg>',
+  copy:'<svg viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2" fill="#efe6ff" stroke="#a98bff" stroke-width="2.4"/><path d="M15 5V4a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h1" stroke="#a98bff" stroke-width="2.4" fill="none"/></svg>',
+  ren:'<svg viewBox="0 0 24 24"><path d="M4 20l1-5L16 4l4 4L9 19z" fill="#fff1c9" stroke="#e0a400" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 7l4 4" stroke="#e0a400" stroke-width="2.2"/></svg>',
+  del:'<svg viewBox="0 0 24 24"><path d="M6 7h12l-1 14H7z" fill="#ffe0da" stroke="#e8463c" stroke-width="2.2" stroke-linejoin="round"/><path d="M4 7h16M9 7V4h6v3" stroke="#e8463c" stroke-width="2.2" fill="none"/></svg>',
+  restore:'<svg viewBox="0 0 24 24"><path d="M9 5 4 10l5 5" stroke="#38a874" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 10h10a6 6 0 0 1 0 12h-3" stroke="#38a874" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>',
+  forever:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#ffe0da"/><path d="M8 8l8 8M16 8l-8 8" stroke="#e8463c" stroke-width="2.6" stroke-linecap="round"/></svg>',
+};
+const MENU4=[{id:'open',label:'Відкрити'},{id:'copy',label:'Копіювати'},{id:'ren',label:'Перейменувати'},{id:'del',label:'Видалити'}];
+const WINLOGO='<svg viewBox="0 0 24 24"><rect x="2" y="2" width="9" height="9" rx="1.5" fill="#7cc4ff"/><rect x="13" y="2" width="9" height="9" rx="1.5" fill="#7cc4ff"/><rect x="2" y="13" width="9" height="9" rx="1.5" fill="#7cc4ff"/><rect x="13" y="13" width="9" height="9" rx="1.5" fill="#7cc4ff"/></svg>';
+const chipL=(t,cls='')=>`<span class="kchip ${cls}">${t}</span>`;
+const btnPic=a=>`<span class="pcbtnpic">${a==='min'?'—':a==='max'?'☐':'✕'}</span>`;
+function sxy(el){const r=el.getBoundingClientRect(),s=stage.getBoundingClientRect();return{x:(r.left+r.width/2-s.left)/SC,y:(r.top+r.height/2-s.top)/SC};}
+function pcHL(el){world.querySelectorAll('.pc-hl').forEach(e=>e.classList.remove('pc-hl'));el&&el.classList.add('pc-hl');}
+
+/* ---------- demo hand ---------- */
+function badge(p,m){const b=put(mouseIcon(m),p.x+50,p.y-34,64,56,'mbadge');setTimeout(()=>b.remove(),1000);}
+async function showKeys(labels){
+  const k=put(`<div class="keyshow">${labels.map(l=>chipL(l,'big')).join('<b class="plus">+</b>')}</div>`,600,330,700,120,'keyshowo');
+  await sleep(350);const ch=[...k.querySelectorAll('.kchip')];
+  for(const c of ch){c.classList.add('down');sfx.click();await sleep(220);}
+  await sleep(500);ch.forEach(c=>c.classList.remove('down'));await sleep(250);k.remove();
+}
+async function pcDemo(acts){
+  if(!acts||!acts.length)return;
+  const tok=S.token;S.busy=true;toast('Дивись!','look');await sleep(450);
+  const c=put(G.cursor(),640,600,48,62,'cursor');
+  const at=t=>t&&t.nodeType?sxy(t):t;
+  for(const a of acts){
+    if(a.keys){c.style.opacity='0';await showKeys(a.keys);c.style.opacity='';continue;}
+    const p=at(a.el);if(!p)continue;
+    await glide(c,p.x+18,p.y+24,a.ms||650);
+    if(a.act==='click'||a.act==='dbl'||a.act==='r'){
+      if(a.act==='r')badge(p,'R');if(a.act==='dbl')badge(p,'D');
+      const n=a.act==='dbl'?2:1;
+      for(let i=0;i<n;i++){c.classList.add('press');sfx.click();await sleep(a.act==='dbl'?110:240);c.classList.remove('press');await sleep(a.act==='dbl'?80:160);}
+    }else if(a.act==='wheel'){badge(p,'W');for(let i=0;i<3;i++){await glide(c,p.x+18,p.y+40,170);await glide(c,p.x+18,p.y+24,170);}}
+    else if(a.act==='drag'||a.act==='box'){
+      const q=at(a.to);c.classList.add('press');let g=null,b=null;
+      if(a.ghost)g=put(a.ghost,p.x,p.y,a.gs||72,a.gs||64,'demo');
+      if(a.act==='box'){b=document.createElement('div');b.className='pcsel';b.style.cssText=`left:${p.x}px;top:${p.y}px;width:0;height:0;z-index:8`;world.appendChild(b);void b.offsetWidth;b.style.transition='width 1s,height 1s';b.style.width=(q.x-p.x)+'px';b.style.height=(q.y-p.y)+'px';}
+      await Promise.all([glide(c,q.x+18,q.y+24,1000),g?glide(g,q.x,q.y,1000):null]);
+      c.classList.remove('press');await sleep(200);g&&g.remove();b&&b.remove();
+    }
+  }
+  c.remove();if(tok!==S.token)return;S.busy=false;toast('Тепер ти!','you');
+}
+
+/* ---------- step runner ---------- */
+function pcRun(defs){
+  const N=defs.length,R={i:-1,lock:true,cons:0};prog(0,N);
+  R.at=k=>R.i===k&&!R.lock;
+  R.go=i=>{R.i=i;R.lock=false;R.cons=0;const d=defs[i];instr(d.icon,d.pics(),d.text);prog(i,N);pcHL(null);d.enter&&d.enter();if(d.hl)pcHL(d.hl());
+    const prev=defs[i-1];if(d.demo&&(i===0||prev.act!==d.act||d.show))later(R.demo,i===0?350:550);};
+  R.demo=()=>{const d=defs[R.i];if(!d||!d.demo)return;const a=d.demo();if(a)pcDemo(a);};
+  R.ok=()=>{if(R.lock)return;R.lock=true;R.cons=0;sfx.collect();prog(R.i+1,N);pcHL(null);
+    if(R.i+1>=N){S.busy=true;later(()=>{S.busy=false;win();},800);return;}
+    if((R.i+1)%2===0)praise(true);const nx=R.i+1;later(()=>R.go(nx),defs[R.i].wait||450);};
+  R.err=(type,msg)=>{if(R.lock)return;S.mist++;S.errs[type]=(S.errs[type]||0)+1;saveErrs();sfx.soft();toast(msg||pick(SOFT),true);
+    const d=defs[R.i];const el=d&&d.hl&&d.hl();if(el){pcHL(el);retrig(el,'pcflash');}
+    if(++R.cons>=3){R.cons=0;later(R.demo,900);}};
+  return R;
+}
+
+/* ---------- desktop ---------- */
+function pcDesk(o={}){
+  const d=document.createElement('div');d.className='pcdesk';
+  const t=new Date();
+  d.innerHTML=`<div class="pcarea"></div><div class="pcbar"><button class="pcstart" tabindex="-1">${WINLOGO}</button><div class="pctasks"></div><div class="pctray">${o.tray||''}<button class="pclang" tabindex="-1">UA</button><span class="pcclock">${String(t.getHours()).padStart(2,'0')}:${String(t.getMinutes()).padStart(2,'0')}</span></div></div>`;
+  world.appendChild(d);
+  const area=d.querySelector('.pcarea');
+  const D={d,area,tasks:d.querySelector('.pctasks'),lang:d.querySelector('.pclang'),m:null};
+  const iconHtml=(kind,label)=>`<div class="ico">${PCI[kind]()}</div><span>${label}</span>`;
+  D.icon=(kind,label,x,y)=>{const i=document.createElement('div');i.className='pcicon';i.dataset.kind=kind;i.style.left=x+'px';i.style.top=y+'px';i.innerHTML=iconHtml(kind,label);area.appendChild(i);return i;};
+  D.ficon=(kind,label,k='')=>`<div class="pcicon st" data-kind="${kind}" data-k="${k}">${iconHtml(kind,label)}</div>`;
+  D.setKind=(i,kind)=>{i.dataset.kind=kind;i.querySelector('.ico').innerHTML=PCI[kind]();};
+  D.sel=el=>{(el.parentElement||area).querySelectorAll('.pcicon.sel').forEach(i=>i.classList.remove('sel'));el.classList.add('sel');};
+  D.desel=()=>area.querySelectorAll('.pcicon.sel').forEach(i=>i.classList.remove('sel'));
+  D.win=w=>{const e=document.createElement('div');e.className='pcwin'+(w.cls?' '+w.cls:'');Object.assign(e.style,{left:w.x+'px',top:w.y+'px',width:w.w+'px',height:w.h+'px'});
+    e.innerHTML=`<div class="pct"><span class="pcti">${PCI[w.kind]()}</span><b>${w.title}</b><span class="pcbtns"><button data-a="min" tabindex="-1">—</button><button data-a="max" tabindex="-1">☐</button><button data-a="close" class="x" tabindex="-1">✕</button></span></div><div class="pcb">${w.body||''}</div>`;
+    area.appendChild(e);return e;};
+  D.task=(kind,label)=>{const b=document.createElement('button');b.className='pctask on';b.tabIndex=-1;b.innerHTML=`<span class="ti2">${PCI[kind]()}</span><span>${label}</span>`;D.tasks.appendChild(b);return b;};
+  D.apt=e=>{const a=area.getBoundingClientRect();return{x:(e.clientX-a.left)/SC,y:(e.clientY-a.top)/SC};};
+  D.closeMenu=()=>{if(D.m){D.m.remove();D.m=null;}};
+  D.menu=(e,items,onPick)=>{D.closeMenu();const m=document.createElement('div');m.className='pcmenu';
+    m.innerHTML=items.map(it=>`<button data-id="${it.id}" tabindex="-1"><i>${MI[it.id]}</i><span>${it.label}</span></button>`).join('');area.appendChild(m);
+    const p=D.apt(e),W=m.offsetWidth,H=m.offsetHeight;
+    m.style.left=Math.max(6,Math.min(area.clientWidth-W-6,p.x))+'px';m.style.top=Math.max(6,Math.min(area.clientHeight-H-6,p.y))+'px';
+    m.addEventListener('pointerdown',ev=>ev.stopPropagation());
+    m.addEventListener('contextmenu',ev=>{ev.preventDefault();ev.stopPropagation();});
+    m.addEventListener('click',ev=>{const b=ev.target.closest('button');if(!b||!active()||S.busy)return;onPick(b.dataset.id,b);});
+    D.m=m;return m;};
+  area.addEventListener('pointerdown',e=>{if(D.m&&!D.m.contains(e.target))D.closeMenu();if(e.target===area)D.desel();},true);
+  area.addEventListener('contextmenu',e=>e.preventDefault());
+  return D;
+}
+/* single / double / right click (long press on touch) */
+function pcClicks(el,o){
+  let last=0,lp=null,lastR=0;
+  const fireR=e=>{const now=Date.now();if(now-lastR<700)return;lastR=now;o.right&&o.right(e);};
+  el.addEventListener('contextmenu',e=>{e.preventDefault();e.stopPropagation();if(!active()||S.busy)return;fireR(e);});
+  const tap=e=>{const now=Date.now();if(now-last<450){last=0;o.dbl&&o.dbl(e);}else{last=now;o.single&&o.single(e);}};
+  let lpFired=false,tDown=false,t0=null;
+  el.addEventListener('pointerdown',e=>{
+    if(!active()||S.busy)return;
+    if(e.pointerType==='touch'){clearTimeout(lp);lpFired=false;tDown=true;t0={x:e.clientX,y:e.clientY};const ev={clientX:e.clientX,clientY:e.clientY};lp=setTimeout(()=>{lpFired=true;fireR(ev);},600);return;}
+    if(e.button!==0)return;
+    tap(e);
+  });
+  el.addEventListener('pointermove',e=>{if(tDown&&t0&&Math.hypot(e.clientX-t0.x,e.clientY-t0.y)>12){clearTimeout(lp);tDown=false;}});
+  el.addEventListener('pointerup',e=>{clearTimeout(lp);if(e.pointerType==='touch'&&tDown&&!lpFired&&active()&&!S.busy)tap(e);tDown=false;});
+  el.addEventListener('pointercancel',()=>{clearTimeout(lp);tDown=false;});
+}
+/* drag with pointer capture + elementFromPoint + autoscroll */
+function pcDrag(h,o){
+  h.addEventListener('pointerdown',e=>{
+    if(e.button!==0||!active()||S.busy)return;
+    if(o.can&&!o.can())return;
+    e.preventDefault();try{h.setPointerCapture(e.pointerId);}catch(_){}
+    const items=o.items?o.items():[h],p0=pt(e),st=items.map(it=>({it,l:it.offsetLeft,t:it.offsetTop}));
+    let moved=false,over=null,lastP={clientX:e.clientX,clientY:e.clientY};
+    const under=ev=>{items.forEach(i=>i.style.pointerEvents='none');const u=document.elementFromPoint(ev.clientX,ev.clientY);items.forEach(i=>i.style.pointerEvents='');return u;};
+    const mv=ev=>{
+      lastP={clientX:ev.clientX,clientY:ev.clientY};const p=pt(ev),dx=p.x-p0.x,dy=p.y-p0.y;if(!moved&&Math.hypot(dx,dy)<7)return;
+      if(!moved){moved=true;o.start&&o.start();}
+      st.forEach(s=>{s.it.style.left=(s.l+dx)+'px';s.it.style.top=(s.t+dy)+'px';s.it.classList.add('dragging2');});
+      const u=under(ev),tg=u&&u.closest('[data-drop]');
+      if(tg!==over){over&&over.classList.remove('drop-over');over=tg;over&&over.classList.add('drop-over');}
+      const sc=u&&u.closest('.pcscroll');if(sc){const r=sc.getBoundingClientRect();if(ev.clientY<r.top+40)sc.scrollTop-=10;else if(ev.clientY>r.bottom-40)sc.scrollTop+=10;}
+    };
+    const up=ev=>{
+      h.removeEventListener('pointermove',mv);h.removeEventListener('pointerup',up);h.removeEventListener('pointercancel',up);
+      over&&over.classList.remove('drop-over');st.forEach(s=>s.it.classList.remove('dragging2'));
+      if(!moved)return;
+      const u=under(lastP),tg=u&&u.closest('[data-drop]');
+      if(!(o.drop&&o.drop(tg,items))){st.forEach(s=>{s.it.style.transition='left .3s,top .3s';s.it.style.left=s.l+'px';s.it.style.top=s.t+'px';setTimeout(()=>s.it.style.transition='',320);});}
+    };
+    h.addEventListener('pointermove',mv);h.addEventListener('pointerup',up);h.addEventListener('pointercancel',up);
+  });
+}
+function absorb(items,tg){items.forEach(i=>{i.style.transition='left .25s,top .25s,transform .25s,opacity .25s';i.style.left=(tg.offsetLeft+10)+'px';i.style.top=(tg.offsetTop+10)+'px';i.style.transform='scale(.2)';i.style.opacity='0';setTimeout(()=>i.remove(),280);});retrig(tg,'boing');}
+
+/* ---------- text helpers ---------- */
+const isUA=ch=>/[А-ЯҐЄІЇа-яґєії]/.test(ch),isEN=ch=>/[A-Za-z]/.test(ch);
+function keyChar(e,mode){
+  if(e.ctrlKey||e.metaKey||e.altKey)return null;
+  const c=e.code||'';
+  if(mode!=='real'&&c&&c!=='Unidentified'){
+    if(c==='Space')return ' ';
+    if(mode==='EN'){if(/^Key[A-Z]$/.test(c))return c.slice(3);if(/^Digit\d$/.test(c))return c.slice(5);if(c==='Period')return '.';return null;}
+    const l=KLABEL[c];if(l&&l.length===1&&c!=='Backquote'&&c!=='Slash')return l;return null;
+  }
+  return e.key&&e.key.length===1?e.key:null;
+}
+const ins=(inp,ch)=>{inp.setRangeText(ch,inp.selectionStart,inp.selectionEnd,'end');};
+const base=inp=>inp.value.slice(0,inp.selectionStart)+inp.value.slice(inp.selectionEnd);
+function feed(inp,o){
+  inp.addEventListener('keydown',e=>{
+    if(!active()||S.busy){if(e.key!=='Tab')e.preventDefault();return;}
+    if(o.key&&o.key(e)){e.preventDefault();return;}
+    if(e.key==='Enter'){e.preventDefault();return;}
+    if(e.ctrlKey||e.metaKey||e.altKey)return;
+    if(!e.key||e.key.length!==1)return;
+    const ch=keyChar(e,o.mode);e.preventDefault();if(ch!=null)o.char(ch,e);
+  });
+  inp.addEventListener('beforeinput',e=>{if(e.inputType==='insertText'&&e.data){e.preventDefault();if(active()&&!S.busy)[...e.data].forEach(c=>o.char(c,null));}});
+  inp.addEventListener('pointerdown',e=>e.stopPropagation());
+  inp.addEventListener('contextmenu',e=>{e.preventDefault();e.stopPropagation();});
+}
+function sample(D,pic,word,x,y){
+  const s=document.createElement('div');s.className='pcsample';s.style.left=x+'px';s.style.top=y+'px';D.area.appendChild(s);
+  s.set=n=>{s.innerHTML=`<span class="sp">${pic}</span><span class="lt">${[...word].map((c,i)=>i<n?`<b>${c}</b>`:i===n?`<u>${c}</u>`:`<i>${c}</i>`).join('')}</span>`;};
+  s.set(0);return s;
+}
+const prefixLen=(v,w)=>{let i=0;while(i<v.length&&i<w.length&&v[i]===w[i])i++;return i;};
+
+/* ===================== МИШКА ===================== */
+function PM_open(){
+  const D=pcDesk();
+  const f=D.icon('folder','Малюнки',40,30);D.icon('txt','Лист',40,170);D.icon('bin','Кошик',40,310);
+  let W=null,sub=null;
+  const R=pcRun([
+    {act:'click',icon:'L',pics:()=>[PCI.folder()],text:'Один раз натисни на папку — вона виділиться',hl:()=>f,demo:()=>[{el:f,act:'click'}]},
+    {act:'dbl',icon:'D',pics:()=>[PCI.folder()],text:'Двічі швидко натисни на папку — вона відкриється',hl:()=>f,demo:()=>[{el:f,act:'dbl'}]},
+    {act:'dbl2',icon:'D',pics:()=>[PCI.folder(),G.kitten()],text:'У вікні відкрий папку «Котики»',hl:()=>sub,demo:()=>[{el:sub,act:'dbl'}]},
+  ]);
+  const needDbl=(el,k)=>{clearTimeout(el._dt);el._dt=setTimeout(()=>{if(R.at(k))R.err('dbl','Натисни двічі швидко!');},700);TM.push(el._dt);};
+  D.area.querySelectorAll('.pcicon').forEach(el=>pcClicks(el,{
+    single:()=>{D.sel(el);if(el===f){if(R.at(0))R.ok();else if(R.at(1))needDbl(f,1);}else if(R.at(0)||R.at(1))R.err('click','Шукай папку');},
+    dbl:()=>{if(el!==f)return;clearTimeout(f._dt);if(R.at(1)){openW();R.ok();}},
+    right:()=>R.err('rmb','Тут потрібна ліва кнопка')}));
+  function openW(){
+    W=D.win({title:'Малюнки',kind:'folder',x:200,y:24,w:760,h:420,body:`<div class="pcgrid">${D.ficon('folder','Котики','sub')}${D.ficon('img','Море')}${D.ficon('img','Ліс')}${D.ficon('img','Сонце')}</div>`});
+    D.task('folder','Малюнки');sub=W.querySelector('[data-k="sub"]');
+    W.querySelectorAll('.pcicon').forEach(el=>pcClicks(el,{
+      single:()=>{D.sel(el);if(el===sub){if(R.at(2))needDbl(sub,2);}else if(R.at(2))R.err('click','Шукай папку «Котики»');},
+      dbl:()=>{if(el!==sub)return;clearTimeout(sub._dt);if(R.at(2)){W.querySelector('.pct b').textContent='Котики';W.querySelector('.pcb').innerHTML=`<div class="pcgrid">${[0,1,2].map(()=>`<div class="pic">${G.kitten()}</div>`).join('')}</div>`;R.ok();}},
+      right:()=>R.err('rmb','Тут потрібна ліва кнопка')}));
+  }
+  R.go(0);
+}
+function PM_win(){
+  const D=pcDesk();D.icon('folder','Малюнки',40,30);D.icon('bin','Кошик',40,170);
+  const W=D.win({title:'Малюнки',kind:'folder',x:220,y:40,w:640,h:360,body:`<div class="pcgrid">${['img','img','img','img'].map((k,i)=>D.ficon(k,['Море','Ліс','Сонце','Гори'][i])).join('')}</div>`});
+  const tb=D.task('folder','Малюнки');
+  const bt=a=>W.querySelector(`[data-a="${a}"]`);
+  const R=pcRun([
+    {act:'max',icon:'L',pics:()=>[btnPic('max')],text:'Розгорни вікно на весь екран — кнопка ☐',hl:()=>bt('max'),demo:()=>[{el:bt('max'),act:'click'}]},
+    {act:'min',icon:'L',pics:()=>[btnPic('min')],text:'Згорни вікно — кнопка —',hl:()=>bt('min'),demo:()=>[{el:bt('min'),act:'click'}]},
+    {act:'task',icon:'L',pics:()=>[PCI.folder()],text:'Поверни вікно: натисни на нього внизу, на панелі задач',hl:()=>tb,demo:()=>[{el:tb,act:'click'}]},
+    {act:'close',icon:'L',pics:()=>[btnPic('close')],text:'Закрий вікно — кнопка ✕',hl:()=>bt('close'),demo:()=>[{el:bt('close'),act:'click'}]},
+  ]);
+  W.querySelector('.pcbtns').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!active()||S.busy)return;const a=b.dataset.a;
+    if(R.at(0)&&a==='max'){W.classList.add('max');R.ok();}
+    else if(R.at(1)&&a==='min'){W.classList.add('min');tb.classList.remove('on');R.ok();}
+    else if(R.at(3)&&a==='close'){W.classList.add('closing');setTimeout(()=>{W.remove();tb.remove();},300);R.ok();}
+    else R.err('click','Подивись, яку кнопку натиснути');});
+  tb.addEventListener('click',()=>{if(!active()||S.busy)return;if(R.at(2)){W.classList.remove('min');tb.classList.add('on');R.ok();}else R.err('click');});
+  R.go(0);
+}
+function PM_menu(){
+  const D=pcDesk();const bin=D.icon('bin','Кошик',40,320);
+  const F={lyst:D.icon('txt','Лист',220,60),kit:D.icon('img','Котик',400,60),song:D.icon('music','Пісня',580,60)};
+  const T=[['lyst','del','Видалити'],['kit','open','Відкрити'],['song','copy','Копіювати']];
+  const defs=[];
+  T.forEach(([f,a,l])=>{
+    defs.push({act:'r',icon:'R',pics:()=>[PCI[F[f].dataset.kind]()],text:'Натисни правою кнопкою на файл',hl:()=>F[f],demo:()=>[{el:F[f],act:'r'}]});
+    defs.push({act:'menu',icon:'L',pics:()=>[MI[a]],text:'Вибери в меню «'+l+'»',hl:()=>D.m&&D.m.querySelector(`[data-id="${a}"]`),demo:()=>{const it=D.m&&D.m.querySelector(`[data-id="${a}"]`);return it?[{el:it,act:'click'}]:null;}});
+  });
+  const R=pcRun(defs);
+  const task=()=>T[Math.floor(R.i/2)];
+  Object.entries(F).forEach(([k,el])=>pcClicks(el,{
+    single:()=>{D.sel(el);if(R.i%2===0&&task()[0]===k&&!R.lock)R.err('rmb','Потрібна права кнопка!');},
+    right:e=>{D.sel(el);const t=task();if(t[0]!==k){if(!R.lock)R.err('rmb','Не той файл');return;}
+      D.menu(e,MENU4,id=>{if(!R.at(R.i)||R.i%2===0)return;if(id!==t[1]){R.err('click','Не той пункт меню');return;}D.closeMenu();act(k,id);R.ok();});
+      if(R.at(R.i)&&R.i%2===0)R.ok();}}));
+  function act(k,id){const el=F[k];
+    if(id==='del'){el.style.transition='left .45s,top .45s,transform .45s,opacity .45s';el.style.left=bin.offsetLeft+'px';el.style.top=bin.offsetTop+'px';el.style.transform='scale(.2)';el.style.opacity='0';setTimeout(()=>{el.remove();D.setKind(bin,'binFull');retrig(bin,'boing');},460);}
+    if(id==='open'){const w=D.win({title:'Котик',kind:'img',x:260,y:150,w:420,h:320,body:`<div class="pcview">${G.kitten()}</div>`});setTimeout(()=>{w.classList.add('closing');setTimeout(()=>w.remove(),300);},1300);}
+    if(id==='copy'){const c=D.icon('music','Пісня (2)',el.offsetLeft+180,el.offsetTop);retrig(c,'boing');}
+  }
+  R.go(0);
+}
+function PM_clean(){
+  const D=pcDesk();
+  const tg={img:D.icon('fPhoto','Фото',940,20),music:D.icon('fMusic','Музика',940,175),junk:D.icon('bin','Кошик',940,330)};
+  Object.entries(tg).forEach(([k,t])=>t.dataset.drop=k);
+  const spots=shuffle([[60,40],[230,40],[400,40],[60,230],[230,230],[400,230],[620,130],[620,320]]);
+  const files=[['img','Море'],['img','Ліс'],['music','Пісня'],['music','Танець'],['junk','Сміття'],['junk','Папірець']].map(([k,l],i)=>D.icon(k,l,spots[i][0],spots[i][1]));
+  const N=files.length;
+  const R=pcRun(Array.from({length:N},(_,i)=>({act:'drag',icon:'drag',pics:()=>[PCI.img(),PCI.fPhoto()],text:'Перетягни кожен файл у свою папку: фото, музика, сміття — у Кошик',
+    demo:i===0?()=>[{el:files[0],act:'drag',to:tg.img,ghost:PCI.img()}]:null})));
+  files.forEach(f=>{
+    pcClicks(f,{single:()=>D.sel(f),right:()=>R.err('rmb','Тут треба перетягувати')});
+    pcDrag(f,{drop:t=>{
+      if(!t){R.err('drag','Неси файл у папку');return false;}
+      const want=f.dataset.kind==='junk'?'junk':f.dataset.kind;
+      if(t.dataset.drop!==want){R.err('drag','Не та папка');pcHL(tg[want]);return false;}
+      absorb([f],t);if(want==='junk')D.setKind(t,'binFull');R.ok();return true;}});
+  });
+  R.go(0);
+}
+function PM_bin(){
+  const D=pcDesk();
+  const bin=D.icon('binFull','Кошик',40,30);D.icon('folder','Малюнки',40,170);D.icon('txt','Лист',40,310);
+  let W=null,kit=null;
+  const R=pcRun([
+    {act:'dbl',icon:'D',pics:()=>[PCI.binFull()],text:'Відкрий Кошик подвійним кліком',hl:()=>bin,demo:()=>[{el:bin,act:'dbl'}]},
+    {act:'r',icon:'R',pics:()=>[PCI.img()],text:'Натисни правою кнопкою на картинку «Котик»',hl:()=>kit,demo:()=>[{el:kit,act:'r'}]},
+    {act:'menu',icon:'L',pics:()=>[MI.restore],text:'Вибери «Відновити» — файл повернеться',hl:()=>D.m&&D.m.querySelector('[data-id="restore"]'),demo:()=>{const it=D.m&&D.m.querySelector('[data-id="restore"]');return it?[{el:it,act:'click'}]:null;}},
+    {act:'close',icon:'L',pics:()=>[btnPic('close')],text:'Закрий вікно Кошика',hl:()=>W&&W.querySelector('[data-a="close"]'),demo:()=>[{el:W.querySelector('[data-a="close"]'),act:'click'}]},
+  ]);
+  pcClicks(bin,{single:()=>{D.sel(bin);if(R.at(0)){clearTimeout(bin._dt);bin._dt=setTimeout(()=>{if(R.at(0))R.err('dbl','Натисни двічі швидко!');},700);TM.push(bin._dt);}},
+    dbl:()=>{clearTimeout(bin._dt);if(R.at(0)){openBin();R.ok();}},right:()=>R.err('rmb','Тут потрібна ліва кнопка')});
+  function openBin(){
+    W=D.win({title:'Кошик',kind:'binFull',x:240,y:30,w:700,h:380,body:`<div class="pcgrid">${D.ficon('img','Котик','kit')}${D.ficon('junk','Сміття')}${D.ficon('junk','Папірець')}</div>`});
+    const tb=D.task('binFull','Кошик');kit=W.querySelector('[data-k="kit"]');
+    W.querySelectorAll('.pcicon').forEach(el=>pcClicks(el,{single:()=>{D.sel(el);if(el===kit&&R.at(1))R.err('rmb','Потрібна права кнопка!');},
+      right:e=>{D.sel(el);if(el!==kit){R.err('rmb','Шукай картинку «Котик»');return;}if(R.i!==1&&R.i!==2)return;
+        D.menu(e,[{id:'restore',label:'Відновити'},{id:'forever',label:'Видалити назавжди'}],id=>{if(!R.at(2))return;if(id!=='restore'){R.err('click','Вибери «Відновити»');return;}D.closeMenu();kit.remove();const k=D.icon('img','Котик',40,450-140);k.style.left='980px';k.style.top='30px';retrig(k,'boing');R.ok();});
+        if(R.at(1))R.ok();}}));
+    W.querySelector('.pcbtns').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!active()||S.busy)return;if(R.at(3)&&b.dataset.a==='close'){W.classList.add('closing');setTimeout(()=>{W.remove();tb.remove();},300);R.ok();}else R.err('click','Подивись, що підсвічено');});
+  }
+  R.go(0);
+}
+function PM_scroll(){
+  const D=pcDesk();
+  const pics=[()=>G.star(),()=>G.apple(),()=>G.flower(true),()=>G.ball('#4fa8ff'),()=>G.candy(),()=>G.mushroom()];
+  const W=D.win({title:'Галерея',kind:'img',x:160,y:10,w:800,h:480,body:`<div class="pcscroll"><div class="pcgal">${Array.from({length:36},(_,i)=>`<div class="gi" data-i="${i}">${i===33?G.kitten():pics[i%6]()}</div>`).join('')}</div></div><div class="pcarrow">↓</div>`});
+  D.task('img','Галерея');
+  const sc=W.querySelector('.pcscroll'),gal=W.querySelector('.pcgal'),arr=W.querySelector('.pcarrow');
+  let cat=gal.querySelector('[data-i="33"]');cat.classList.add('cat');
+  const vis=()=>{const a=sc.getBoundingClientRect(),b=cat.getBoundingClientRect();return b.top>=a.top-6&&b.bottom<=a.bottom+6;};
+  const R=pcRun([
+    {act:'wheel',icon:'W',pics:()=>[G.kitten()],text:'Прокрути коліщатком мишки вниз і знайди котика',enter:()=>{arr.textContent='↓';arr.classList.add('on');},demo:()=>[{el:sc,act:'wheel'}]},
+    {act:'click',icon:'L',pics:()=>[G.kitten()],text:'Натисни на котика',enter:()=>arr.classList.remove('on'),hl:()=>cat,demo:()=>[{el:cat,act:'click'}]},
+    {act:'wheel',icon:'W',pics:()=>[G.kitten()],text:'Котик утік нагору! Прокрути вгору',enter:()=>{arr.textContent='↑';arr.classList.add('on');},demo:()=>[{el:sc,act:'wheel'}]},
+    {act:'click',icon:'L',pics:()=>[G.kitten()],text:'Натисни на котика',enter:()=>arr.classList.remove('on'),hl:()=>cat,demo:()=>[{el:cat,act:'click'}]},
+  ]);
+  on(sc,'scroll',()=>{if((R.at(0)||R.at(2))&&vis()){retrig(cat,'boing');R.ok();}});
+  gal.addEventListener('pointerdown',e=>{const g=e.target.closest('.gi');if(!g||e.button!==0||!active()||S.busy)return;
+    if(g===cat&&(R.at(1)||R.at(3))){sfx.collect();burst(sxy(cat).x,sxy(cat).y,10);
+      if(R.at(1)){gal.insertBefore(cat,gal.children[1]);}R.ok();}
+    else if(!R.lock)R.err(R.i%2===0?'scroll':'click',R.i%2===0?'Покрути коліщатко':'Шукай котика');});
+  R.go(0);
+}
+function PM_select(){
+  const D=pcDesk();
+  const mk=(kind,pos)=>pos.map(([x,y])=>{const i=D.icon(kind,'',x,y);return i;});
+  PCI.star=()=>G.star();PCI.apple=()=>G.apple();
+  const stars=mk('star',[[60,30],[180,30],[120,140]]),apples=mk('apple',[[420,280],[540,280],[480,390]]);
+  D.icon('txt','Лист',460,40);D.icon('txt','Нотатка',700,300);
+  const fs=D.icon('fStar','Зірки',940,30),ff=D.icon('fFruit','Фрукти',940,260);fs.dataset.drop='star';ff.dataset.drop='apple';
+  const zone=g=>{const z=document.createElement('div');z.className='pczone';const xs=g.map(i=>i.offsetLeft),ys=g.map(i=>i.offsetTop);z.style.cssText=`left:${Math.min(...xs)-16}px;top:${Math.min(...ys)-16}px;width:${Math.max(...xs)-Math.min(...xs)+136}px;height:${Math.max(...ys)-Math.min(...ys)+136}px`;D.area.appendChild(z);return z;};
+  let Z=null;
+  const grp=()=>R.i<2?stars:apples,fold=()=>R.i<2?fs:ff;
+  const R=pcRun([
+    {act:'box',icon:'drag',pics:()=>[G.star(),G.star(),G.star()],text:'Обведи рамкою всі зірочки: затисни ліву кнопку на порожньому місці й тягни',enter:()=>{Z=zone(stars);},
+      demo:()=>{const z=Z.getBoundingClientRect(),s=stage.getBoundingClientRect();return[{el:{x:(z.left-s.left)/SC,y:(z.top-s.top)/SC},act:'box',to:{x:(z.right-s.left)/SC,y:(z.bottom-s.top)/SC}}];}},
+    {act:'drag',icon:'drag',pics:()=>[G.star(),PCI.fStar()],text:'Перетягни виділені зірочки в папку «Зірки»',enter:()=>{Z&&Z.remove();},hl:()=>fs,demo:()=>[{el:stars[0],act:'drag',to:fs,ghost:G.star()}]},
+    {act:'box',icon:'drag',pics:()=>[G.apple(),G.apple(),G.apple()],text:'Тепер обведи рамкою всі яблука',enter:()=>{Z=zone(apples);},
+      demo:()=>{const z=Z.getBoundingClientRect(),s=stage.getBoundingClientRect();return[{el:{x:(z.left-s.left)/SC,y:(z.top-s.top)/SC},act:'box',to:{x:(z.right-s.left)/SC,y:(z.bottom-s.top)/SC}}];}},
+    {act:'drag',icon:'drag',pics:()=>[G.apple(),PCI.fFruit()],text:'Перетягни яблука в папку «Фрукти»',enter:()=>{Z&&Z.remove();},hl:()=>ff,demo:()=>[{el:apples[0],act:'drag',to:ff,ghost:G.apple()}]},
+  ]);
+  /* rubber band */
+  D.area.addEventListener('pointerdown',e=>{
+    if(e.target!==D.area||e.button!==0||!active()||S.busy)return;
+    e.preventDefault();try{D.area.setPointerCapture(e.pointerId);}catch(_){}
+    const a=D.apt(e),box=document.createElement('div');box.className='pcsel';D.area.appendChild(box);
+    const icons=[...D.area.querySelectorAll('.pcicon')].filter(i=>!i.dataset.drop);
+    const mv=ev=>{const b=D.apt(ev),x=Math.min(a.x,b.x),y=Math.min(a.y,b.y),w=Math.abs(a.x-b.x),h=Math.abs(a.y-b.y);
+      Object.assign(box.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});
+      icons.forEach(i=>{const l=i.offsetLeft,t=i.offsetTop,r=l+i.offsetWidth,bb=t+i.offsetHeight;i.classList.toggle('sel',!(r<x||l>x+w||bb<y||t>y+h));});};
+    const up=ev=>{D.area.removeEventListener('pointermove',mv);D.area.removeEventListener('pointerup',up);D.area.removeEventListener('pointercancel',up);box.remove();
+      const sel=[...D.area.querySelectorAll('.pcicon.sel')];if(!sel.length)return;
+      if(R.i===0||R.i===2){const g=grp();if(sel.length===g.length&&g.every(i=>sel.includes(i)))R.ok();else R.err('select',sel.length<g.length?'Обведи всі три':'Тільки потрібні значки');}};
+    D.area.addEventListener('pointermove',mv);D.area.addEventListener('pointerup',up);D.area.addEventListener('pointercancel',up);
+  });
+  stars.concat(apples).forEach(el=>{
+    pcClicks(el,{single:()=>{if(!el.classList.contains('sel'))D.sel(el);},right:()=>R.err('rmb','Тут потрібна ліва кнопка')});
+    pcDrag(el,{items:()=>el.classList.contains('sel')?[...D.area.querySelectorAll('.pcicon.sel')]:[el],
+      drop:(t,items)=>{
+        if(R.i===0||R.i===2){R.err('select','Спершу обведи рамкою');return false;}
+        if(!t){R.err('drag','Неси в папку');return false;}
+        const g=grp();if(!(items.length===g.length&&g.every(i=>items.includes(i)))){R.err('select','Спершу виділи всі три рамкою');return false;}
+        if(t!==fold()){R.err('drag','Не та папка');return false;}
+        absorb(items,t);R.ok();return true;}});
+  });
+  R.go(0);
+}
+function PM_browser(){
+  const D=pcDesk();
+  const W=D.win({title:'Браузер',kind:'web',x:30,y:8,w:1060,h:494,body:`<div class="br"><div class="brtabs"><div class="brtab on" data-t="1"><span class="bti">${PCI.web()}</span>Тварини</div><div class="brtab" data-t="2"><span class="bti">${PCI.junk()}</span>Реклама<button class="tx" tabindex="-1">✕</button></div></div>
+    <div class="brbar"><button data-b="back" tabindex="-1">←</button><button data-b="fwd" tabindex="-1">→</button><button data-b="re" tabindex="-1">⟳</button><div class="braddr"></div></div><div class="brpage"></div></div>`});
+  D.task('web','Браузер');
+  const page=W.querySelector('.brpage'),addr=W.querySelector('.braddr'),B=b=>W.querySelector(`[data-b="${b}"]`),tab2=W.querySelector('[data-t="2"]'),tx2=tab2.querySelector('.tx');
+  const PAGES={home:{url:'zoo.ua',html:()=>[['kit','Котики',G.kitten()],['bird','Пташки',G.bird()],['fruit','Фрукти',G.apple()]].map(([k,l,p])=>`<a class="brlink" data-l="${k}"><span class="pic">${p}</span><span>${l}</span></a>`).join('')},
+    kit:{url:'zoo.ua/kotyky',html:()=>`<div class="brbig">${G.kitten()}${G.kitten(true)}</div>`}};
+  let hist=['home'],pos=0;
+  const show=()=>{const p=PAGES[hist[pos]];page.innerHTML=p.html();addr.textContent=p.url;B('back').classList.toggle('dis',pos===0);B('fwd').classList.toggle('dis',pos>=hist.length-1);};
+  show();
+  const link=()=>page.querySelector('[data-l="kit"]');
+  const R=pcRun([
+    {act:'link',icon:'L',pics:()=>[G.kitten()],text:'Натисни на посилання «Котики»',hl:()=>link(),demo:()=>[{el:link(),act:'click'}]},
+    {act:'back',icon:'L',pics:()=>[chipL('←')],text:'Повернись назад — кнопка ←',hl:()=>B('back'),demo:()=>[{el:B('back'),act:'click'}]},
+    {act:'fwd',icon:'L',pics:()=>[chipL('→')],text:'Тепер уперед — кнопка →',hl:()=>B('fwd'),demo:()=>[{el:B('fwd'),act:'click'}]},
+    {act:'re',icon:'L',pics:()=>[chipL('⟳')],text:'Онови сторінку — кнопка ⟳',hl:()=>B('re'),demo:()=>[{el:B('re'),act:'click'}]},
+    {act:'tab',icon:'L',pics:()=>[PCI.junk(),btnPic('close')],text:'Закрий зайву вкладку «Реклама» хрестиком',hl:()=>tx2,demo:()=>[{el:tx2,act:'click'}]},
+  ]);
+  page.addEventListener('click',e=>{const a=e.target.closest('.brlink');if(!a||!active()||S.busy)return;
+    if(a.dataset.l==='kit'&&R.at(0)){hist=['home','kit'];pos=1;show();R.ok();}else R.err('click',R.at(0)?'Шукай котиків':'Подивись, що підсвічено');});
+  W.querySelector('.brbar').addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!active()||S.busy)return;const k=b.dataset.b;
+    if(k==='back'&&R.at(1)){pos=0;show();R.ok();}
+    else if(k==='fwd'&&R.at(2)){pos=1;show();R.ok();}
+    else if(k==='re'&&R.at(3)){page.innerHTML='<div class="brspin"></div>';setTimeout(show,600);R.ok();}
+    else R.err('click','Подивись, що підсвічено');});
+  tab2.addEventListener('click',e=>{if(!active()||S.busy)return;if(e.target.closest('.tx')&&R.at(4)){tab2.classList.add('closing');setTimeout(()=>tab2.remove(),250);R.ok();}else if(!R.lock)R.err('click',R.at(4)?'Натисни на хрестик ✕':'Подивись, що підсвічено');});
+  R.go(0);
+}
+
+/* ===================== КЛАВІАТУРА ===================== */
+function PK_rename(){
+  const D=pcDesk();D.icon('bin','Кошик',40,30);
+  const f=D.icon('img','Новий файл',300,70);
+  const WORD='КІТ';const sm=sample(D,G.kitten(),WORD,620,300);
+  let inp=null;
+  const R=pcRun([
+    {act:'r',icon:'R',pics:()=>[PCI.img()],text:'Натисни правою кнопкою на файл',hl:()=>f,demo:()=>[{el:f,act:'r'}]},
+    {act:'menu',icon:'L',pics:()=>[MI.ren],text:'Вибери «Перейменувати»',hl:()=>D.m&&D.m.querySelector('[data-id="ren"]'),demo:()=>{const it=D.m&&D.m.querySelector('[data-id="ren"]');return it?[{el:it,act:'click'}]:null;}},
+    {act:'type',icon:'K',pics:()=>[G.kitten(),chipL('К'),chipL('І'),chipL('Т')],text:'Надрукуй нову назву за зразком',hl:()=>sm,demo:()=>[{keys:['К']},{keys:['І']},{keys:['Т']}]},
+    {act:'enter',icon:'K',pics:()=>[kchip('Enter')],text:'Натисни Enter — назва збережеться',hl:()=>inp,demo:()=>[{keys:['↵ Enter']}]},
+  ]);
+  pcClicks(f,{single:()=>{D.sel(f);if(R.at(0))R.err('rmb','Потрібна права кнопка!');},
+    right:e=>{if(inp)return;D.sel(f);D.menu(e,MENU4,id=>{if(!R.at(1))return;if(id!=='ren'){R.err('click','Шукай «Перейменувати»');return;}D.closeMenu();startRen();R.ok();});if(R.at(0))R.ok();}});
+  function startRen(){
+    const lab=f.querySelector('span');inp=document.createElement('input');inp.className='pcren';inp.value='Новий файл';inp.spellcheck=false;lab.replaceWith(inp);
+    setTimeout(()=>{inp.focus();inp.select();},30);
+    const upd=()=>{const v=inp.value.toUpperCase();sm.set(prefixLen(v,WORD));};
+    inp.addEventListener('input',upd);
+    feed(inp,{mode:'UA',
+      char:ch=>{if(R.at(3)){R.err('enter','Тепер натисни Enter');return;}if(!R.at(2))return;
+        const b=base(inp).toUpperCase();if(b!==WORD.slice(0,b.length)){R.err('type','Зітри зайве клавішею Backspace');return;}
+        const want=WORD[b.length];if(want&&ch.toUpperCase()===want){ins(inp,want);upd();if(inp.value.toUpperCase()===WORD)R.ok();}else R.err('type','Шукай літеру '+(want||''));},
+      key:e=>{if(e.key!=='Enter')return false;
+        if(R.at(3)){const s=document.createElement('span');s.textContent=WORD;inp.replaceWith(s);D.setKind(f,'img');f.querySelector('.ico').innerHTML=G.kitten();retrig(f,'boing');R.ok();}
+        else R.err('enter','Спершу надрукуй назву');return true;}});
+  }
+  R.go(0);
+}
+function PK_notepad(){
+  const D=pcDesk();
+  const W=D.win({title:'Блокнот',kind:'txt',x:120,y:20,w:860,h:420,body:`<div class="pcmenubar"><span>Файл</span><span>Редагування</span><span>Вигляд</span></div><div class="pcedwrap"><div class="pcedit" contenteditable="true" spellcheck="false"></div><div class="pcmarks"></div></div>`});
+  D.task('txt','Блокнот');
+  const ed=W.querySelector('.pcedit'),mk=W.querySelector('.pcmarks');
+  const norm=()=>ed.innerText.replace(/ /g,' ').replace(/\n+$/,'');
+  const setT=(t,c)=>{ed.textContent=t;ed.focus();const r=document.createRange();r.setStart(ed.firstChild,c);r.collapse(true);const s=getSelection();s.removeAllRanges();s.addRange(r);};
+  const caret=()=>{const s=getSelection();if(!s.rangeCount||!ed.contains(s.anchorNode))return -1;const r=document.createRange();r.setStart(ed,0);r.setEnd(s.anchorNode,s.anchorOffset);return r.toString().length;};
+  const mark=(i,cls,len=1)=>{mk.innerHTML='';const n=ed.firstChild;if(!n)return;const r=document.createRange();r.setStart(n,i);r.setEnd(n,Math.min(n.length,i+len));const rc=r.getBoundingClientRect(),m=mk.getBoundingClientRect();
+    const d=document.createElement('div');d.className='pcmark '+cls;const x=(rc.left-m.left)/SC,y=(rc.top-m.top)/SC,h=rc.height/SC;
+    if(len===0)Object.assign(d.style,{left:(x-5)+'px',top:y+'px',height:h+'px'});else Object.assign(d.style,{left:x+'px',top:y+'px',width:(rc.width/SC)+'px',height:h+'px'});mk.appendChild(d);};
+  const ST=[
+    {key:'Space',t:'КІТСПИТЬ',c:3,exp:'КІТ СПИТЬ',m:[3,'gap',0],pics:()=>[kchip('Space')],text:'Розсунь слова: курсор уже стоїть між ними — натисни Пробіл'},
+    {key:'Backspace',t:'КІТ СПИТЬЬ',c:10,exp:'КІТ СПИТЬ',m:[9,'bad',1],pics:()=>[kchip('Backspace')],text:'Зайва літера перед курсором — зітри її клавішею Backspace'},
+    {key:'Delete',t:'ККІТ СПИТЬ',c:0,exp:'КІТ СПИТЬ',m:[0,'bad',1],pics:()=>[kchip('Delete')],text:'Зайва літера після курсора — зітри її клавішею Delete'},
+    {key:'arrows',t:'КІТ СПИТЬ',c:9,goal:4,m:[4,'goal',0],pics:()=>[kchip('ArrowLeft'),kchip('ArrowRight')],text:'Перемісти курсор стрілками до зеленої риски'},
+    {key:'Enter',t:'КІТ СПИТЬ',c:4,lines:['КІТ','СПИТЬ'],m:[4,'goal',0],pics:()=>[kchip('Enter')],text:'Натисни Enter — слово «СПИТЬ» перейде на новий рядок'},
+  ];
+  const LBL={Space:'Пробіл',Backspace:'Backspace',Delete:'Delete',Enter:'Enter',arrows:'стрілки ← →'};
+  let prevT='',prevC=0;
+  const R=pcRun(ST.map((s,i)=>({act:s.key,icon:'K',pics:s.pics,text:s.text,wait:550,
+    enter:()=>{if(i<4||s.key!=='Enter'){setT(s.t,s.c);}else{setT(s.t,s.c);}prevT=s.t;prevC=s.c;setTimeout(()=>mark(...s.m),40);},
+    demo:()=>[{keys:[s.key==='arrows'?'←':LBL[s.key]]}]})));
+  const cur=()=>ST[R.i];
+  const check=()=>{const s=cur();if(!s||R.lock)return;
+    if(s.key==='arrows'){if(caret()===s.goal){mk.innerHTML='';R.ok();}return;}
+    const t=norm();
+    const ok=s.lines?t.split('\n').map(x=>x.trim()).filter(Boolean).join('|')===s.lines.join('|'):t===s.exp;
+    if(ok){mk.innerHTML='';R.ok();}
+    else if(t!==prevT){R.err('edit','Не в тому місці — спробуй ще');setT(prevT,prevC);setTimeout(()=>mark(...s.m),40);}
+  };
+  ed.addEventListener('keydown',e=>{
+    if(!active()||S.busy||R.lock){e.preventDefault();return;}
+    const s=cur(),k=e.key;
+    if(e.ctrlKey||e.metaKey){e.preventDefault();return;}
+    const name=k===' '?'Space':k;
+    if(['Space','Backspace','Delete','Enter'].includes(name)){if(name!==s.key){e.preventDefault();R.err('edit','Тут потрібна клавіша '+LBL[s.key]);}return;}
+    if(k.startsWith('Arrow')||k==='Home'||k==='End')return;
+    if(k.length===1){e.preventDefault();R.err('edit','Тут нічого друкувати не треба');}
+  });
+  ed.addEventListener('input',()=>setTimeout(check,0));
+  ed.addEventListener('keyup',e=>{if(e.key.startsWith('Arrow'))check();});
+  ed.addEventListener('pointerup',()=>setTimeout(()=>{if(cur()&&cur().key==='arrows')check();},0));
+  ed.addEventListener('beforeinput',e=>{const s=cur();if(!s||R.lock){e.preventDefault();return;}if(e.inputType==='insertText'&&e.data&&e.data!==' '){e.preventDefault();R.err('edit','Тут нічого друкувати не треба');}});
+  ed.addEventListener('paste',e=>e.preventDefault());
+  ed.addEventListener('drop',e=>e.preventDefault());
+  R.go(0);
+}
+function PK_shift(){
+  const D=pcDesk();
+  const W=D.win({title:'Картка учня',kind:'form',x:160,y:20,w:780,h:440,body:`<div class="pcform">
+    <label><span class="lb">${G.kitten()}</span><input class="nm1" spellcheck="false" autocomplete="off"></label>
+    <div class="pcsamp1"></div>
+    <label><span class="lb">${G.star()}</span><input class="nm2" spellcheck="false" autocomplete="off"><button class="pclock" tabindex="-1"><svg viewBox="0 0 40 40"><rect x="8" y="18" width="24" height="18" rx="4" fill="currentColor"/><path class="arc" d="M13 18v-5a7 7 0 0 1 14 0v5" stroke="currentColor" stroke-width="4" fill="none"/></svg><b>A</b></button></label>
+    <div class="pcsamp2"></div></div>`});
+  D.task('form','Картка учня');
+  const n1=W.querySelector('.nm1'),n2=W.querySelector('.nm2'),lock=W.querySelector('.pclock');
+  const W1='Мурчик',W2='КІТ';
+  const s1=W.querySelector('.pcsamp1'),s2=W.querySelector('.pcsamp2');
+  const lt=(w,n)=>[...w].map((c,i)=>i<n?`<b>${c}</b>`:i===n?`<u>${c}</u>`:`<i>${c}</i>`).join('');
+  const up1=()=>{s1.innerHTML=`<span class="lt">${lt(W1,prefixLen(n1.value,W1))}</span>`;},up2=()=>{s2.innerHTML=`<span class="lt">${lt(W2,prefixLen(n2.value,W2))}</span>`;};
+  up1();up2();
+  let caps=false;const setCaps=v=>{caps=v;lock.classList.toggle('on',v);};
+  const R=pcRun([
+    {act:'shift',icon:'K',pics:()=>[kchip('ShiftLeft'),chipL('М'),chipL('урчик','sm')],text:'Ім’я пишемо з великої літери: затисни Shift і натисни М, далі — без Shift',enter:()=>n1.focus(),hl:()=>n1,demo:()=>[{keys:['⇧ Shift','М']}]},
+    {act:'caps',icon:'K',pics:()=>[kchip('CapsLock')],text:'Увімкни Caps Lock — замочок засвітиться',enter:()=>n2.focus(),hl:()=>lock,demo:()=>[{keys:['⇪ Caps Lock']}]},
+    {act:'type',icon:'K',pics:()=>[chipL('К'),chipL('І'),chipL('Т')],text:'Надрукуй КІТ — усі літери будуть великими',enter:()=>n2.focus(),hl:()=>n2,demo:()=>[{keys:['К']},{keys:['І']},{keys:['Т']}]},
+    {act:'caps2',icon:'K',pics:()=>[kchip('CapsLock')],text:'Вимкни Caps Lock — замочок згасне',hl:()=>lock,demo:()=>[{keys:['⇪ Caps Lock']}]},
+  ]);
+  let capsT=0;
+  const capsChanged=v=>{setCaps(v);if(R.at(1)&&v)R.ok();else if(R.at(3)&&!v)R.ok();};
+  on(window,'keydown',e=>{if(e.code!=='CapsLock'||!active()||S.busy)return;capsT=Date.now();let v=e.getModifierState('CapsLock');if(v===caps)v=!caps;capsChanged(v);});
+  on(window,'keyup',e=>{if(e.code!=='CapsLock'||!active()||S.busy||Date.now()-capsT<400)return;const v=e.getModifierState('CapsLock');if(v!==caps)capsChanged(v);});
+  lock.addEventListener('click',()=>{if(!active()||S.busy)return;setCaps(!caps);if(R.at(1)&&caps)R.ok();else if(R.at(3)&&!caps)R.ok();(R.i<3?n2:n1).focus();});
+  const caseOf=(ch,e)=>{if(!e)return ch;if(e.getModifierState&&e.getModifierState('CapsLock')&&!caps)setCaps(true);const upper=e.shiftKey!==caps;return upper?ch.toUpperCase():ch.toLowerCase();};
+  feed(n1,{mode:'UA',char:(ch,e)=>{if(!R.at(0)){return;}ch=caseOf(ch,e);const b=base(n1),want=W1[b.length];if(prefixLen(b,W1)!==b.length){R.err('type','Зітри зайве клавішею Backspace');return;}
+    if(ch===want){ins(n1,ch);up1();if(n1.value===W1)R.ok();}
+    else if(want&&ch.toLowerCase()===want.toLowerCase())R.err('shift',want===want.toUpperCase()?'Велика літера — затисни Shift':'Тут маленька літера — без Shift');
+    else R.err('type','Шукай літеру '+(want||''));}});
+  n1.addEventListener('input',up1);
+  feed(n2,{mode:'UA',char:(ch,e)=>{if(R.at(1)){R.err('shift','Спершу увімкни Caps Lock');return;}if(!R.at(2))return;ch=caseOf(ch,e);const b=base(n2),want=W2[b.length];if(prefixLen(b,W2)!==b.length){R.err('type','Зітри зайве клавішею Backspace');return;}
+    if(ch===want){ins(n2,ch);up2();if(n2.value===W2)R.ok();}
+    else if(want&&ch.toLowerCase()===want.toLowerCase())R.err('shift','Увімкни Caps Lock — замочок');
+    else R.err('type','Шукай літеру '+(want||''));}});
+  n2.addEventListener('input',up2);
+  R.go(0);
+}
+function PK_format(){
+  const D=pcDesk();
+  const W=D.win({title:'Документ',kind:'doc',x:20,y:10,w:800,h:490,body:`<div class="pctool">
+    <button data-c="bold" tabindex="-1"><b>B</b></button><button data-c="italic" tabindex="-1"><i>I</i></button><button data-c="underline" tabindex="-1"><u>U</u></button><span class="sep"></span>
+    <button data-c="justifyLeft" tabindex="-1">${alignIco('l')}</button><button data-c="justifyCenter" tabindex="-1">${alignIco('c')}</button><button data-c="justifyRight" tabindex="-1">${alignIco('r')}</button></div>
+    <div class="pcdoc" contenteditable="true" spellcheck="false"><div class="h">Моя казка</div><div>Жив собі котик Мурчик.</div></div>`});
+  D.task('doc','Документ');
+  const doc=W.querySelector('.pcdoc'),tool=W.querySelector('.pctool'),TB=c=>tool.querySelector(`[data-c="${c}"]`);
+  const chk=document.createElement('div');chk.className='pcchecks';D.area.appendChild(chk);
+  const CH=[['Виділи «котик»','sel'],['Жирний B','B'],['Курсор у заголовок','car'],['По центру','cen'],['Виділи «Мурчик»','sel'],['Підкреслений U','U']];
+  const drawChk=()=>{chk.innerHTML=CH.map(([t,k],i)=>`<div class="${i<R.i||(i===R.i&&R.lock)?'done':i===R.i?'cur':''}"><span class="ci">${k==='B'?'<b>B</b>':k==='U'?'<u>U</u>':k==='cen'?alignIco('c'):k==='car'?'I':'▭'}</span>${t}<span class="tick2">✓</span></div>`).join('');};
+  try{document.execCommand('styleWithCSS',false,false);}catch(e){}
+  const title=()=>doc.firstElementChild;
+  const selText=()=>{const s=getSelection();return s.rangeCount&&doc.contains(s.anchorNode)?s.toString().trim():'';};
+  const R=pcRun([
+    {act:'sel',icon:'drag',pics:()=>[chipL('котик','sm')],text:'Виділи мишкою слово «котик»: затисни ліву кнопку й проведи по слову',enter:drawChk,demo:()=>{const r=wordRect('котик');return r?[{el:r.a,act:'box',to:r.b}]:null;}},
+    {act:'B',icon:'L',pics:()=>[chipL('<b>B</b>')],text:'Натисни B — слово стане жирним',enter:drawChk,hl:()=>TB('bold'),demo:()=>[{el:TB('bold'),act:'click'}]},
+    {act:'car',icon:'L',pics:()=>[chipL('Моя казка','sm')],text:'Клацни в заголовок «Моя казка»',enter:drawChk,hl:()=>title(),demo:()=>[{el:title(),act:'click'}]},
+    {act:'cen',icon:'L',pics:()=>[chipL(alignIco('c'))],text:'Вирівняй заголовок по центру',enter:drawChk,hl:()=>TB('justifyCenter'),demo:()=>[{el:TB('justifyCenter'),act:'click'}]},
+    {act:'sel',icon:'drag',pics:()=>[chipL('Мурчик','sm')],text:'Виділи слово «Мурчик»',enter:drawChk,show:true,demo:()=>{const r=wordRect('Мурчик');return r?[{el:r.a,act:'box',to:r.b}]:null;}},
+    {act:'U',icon:'L',pics:()=>[chipL('<u>U</u>')],text:'Натисни U — слово стане підкресленим',enter:drawChk,hl:()=>TB('underline'),demo:()=>[{el:TB('underline'),act:'click'}]},
+  ]);
+  function wordRect(w){const tw=document.createTreeWalker(doc,NodeFilter.SHOW_TEXT);let n;while((n=tw.nextNode())){const i=n.data.indexOf(w);if(i>=0){const r=document.createRange();r.setStart(n,i);r.setEnd(n,i+w.length);const b=r.getBoundingClientRect(),s=stage.getBoundingClientRect();return{a:{x:(b.left-s.left)/SC,y:(b.top-s.top)/SC+4},b:{x:(b.right-s.left)/SC,y:(b.bottom-s.top)/SC-4}};}}return null;}
+  const okR=()=>{R.ok();setTimeout(drawChk,10);};
+  on(document,'selectionchange',()=>{if(R.lock||!active())return;const t=selText();
+    if(R.i===0&&t.toLowerCase()==='котик')okR();
+    else if(R.i===4&&t==='Мурчик')okR();
+    else if(R.i===2){const s=getSelection();if(s.rangeCount&&title().contains(s.anchorNode))okR();}});
+  tool.addEventListener('pointerdown',e=>e.preventDefault());
+  tool.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!active()||S.busy||R.lock)return;const c=b.dataset.c;
+    if(R.i===1&&c==='bold'){if(selText().toLowerCase()!=='котик'){R.err('select','Спершу виділи слово «котик»');return;}document.execCommand('bold');if([...doc.querySelectorAll('b,strong')].some(x=>x.textContent.includes('котик')))okR();}
+    else if(R.i===3&&c==='justifyCenter'){const s=getSelection();if(!(s.rangeCount&&title().contains(s.anchorNode))){R.err('click','Спершу клацни в заголовок');return;}document.execCommand('justifyCenter');if(getComputedStyle(title()).textAlign==='center')okR();}
+    else if(R.i===5&&c==='underline'){if(selText()!=='Мурчик'){R.err('select','Спершу виділи «Мурчик»');return;}document.execCommand('underline');if([...doc.querySelectorAll('u')].some(x=>x.textContent.includes('Мурчик')))okR();}
+    else R.err('click','Подивись, що підсвічено');});
+  doc.addEventListener('keydown',e=>{if(e.key.startsWith('Arrow')||e.key==='Shift'||e.key==='Home'||e.key==='End')return;if(e.ctrlKey||e.metaKey){if(['KeyB','KeyI','KeyU'].includes(e.code)){e.preventDefault();}else if(e.code!=='KeyA'&&e.code!=='KeyC')e.preventDefault();return;}e.preventDefault();if(e.key.length===1||['Backspace','Delete','Enter'].includes(e.key))R.err('type','Тут нічого друкувати не треба');});
+  doc.addEventListener('beforeinput',e=>{if(!e.inputType.startsWith('format'))e.preventDefault();});
+  doc.addEventListener('paste',e=>e.preventDefault());doc.addEventListener('drop',e=>e.preventDefault());
+  doc.addEventListener('contextmenu',e=>e.preventDefault());
+  R.go(0);
+}
+function alignIco(a){const L={l:[[4,20],[4,14],[4,20],[4,12]],c:[[4,20],[8,16],[4,20],[9,15]],r:[[4,20],[10,20],[4,20],[12,20]]}[a];return `<svg viewBox="0 0 24 24">${L.map(([x1,x2],i)=>`<path d="M${x1} ${5+i*5}H${x2}" stroke="#1b2b3b" stroke-width="2.6" stroke-linecap="round"/>`).join('')}</svg>`;}
+function PK_ctrl(){
+  const D=pcDesk({tray:'<span class="pcclip" title="Буфер обміну"></span>'});
+  const clip=D.d.querySelector('.pcclip');
+  const panel=document.createElement('div');panel.className='pcstick';panel.innerHTML=`<div class="sh">${G.star()}</div>`;D.area.appendChild(panel);
+  const card=document.createElement('div');card.className='pccard';card.innerHTML=`<div class="ck">${G.kitten()}</div><div class="cz"></div>`;D.area.appendChild(card);
+  const sticker=panel.querySelector('.sh'),zone=card.querySelector('.cz');
+  let copied=false,last=null;
+  const paste=()=>{const s=document.createElement('div');s.className='pst';const n=zone.children.length;s.style.left=(40+n*150)+'px';s.style.top=(60+(n%2)*40)+'px';s.innerHTML=G.star();zone.appendChild(s);last=s;retrig(s,'boing');burst(sxy(s).x,sxy(s).y,10);};
+  const R=pcRun([
+    {act:'click',icon:'L',pics:()=>[G.star()],text:'Натисни на зірочку-наліпку, щоб виділити її',hl:()=>sticker,demo:()=>[{el:sticker,act:'click'}]},
+    {act:'cc',icon:'K',pics:()=>[chipL('Ctrl'),chipL('C')],text:'Скопіюй: затисни Ctrl і натисни C',demo:()=>[{keys:['Ctrl','C']}]},
+    {act:'click2',icon:'L',pics:()=>[PCI.card()],text:'Натисни на листівку',hl:()=>card,demo:()=>[{el:card,act:'click'}]},
+    {act:'cv',icon:'K',pics:()=>[chipL('Ctrl'),chipL('V')],text:'Встав: затисни Ctrl і натисни V',demo:()=>[{keys:['Ctrl','V']}]},
+    {act:'cz',icon:'K',pics:()=>[chipL('Ctrl'),chipL('Z')],text:'Ой, наліпка зникла! Поверни її: Ctrl + Z',wait:300,
+      enter:()=>{later(()=>{if(last){last.style.transition='transform .5s,opacity .5s';last.style.transform='translateY(-120px) rotate(40deg)';last.style.opacity='0';sfx.soft();}},500);},demo:()=>[{keys:['Ctrl','Z']}]},
+    {act:'cv2',icon:'K',pics:()=>[chipL('Ctrl'),chipL('V')],text:'Встав ще одну зірочку: Ctrl + V',show:true,demo:()=>[{keys:['Ctrl','V']}]},
+  ]);
+  sticker.addEventListener('pointerdown',e=>{if(e.button!==0||!active()||S.busy)return;sticker.classList.add('sel');card.classList.remove('sel');if(R.at(0))R.ok();});
+  card.addEventListener('pointerdown',e=>{if(e.button!==0||!active()||S.busy)return;card.classList.add('sel');sticker.classList.remove('sel');if(R.at(2))R.ok();else if(R.at(0))R.err('click','Спершу зірочка');});
+  on(window,'keydown',e=>{
+    if(!active()||S.screen!=='game')return;
+    const mod=e.ctrlKey||e.metaKey,c=e.code;
+    if(['KeyC','KeyV','KeyZ','KeyX','KeyA','KeyS','KeyP'].includes(c)&&mod)e.preventDefault();
+    if(S.busy||R.lock||e.repeat)return;
+    const need={1:'KeyC',3:'KeyV',4:'KeyZ',5:'KeyV'}[R.i];
+    if(!need)return;
+    if(e.key==='Control'||e.key==='Meta')return;
+    if(!mod){if(c===need)R.err('ctrl','Затисни Ctrl і тримай');else if(e.key.length===1)R.err('ctrl','Потрібна комбінація з Ctrl');return;}
+    if(c!==need){R.err('ctrl','Не та літера');return;}
+    if(c==='KeyC'){copied=true;clip.innerHTML=G.star();clip.classList.add('on');retrig(clip,'boing');R.ok();}
+    else if(c==='KeyV'){if(R.i===3&&!card.classList.contains('sel')){R.err('click','Спершу натисни на листівку');return;}paste();R.ok();}
+    else if(c==='KeyZ'){if(last){last.style.transform='';last.style.opacity='1';retrig(last,'boing');}R.ok();}
+  });
+  R.go(0);
+}
+function PK_tab(){
+  const D=pcDesk();
+  const W=D.win({title:'Анкета',kind:'form',x:180,y:20,w:720,h:440,body:`<div class="pcform"><label><span class="lb">${G.kitten()}</span><input class="f1" value="ОЛЯ" readonly></label><label><span class="lb">${G.gift()}</span><input class="f2" inputmode="numeric" autocomplete="off"><span class="hint6">6</span></label><button class="f3" tabindex="-1">Надіслати</button></div>`});
+  D.task('form','Анкета');
+  const f1=W.querySelector('.f1'),f2=W.querySelector('.f2'),f3=W.querySelector('.f3'),order=[f1,f2,f3];
+  const pop=document.createElement('div');pop.className='pcpop';pop.innerHTML=`<div class="pct"><b>Виграй приз!</b><span class="pcbtns"><button class="x" tabindex="-1">✕</button></span></div><div class="pcpb">${G.gift()}<span>!!!</span></div>`;D.area.appendChild(pop);
+  let tabbing=false;
+  const R=pcRun([
+    {act:'esc',icon:'K',pics:()=>[kchip('Escape')],text:'Закрий набридливе вікно клавішею Esc',hl:()=>pop,demo:()=>[{keys:['Esc']}]},
+    {act:'tab',icon:'K',pics:()=>[kchip('Tab')],text:'Перейди до наступного поля клавішею Tab',enter:()=>f1.focus(),hl:()=>f2,demo:()=>[{keys:['⇥ Tab']}]},
+    {act:'type',icon:'K',pics:()=>[chipL('6')],text:'Напиши свій вік — цифру 6',enter:()=>f2.focus(),hl:()=>f2,demo:()=>[{keys:['6']}]},
+    {act:'tab2',icon:'K',pics:()=>[kchip('Tab')],text:'Ще раз Tab — до кнопки «Надіслати»',hl:()=>f3,demo:()=>[{keys:['⇥ Tab']}]},
+    {act:'enter',icon:'K',pics:()=>[kchip('Enter')],text:'Натисни Enter — анкета надішлеться',hl:()=>f3,demo:()=>[{keys:['↵ Enter']}]},
+  ]);
+  pop.querySelector('.x').addEventListener('click',()=>{if(R.at(0))R.err('tabesc','Спробуй клавішу Esc');});
+  order.forEach(el=>{el.addEventListener('focus',()=>{if(tabbing)return;if((R.at(1)||R.at(3))&&el!==order[R.i===1?0:1]){R.err('tabesc','Натисни Tab');const back=R.i===1?f1:f2;setTimeout(()=>{tabbing=true;back.focus();tabbing=false;},0);}});
+    el.addEventListener('pointerdown',e=>e.stopPropagation());});
+  const go=el=>{tabbing=true;el.focus();tabbing=false;};
+  feed(f2,{mode:'UA',char:ch=>{if(!R.at(2)){if(R.at(1))R.err('tabesc','Спершу натисни Tab');return;}if(ch==='6'){f2.value='6';R.ok();}else R.err('type','Шукай цифру 6');}});
+  on(window,'keydown',e=>{
+    if(!active()||S.screen!=='game')return;
+    if(e.key==='Tab'){e.preventDefault();if(S.busy||R.lock)return;
+      if(R.at(0)){R.err('tabesc','Спершу закрий вікно клавішею Esc');return;}
+      if(R.at(2)){R.err('type','Спершу напиши вік');return;}
+      const i=order.indexOf(document.activeElement),n=order[Math.max(0,Math.min(2,(i<0?0:i)+(e.shiftKey?-1:1)))];go(n);
+      if(R.at(1)&&n===f2)R.ok();else if(R.at(3)&&n===f3)R.ok();else R.err('tabesc','Натисни Tab без Shift');return;}
+    if(S.busy||R.lock)return;
+    if(e.key==='Escape'){if(R.at(0)){pop.classList.add('closing');setTimeout(()=>pop.remove(),250);R.ok();}return;}
+    if(e.key==='Enter'){e.preventDefault();if(R.at(4)&&document.activeElement===f3){W.querySelector('.pcb').innerHTML=`<div class="pcsent">${PCI.card()}<b>✓</b></div>`;R.ok();}else R.err('enter',R.at(4)?'Спершу перейди до кнопки клавішею Tab':'Ще рано натискати Enter');}
+  });
+  f3.addEventListener('click',()=>{if(R.at(4)&&active()&&!S.busy)R.err('enter','Спробуй клавішу Enter');});
+  R.go(0);
+}
+function PK_addr(){
+  const D=pcDesk();
+  const W=D.win({title:'Браузер',kind:'web',x:30,y:8,w:1060,h:494,body:`<div class="br"><div class="brtabs"><div class="brtab on"><span class="bti">${PCI.web()}</span>Нова вкладка</div></div><div class="brbar"><button tabindex="-1" class="dis">←</button><button tabindex="-1" class="dis">→</button><button tabindex="-1">⟳</button><input class="braddr" spellcheck="false" autocomplete="off" placeholder="Введи адресу"></div><div class="brpage"></div></div>`});
+  D.task('web','Браузер');
+  const inp=W.querySelector('input.braddr'),page=W.querySelector('.brpage');
+  const SITES=[['kit.ua',()=>G.kitten(),()=>`<div class="brbig">${G.kitten()}${G.kitten(true)}${G.kitten()}</div>`],['zoo.ua',()=>G.bird(),()=>`<div class="brbig">${G.bird()}${G.apple()}${G.flower(true)}</div>`]];
+  let k=0;
+  const showSample=()=>{const [a,p]=SITES[k];page.innerHTML=`<div class="brsample"><span class="sp">${p()}</span><span class="lt">${[...a].map((c,i)=>{const n=prefixLen(inp.value.toLowerCase(),a);return i<n?`<b>${c}</b>`:i===n?`<u>${c}</u>`:`<i>${c}</i>`;}).join('')}</span></div>`;};
+  const defs=[];
+  SITES.forEach(([a],j)=>{
+    defs.push({act:'click',icon:'L',pics:()=>[chipL('kit.ua'===a?'kit.ua':'zoo.ua','sm')],text:'Клацни в адресний рядок',enter:()=>{k=j;inp.blur();showSample();},hl:()=>inp,demo:()=>[{el:inp,act:'click'}]});
+    defs.push({act:'type',icon:'K',pics:()=>[chipL(a,'sm')],text:'Надрукуй адресу за зразком (англійські літери)',hl:()=>inp,demo:()=>[...a].slice(0,3).map(c=>({keys:[c.toUpperCase()]}))});
+    defs.push({act:'enter',icon:'K',pics:()=>[kchip('Enter')],text:'Натисни Enter — сайт відкриється',hl:()=>inp,demo:()=>[{keys:['↵ Enter']}]});
+  });
+  const R=pcRun(defs);
+  inp.addEventListener('focus',()=>{if(R.i%3===0&&R.at(R.i)){setTimeout(()=>inp.select(),0);R.ok();}});
+  inp.addEventListener('pointerdown',e=>{e.stopPropagation();if(R.i%3!==0&&document.activeElement!==inp){/* allow refocus */}});
+  feed(inp,{mode:'EN',char:ch=>{
+      if(R.i%3===2&&!R.lock){R.err('enter','Тепер натисни Enter');return;}
+      if(R.i%3!==1||R.lock)return;const a=SITES[k][0];ch=ch.toLowerCase();
+      const b=base(inp).toLowerCase();if(b!==a.slice(0,b.length)){inp.value='';}
+      const want=a[base(inp).length];if(ch===want){ins(inp,ch);showSample();if(inp.value.toLowerCase()===a)R.ok();}else R.err('type','Шукай '+(want==='.'?'крапку':'літеру '+want.toUpperCase()));},
+    key:e=>{if(e.key!=='Enter')return false;if(R.i%3===2&&!R.lock){page.innerHTML='<div class="brspin"></div>';const s=SITES[k];setTimeout(()=>{page.innerHTML=s[2]();},500);R.ok();}else if(!R.lock)R.err('enter','Спершу надрукуй адресу');return true;}});
+  inp.addEventListener('input',showSample);
+  R.go(0);
+}
+function PK_lang(){
+  const D=pcDesk();
+  const W=D.win({title:'Блокнот',kind:'txt',x:150,y:20,w:780,h:420,body:`<div class="pcform"><label><span class="lb">${G.kitten()}</span><input class="l1" spellcheck="false" autocomplete="off"><span class="flag">UA</span></label><div class="pcsamp1"></div><label><span class="lb">${G.kitten()}</span><input class="l2" spellcheck="false" autocomplete="off"><span class="flag en">EN</span></label><div class="pcsamp2"></div></div>`});
+  D.task('txt','Блокнот');
+  const l1=W.querySelector('.l1'),l2=W.querySelector('.l2'),s1=W.querySelector('.pcsamp1'),s2=W.querySelector('.pcsamp2'),ind=D.lang;
+  const A='КІТ',B='CAT';
+  const lt=(w,n)=>[...w].map((c,i)=>i<n?`<b>${c}</b>`:i===n?`<u>${c}</u>`:`<i>${c}</i>`).join('');
+  const up=()=>{s1.innerHTML=`<span class="lt">${lt(A,prefixLen(l1.value.toUpperCase(),A))}</span>`;s2.innerHTML=`<span class="lt">${lt(B,prefixLen(l2.value.toUpperCase(),B))}</span>`;};up();
+  let sim=null,cur='UA';const setLang=l=>{cur=l;ind.textContent=l;retrig(ind,'boing');};
+  const R=pcRun([
+    {act:'ua',icon:'K',pics:()=>[chipL('UA','sm'),chipL('К'),chipL('І'),chipL('Т')],text:'Надрукуй КІТ українською. Мова — на панелі задач (UA)',enter:()=>l1.focus(),hl:()=>l1,demo:()=>[{keys:['К']},{keys:['І']},{keys:['Т']}]},
+    {act:'sw',icon:'K',pics:()=>[chipL('Alt'),chipL('⇧ Shift')],text:'Зміни мову на англійську: Alt + Shift (або Win + Пробіл, або клацни UA внизу)',enter:()=>l2.focus(),hl:()=>ind,demo:()=>[{keys:['Alt','⇧ Shift']},{el:ind,act:'click'}]},
+    {act:'en',icon:'K',pics:()=>[chipL('EN','sm'),chipL('C'),chipL('A'),chipL('T')],text:'Надрукуй CAT англійською',enter:()=>l2.focus(),hl:()=>l2,demo:()=>[{keys:['C']},{keys:['A']},{keys:['T']}]},
+  ]);
+  const toEN=()=>{if(R.at(1)){setLang('EN');R.ok();}};
+  ind.addEventListener('click',()=>{if(!active()||S.busy)return;sim=cur==='UA'?'EN':'UA';setLang(sim);if(sim==='EN')toEN();});
+  on(window,'keydown',e=>{if(!active()||S.screen!=='game')return;
+    if((e.altKey&&e.key==='Shift')||(e.shiftKey&&e.key==='Alt')||(e.ctrlKey&&e.key==='Shift')){e.preventDefault();sim=cur==='UA'?'EN':'UA';setLang(sim);if(sim==='EN')toEN();}
+    if(e.key==='Alt')e.preventDefault();});
+  const conv=(e,ch)=>{if(!e)return ch;if(sim)return keyChar(e,sim);return e.key;};
+  const handle=(inp,word,need,e,ch)=>{
+    if(e&&!(e.key&&e.key.length===1))return;
+    ch=conv(e,ch);if(!ch||ch===' ')return;const L=isUA(ch)?'UA':isEN(ch)?'EN':null;if(L&&L!==cur&&!sim)setLang(L);
+    if(R.at(1)&&L==='EN'){setLang('EN');R.ok();setTimeout(()=>{l2.focus();handle(l2,B,'EN',null,ch);},480);return;}
+    if(R.at(1)){R.err('lang','Спершу зміни мову');return;}
+    if(!R.at(need==='UA'?0:2))return;
+    if(L!==need){R.err('lang',need==='UA'?'Зараз англійська — зміни мову на UA':'Зараз українська — зміни мову на EN');return;}
+    const b=base(inp).toUpperCase(),want=word[b.length];if(prefixLen(b,word)!==b.length){R.err('type','Зітри зайве клавішею Backspace');return;}
+    if(ch.toUpperCase()===want){ins(inp,want);up();if(inp.value.toUpperCase()===word)R.ok();}else R.err('type','Шукай літеру '+(want||''));
+  };
+  feed(l1,{mode:'real',char:(ch,e)=>handle(l1,A,'UA',e,ch)});
+  feed(l2,{mode:'real',char:(ch,e)=>handle(l2,B,'EN',e,ch)});
+  l1.addEventListener('input',up);l2.addEventListener('input',up);
+  R.go(0);
+}
+
+/* ---------- report ---------- */
+function renderReport(){
+  const rows=CATS.pc.map(c=>c.levels.map((l,i)=>{const st=starsOf('pc',c.id,i);return `<tr><td>${tx(c.title)}</td><td>${tx(l.name)}</td><td class="rs">${[0,1,2].map(k=>starMini(k<st)).join('')}</td></tr>`;}).join('')).join('');
+  const errs=Object.keys(ERRT).map(k=>[k,S.errs[k]||0]).sort((a,b)=>b[1]-a[1]);
+  const mx=Math.max(1,...errs.map(e=>e[1]));
+  $('#repBody').innerHTML=`<h3>Вправи</h3><table class="rep"><tr><th>Розділ</th><th>Вправа</th><th>Зірки</th></tr>${rows}</table>
+    <h3>Помилки за типом дії</h3><div class="errs">${errs.map(([k,v])=>`<div class="er"><span>${ERRT[k]}</span><i><b style="width:${v/mx*100}%"></b></i><em>${v}</em></div>`).join('')}</div>
+    <p class="repnote">Що більше помилок — то більше варто потренувати цю дію.</p>`;
+}
+
 /* ================= catalog ================= */
 const MV='Рух мишки';
 const CATS={
@@ -1796,6 +2678,26 @@ const CATS={
    {name:'Стрілки',skill:'Клавіші-стрілки',icon:'K',scene:'clearing',build:KADV(0)},
    {name:'Стрибок-пробіл',skill:'Клавіша Пробіл у потрібний момент',icon:'K',scene:'forest',build:KADV(1)},
    {name:'Чарівний Shift',skill:'Комбінація Shift + літера (велика літера)',icon:'K',scene:'village',build:KADV(2)}]},
+ ],
+ pc:[
+  {id:'pcm',title:'Мишка у Windows',desc:'Папки, вікна, меню, Кошик, прокрутка, браузер',c:'c4',art:()=>`<svg viewBox="0 0 64 56"><rect x="4" y="4" width="56" height="40" rx="6" fill="#4fa8ff"/><rect x="10" y="10" width="20" height="16" rx="3" fill="#fff"/><rect x="4" y="38" width="56" height="8" fill="#1b2b3b"/><path d="M38 20v18l5-4 3 7 3-1-3-7h6z" fill="#fff" stroke="#1b2b3b" stroke-width="1.6"/></svg>`,levels:[
+   {name:'Відкрий папку',skill:'Один клік — виділити, подвійний — відкрити',icon:'D',build:PM_open},
+   {name:'Кнопки вікна',skill:'Розгорнути, згорнути, повернути з панелі задач, закрити',icon:'L',build:PM_win},
+   {name:'Меню правої кнопки',skill:'Контекстне меню: відкрити, копіювати, видалити',icon:'R',build:PM_menu},
+   {name:'Прибери робочий стіл',skill:'Перетягування файлів у папки й Кошик',icon:'drag',build:PM_clean},
+   {name:'Кошик',skill:'Відкрити Кошик і відновити файл',icon:'R',build:PM_bin},
+   {name:'Прокрутка',skill:'Прокрутка коліщатком і пошук на сторінці',icon:'W',build:PM_scroll},
+   {name:'Виділення рамкою',skill:'Виділення кількох значків і перенесення разом',icon:'drag',build:PM_select},
+   {name:'Міні-браузер',skill:'Посилання, кнопки ← → ⟳, закриття вкладки',icon:'L',build:PM_browser}]},
+  {id:'pck',title:'Клавіатура у Windows',desc:'Назви, текст, гарячі клавіші, форми, адреси, мови',c:'c2',art:()=>`<span class="kchip">Ctrl</span>`,levels:[
+   {name:'Перейменуй файл',skill:'Перейменування: надрукувати назву й Enter',icon:'K',build:PK_rename},
+   {name:'Блокнот',skill:'Пробіл, Backspace, Delete, стрілки й Enter у тексті',icon:'K',build:PK_notepad},
+   {name:'Велика літера',skill:'Shift + літера і Caps Lock',icon:'K',build:PK_shift},
+   {name:'Оформи текст',skill:'Виділення мишкою, жирний, підкреслений, по центру',icon:'drag',build:PK_format},
+   {name:'Чарівні клавіші',skill:'Ctrl + C, Ctrl + V, Ctrl + Z',icon:'K',build:PK_ctrl},
+   {name:'Esc і Tab',skill:'Esc закриває, Tab переходить між полями, Enter надсилає',icon:'K',build:PK_tab},
+   {name:'Адреса сайту',skill:'Адресний рядок: надрукувати адресу й Enter',icon:'K',build:PK_addr},
+   {name:'Зміна мови',skill:'Українська й англійська розкладки, Alt + Shift',icon:'K',build:PK_lang}]},
  ]};
 
 /* ================= flow ================= */
@@ -1808,14 +2710,15 @@ const LOCK='<svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" r
 const iconOf=ic=>ic==='K'?ICON.kbd:mouseIcon(ic);
 function modeStats(m){let got=0,tot=0;CATS[m].forEach(c=>c.levels.forEach((l,i)=>{tot+=3;got+=starsOf(m,c.id,i);}));return [got,tot];}
 function renderHome(){
-  const [a,b]=modeStats('mouse'),[c,d]=modeStats('keys');
-  $('#mStat').innerHTML=`${starMini(true)} ${a} / ${b}`;$('#kStat').innerHTML=`${starMini(true)} ${c} / ${d}`;
+  const [a,b]=modeStats('mouse'),[c,d]=modeStats('keys'),[e,f]=modeStats('pc');
+  $('#mStat').innerHTML=`${starMini(true)} ${a} / ${b}`;$('#kStat').innerHTML=`${starMini(true)} ${c} / ${d}`;$('#pStat').innerHTML=`${starMini(true)} ${e} / ${f}`;
+  $('#icoPc').innerHTML=CATS.pc[0].art();
   $('#heroTitle').textContent=WORDS[S.theme].title;
   $('#icoMouse').innerHTML=mouseIcon('L');$('#icoKeys').innerHTML=ICON.kbd;
   $('#heroArt').innerHTML=heroArt();
 }
 function renderMenu(m){
-  $(m==='mouse'?'#mouseCats':'#keyCats').innerHTML=CATS[m].map(c=>`<div class="cat ${c.c}"><div class="cat-head"><span class="cat-ico">${c.art()}</span><div><b>${tx(c.title)}</b><small>${tx(c.desc)}</small></div></div>
+  $({mouse:'#mouseCats',keys:'#keyCats',pc:'#pcCats'}[m]).innerHTML=CATS[m].map(c=>`<div class="cat ${c.c}"><div class="cat-head"><span class="cat-ico">${c.art()}</span><div><b>${tx(c.title)}</b><small>${tx(c.desc)}</small></div></div>
     <div class="lvls">${c.levels.map((l,i)=>{const u=unlocked(m,c.id,i),st=starsOf(m,c.id,i);return `<button class="lvb${u?'':' locked'}${st?' done':''}" data-m="${m}" data-c="${c.id}" data-i="${i}" ${u?'':'disabled'} title="${i+1}. ${tx(l.name)}"><span class="n">${u?i+1:LOCK}</span><span class="st">${[0,1,2].map(k=>starMini(k<st)).join('')}</span></button>`}).join('')}</div></div>`).join('');
 }
 document.addEventListener('click',e=>{
@@ -1827,7 +2730,7 @@ function updateHeader(){
   $('#bBack').hidden=n==='home';
   $('#bPause').hidden=$('#bRestart').hidden=n!=='game';
   let t='';
-  if(n==='mouse')t='Мишка';else if(n==='keys')t='Клавіатура';
+  if(n==='mouse')t='Мишка';else if(n==='keys')t='Клавіатура';else if(n==='pc')t='Справжній комп’ютер';
   else if(n==='game'&&S.cur)t=`${tx(S.cur.cat.title)} · ${S.cur.i+1}. ${tx(S.cur.L.name)}`;
   $('#crumb').textContent=t;$('#crumb').hidden=!t;
 }
@@ -1836,9 +2739,9 @@ function clearLevel(){CL.forEach(f=>f());CL=[];TM.forEach(clearTimeout);TM=[];wo
 function showScreen(n){
   if(n!=='game'){S.token++;clearLevel();['#ovPause','#ovWin'].forEach(s=>$(s).classList.remove('show'));S.overlay=true;S.paused=false;$('#instr').innerHTML='';try{speechSynthesis.cancel()}catch(e){}}
   S.screen=n;
-  ['home','mouse','keys','game'].forEach(k=>$('#s-'+k).classList.toggle('show',k===n));
+  ['home','mouse','keys','pc','game'].forEach(k=>$('#s-'+k).classList.toggle('show',k===n));
   document.body.dataset.screen=n;
-  if(n==='home')renderHome();if(n==='mouse'||n==='keys')renderMenu(n);
+  if(n==='home')renderHome();if(n==='mouse'||n==='keys'||n==='pc')renderMenu(n);
   updateHeader();fit();
 }
 function startLevel(m,cid,i){
@@ -1846,7 +2749,7 @@ function startLevel(m,cid,i){
   S.cur={m,cid,i,cat,L};
   if(S.screen!=='game')showScreen('game');
   S.token++;clearLevel();hideOv();S.mist=0;
-  stage.classList.toggle('kbmode',L.icon==='K');
+  stage.classList.toggle('kbmode',L.icon==='K'&&m!=='pc');stage.classList.toggle('pcmode',m==='pc');
   updateHeader();fit();scene(L.scene||'clearing');L.build();
 }
 function win(st,extra){
@@ -1893,17 +2796,21 @@ $('#bSound').onclick=()=>{S.sound=!S.sound;try{localStorage.setItem('kt_sound',S
 $('#bInfo').onclick=()=>{renderInfo();$('#modal').classList.add('show');};
 $('#bClose').onclick=()=>$('#modal').classList.remove('show');
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal')e.currentTarget.classList.remove('show');});
-addEventListener('keydown',e=>{if(e.key==='Escape')$('#modal').classList.remove('show');});
+addEventListener('keydown',e=>{if(e.key==='Escape'){$('#modal').classList.remove('show');$('#report').classList.remove('show');}});
+$('#bReport').onclick=()=>{renderReport();$('#report').classList.add('show');};
+$('#bRepClose').onclick=()=>$('#report').classList.remove('show');
+$('#report').addEventListener('click',e=>{if(e.target.id==='report')e.currentTarget.classList.remove('show');});
+$('#bRepReset').onclick=()=>{S.errs={};saveErrs();renderReport();};
 let resetArm=false;
 $('#bReset').onclick=()=>{
   const lbl=$('#resetLbl');
   if(!resetArm){resetArm=true;lbl.innerHTML='Точно? Натисни ще раз<small>Зірочки на всіх рівнях зникнуть</small>';setTimeout(()=>{resetArm=false;lbl.innerHTML='Скинути прогрес<small>Зірочки на всіх рівнях зникнуть</small>'},3000);return;}
   S.best={};save();resetArm=false;lbl.innerHTML='Прогрес скинуто<small>Можна грати спочатку</small>';showScreen(S.screen==='game'?S.cur.m:S.screen);
 };
-$('#bTeacher').onclick=()=>{S.teacher=!S.teacher;try{localStorage.setItem('kt_teacher',S.teacher?'1':'0')}catch(e){}renderInfo();if(S.screen==='mouse'||S.screen==='keys')renderMenu(S.screen);};
+$('#bTeacher').onclick=()=>{S.teacher=!S.teacher;try{localStorage.setItem('kt_teacher',S.teacher?'1':'0')}catch(e){}renderInfo();if(['mouse','keys','pc'].includes(S.screen))renderMenu(S.screen);};
 function renderInfo(){
   $('#teachLbl').innerHTML=S.teacher?'Усі рівні відкрито<small>Натисни, щоб знову відкривати рівні по черзі</small>':'Відкрити всі рівні<small>Режим учителя: без проходження по черзі</small>';
-  $('#skillsList').innerHTML=['mouse','keys'].map(m=>CATS[m].map(c=>`<li><b>${tx(c.title)}</b> — ${c.levels.map(l=>l.skill.toLowerCase()).filter((v,i,a)=>a.indexOf(v)===i).join('; ')}</li>`).join('')).join('');
+  $('#skillsList').innerHTML=['mouse','keys','pc'].map(m=>CATS[m].map(c=>`<li><b>${tx(c.title)}</b> — ${c.levels.map(l=>l.skill.toLowerCase()).filter((v,i,a)=>a.indexOf(v)===i).join('; ')}</li>`).join('')).join('');
 }
 
 /* ================= hero illustration ================= */
