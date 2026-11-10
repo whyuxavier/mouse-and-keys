@@ -713,9 +713,11 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
 .mode small{color:#5f5878}
 .mode::before{content:"";position:absolute;top:-9px;left:22px;width:54px;height:18px;transform:rotate(-4deg);border-radius:3px;background:rgba(255,250,242,.75);box-shadow:0 1px 2px var(--pshadow)}
 .modes{gap:20px}
-.hchip{background:var(--paper);color:#3b3450;border-radius:12px;box-shadow:0 3px 0 var(--pshadow),0 0 0 1px var(--pline);animation:pop .4s cubic-bezier(.4,1.6,.5,1) both;animation-delay:1.5s}
+.hchip{background:var(--paper);color:#3b3450;border-radius:12px;box-shadow:0 3px 0 var(--pshadow),0 0 0 1px var(--pline);animation:cpop .4s cubic-bezier(.4,1.6,.5,1) both;animation-delay:1.5s}
+@keyframes cpop{from{opacity:0;scale:.6}}
 .hchip.c-a{left:-4%;right:auto;top:50%;transform:rotate(-5deg)}.hchip.c-b{left:4%;top:-3%;transform:rotate(4deg)}.hchip.c-c{left:30%;right:auto;bottom:-8%;transform:rotate(-3deg)}
 .hchip.c-c svg{width:24px;height:26px}
+@media (max-width:700px){.hchip.c-a{left:1%;top:44%}.hchip.c-b{left:3%;top:-6%}.hchip.c-c{left:24%}}
 .hart .piece{transform-box:fill-box;transform-origin:center;animation:glue .55s cubic-bezier(.3,1.45,.5,1) both;animation-delay:var(--d,0s)}
 @keyframes glue{from{opacity:0;transform:translateY(-30px) rotate(-7deg) scale(.95)}}
 @media (prefers-reduced-motion:reduce){.hart .piece,.hchip{animation:none}}
