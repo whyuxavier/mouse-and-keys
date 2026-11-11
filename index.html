@@ -759,6 +759,50 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
 .rsb.on{background:var(--mint);box-shadow:0 3px 0 #6aae8a}.rsb.on path.a{stroke:#3b3450}.rsb.on path.b{stroke:rgba(59,52,80,.25)}
 .rrec{background:var(--paper);box-shadow:0 4px 0 var(--pshadow)}
 
+/* ===== перерви ===== */
+#brk{position:fixed;inset:0;z-index:70;display:none;place-items:center;padding:16px;background:rgba(46,38,56,.5)}
+#brk.show{display:grid}
+.bcard{position:relative;width:min(560px,100%);max-height:calc(100vh - 32px);overflow:auto;background:var(--card);color:var(--ink);border-radius:26px;box-shadow:var(--card-sh);padding:26px 24px 22px;text-align:center;animation:kpop .35s ease-out}
+.bcard::before{content:"";position:absolute;top:-12px;left:50%;width:96px;height:24px;margin-left:-48px;transform:rotate(-3deg);background:color-mix(in srgb,var(--mint) 85%,transparent);border-radius:3px;box-shadow:0 1px 2px var(--pshadow)}
+.bcard h2{margin:0 0 6px;font-size:30px;font-family:var(--hfont)}
+.bscene{position:relative;height:250px;margin:6px 0 4px;border-radius:20px;overflow:hidden;background:linear-gradient(#d5e6f3 0 70%,#c8e4cf 70%)}
+.bscene.dark{background:linear-gradient(#3b3463 0 70%,#2e2a4f 70%)}
+.bfifi{position:absolute;left:50%;bottom:22px;width:150px;height:165px;margin-left:-75px;transform-origin:50% 100%}
+.bfifi svg{width:100%;height:100%}
+.bfifi svg>*{filter:url(#pp)}
+.bring{position:absolute;right:12px;top:12px;width:64px;height:64px}
+.bring circle{fill:none;stroke-width:7}
+.bring .bg{stroke:rgba(255,255,255,.7)}.bring .fg{stroke:var(--coral);stroke-linecap:round;stroke-dasharray:176;stroke-dashoffset:0;transform:rotate(-90deg);transform-origin:50% 50%;animation:bring var(--d) linear forwards}
+@keyframes bring{to{stroke-dashoffset:176}}
+.bcount{position:absolute;left:18px;top:10px;font:900 64px/1 var(--hfont);color:#3b3450}
+.bscene.dark .bcount{color:#fbefc8}
+.btx{font-size:24px;font-weight:800;margin:12px 0 10px;min-height:1.3em;font-family:var(--hfont)}
+.bdots{display:flex;justify-content:center;gap:8px;margin-bottom:14px}
+.bdots i{width:12px;height:12px;border-radius:50%;background:var(--soft)}.bdots i.on{background:var(--mint)}.bdots i.cur{background:var(--coral)}
+.brow{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.brow button[hidden]{display:none}
+.b-stretch{animation:bstretch 2s ease-in-out infinite alternate}
+@keyframes bstretch{to{transform:scale(.9,1.22) translateY(-6px)}}
+.b-hop{animation:bhop 1.3s cubic-bezier(.3,0,.5,1) infinite}
+@keyframes bhop{30%{transform:translateY(-62px)}60%{transform:none}}
+.b-sway{animation:bsway 2s ease-in-out infinite alternate}
+@keyframes bsway{from{transform:rotate(-16deg)}to{transform:rotate(16deg)}}
+.b-shoulders{animation:bshoul 1s ease-in-out infinite}
+@keyframes bshoul{50%{transform:translateY(-8px) scaleX(1.06)}}
+.b-flap{animation:bflap .6s ease-in-out infinite}
+@keyframes bflap{50%{transform:translateY(-14px) rotate(-6deg) scaleX(1.08)}}
+.b-wave{animation:bwave 1.2s ease-in-out infinite}
+@keyframes bwave{25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+.bpaw{position:absolute;bottom:64px;z-index:2;width:34px;height:34px;border-radius:50%;background:#efe9e2;box-shadow:0 2px 0 var(--pshadow)}
+.bpaw.l{left:calc(50% - 110px);animation:bclapl 1.3s ease-in-out infinite}.bpaw.r{right:calc(50% - 110px);animation:bclapr 1.3s ease-in-out infinite}
+@keyframes bclapl{45%,55%{transform:translateX(76px)}}@keyframes bclapr{45%,55%{transform:translateX(-76px)}}
+.bfly{position:absolute;width:64px;height:56px;margin:-28px 0 0 -32px;animation:bfly 6s ease-in-out infinite}
+@keyframes bfly{0%,100%{left:50%;top:50%}12.5%{left:80%;top:22%}25%{left:90%;top:50%}37.5%{left:80%;top:78%}50%{left:50%;top:50%}62.5%{left:20%;top:22%}75%{left:10%;top:50%}87.5%{left:20%;top:78%}}
+.bfly svg{animation:bwing .3s ease-in-out infinite alternate;transform-origin:50% 50%}
+@keyframes bwing{to{transform:scaleX(.7)}}
+.bzz{position:absolute;right:28%;top:24%;font:900 34px var(--hfont);color:#fbefc8;animation:floaty 2s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.bfifi,.bpaw,.bfly{animation:none!important}.bfly{left:70%;top:40%}}
+
 </style>
 </head>
 <body>
@@ -827,11 +871,23 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
       <div class="i-links">
         <button type="button" id="bTeacher"><i style="background:#f1eadf"><svg viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="10" rx="3" fill="#3b3450"/><path d="M8 10V8a4 4 0 0 1 7.5-2" stroke="#3b3450" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg></i><span id="teachLbl"></span></button>
         <a href="https://github.com/whyuxavier/pc-trainer" target="_blank" rel="noopener"><i style="background:#f6dc8a"><svg viewBox="0 0 100 100"><polygon points="50,6 61,38 95,38 67,58 78,92 50,72 22,92 33,58 5,38 39,38" fill="#fff" stroke="#3b3450" stroke-width="6" stroke-linejoin="round"/></svg></i><span>Проєкт на GitHub<small>github.com/whyuxavier/pc-trainer</small></span></a>
+        <button type="button" id="bBrkNow"><i style="background:#e3f3ea"><svg viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2.6" fill="#3b3450"/><path d="M4 9.5l8 1.5 8-1.5M12 11v5l-4 6M12 16l4 6" stroke="#3b3450" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span>Фізкультхвилинка зараз<small>Хвилинка руху з Фіфі</small></span></button>
+        <button type="button" id="bBrkSet"><i style="background:#fbefc8"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8.5" fill="#fff" stroke="#3b3450" stroke-width="2.4"/><path d="M12 8.5V13l3 2" stroke="#3b3450" stroke-width="2.4" fill="none" stroke-linecap="round"/><path d="M9 2.5h6" stroke="#3b3450" stroke-width="2.4" stroke-linecap="round"/></svg></i><span id="brkLbl"></span></button>
         <button type="button" id="bLeftyT"><i style="background:#e3f3ea;color:#3b3450"><svg viewBox="0 0 24 24"><path d="M9 11V5a1.6 1.6 0 0 1 3.2 0v5.5V3.6a1.6 1.6 0 0 1 3.2 0V11V5.2a1.6 1.6 0 0 1 3.2 0v8.3c0 4-2.6 7-6.6 7-2.6 0-4.3-1.3-5.6-3.4L3.3 12.4a1.5 1.5 0 0 1 2.4-1.8L9 14z" fill="currentColor" transform="translate(24 0) scale(-1 1)"/></svg></i><span id="leftyLbl"></span></button>
         <button type="button" id="bReset"><i style="background:#ffe0da"><svg viewBox="0 0 24 24"><path d="M19 12a7 7 0 1 1-2.05-4.95" stroke="#3b3450" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M18.5 3v5h-5" stroke="#3b3450" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></i><span id="resetLbl">Скинути прогрес<small>Зірочки на всіх рівнях зникнуть</small></span></button>
       </div>
       <button class="i-close" id="bClose" type="button">Зрозуміло</button>
     </div>
+  </div>
+</div>
+
+<div id="brk" role="dialog" aria-modal="true" aria-labelledby="brkT">
+  <div class="bcard">
+    <h2 id="brkT">Час відпочити!</h2>
+    <div class="bscene" id="bScene"></div>
+    <p class="btx" id="bTx"></p>
+    <div class="bdots" id="bDots"></div>
+    <div class="brow"><button class="big" id="bBrkGo" type="button"></button><button class="small" id="bBrkSkip" type="button">Пропустити</button></div>
   </div>
 </div>
 
@@ -3361,6 +3417,7 @@ function win(st,extra){
     $('#bMenu').onclick=()=>{sfx.click();showScreen(m)};
     if(hasNext)$('#bNext').onclick=()=>{sfx.click();startLevel(m,cid,i+1)};
     if(nextCat)$('#bNextCat').onclick=()=>{sfx.click();startLevel(m,nextCat.id,0)};
+    if(breakDue())setTimeout(()=>{if(tok===S.token&&$('#ovWin').classList.contains('show'))startBreak();},1800);
   },900);
 }
 function layoutTop(){$('#screens').style.top=document.querySelector('header').offsetHeight+'px';}
@@ -3405,6 +3462,72 @@ function renderInfo(){
   $('#teachLbl').innerHTML=S.teacher?'Усі рівні відкрито<small>Натисни, щоб знову відкривати рівні по черзі</small>':'Відкрити всі рівні<small>Режим учителя: без проходження по черзі</small>';
   $('#skillsList').innerHTML=['mouse','keys','pc'].map(m=>CATS[m].map(c=>`<li><b>${tx(c.title)}</b> — ${c.levels.map(l=>l.skill.toLowerCase()).filter((v,i,a)=>a.indexOf(v)===i).join('; ')}</li>`).join('')).join('');
 }
+
+/* ================= перерви й фізкультхвилинки ================= */
+const BRK_OPTS=[10,15,20,0];                     // хвилин гри між перервами; 0 — вимкнено
+let brkMin=10;try{const v=localStorage.getItem('kt_brk');if(v!==null&&BRK_OPTS.includes(+v))brkMin=+v;}catch(e){}
+let playMs=0,brkTick=Date.now(),brkOn=false,brkTok=0,brkWasPaused=false;
+setInterval(()=>{const now=Date.now(),d=Math.min(2000,now-brkTick);brkTick=now;
+  if(S.screen==='game'&&!S.paused&&!brkOn&&document.visibilityState==='visible')playMs+=d;},1000);
+const breakDue=()=>brkMin>0&&playMs>=brkMin*60000;
+const BUTTERFLY=`<svg viewBox="0 0 64 56"><ellipse cx="18" cy="18" rx="16" ry="14" fill="#f2b3c6"/><ellipse cx="46" cy="18" rx="16" ry="14" fill="#f2b3c6"/><ellipse cx="20" cy="40" rx="11" ry="10" fill="#b5a0e6"/><ellipse cx="44" cy="40" rx="11" ry="10" fill="#b5a0e6"/><circle cx="17" cy="17" r="5" fill="#fbefc8"/><circle cx="47" cy="17" r="5" fill="#fbefc8"/><rect x="29" y="10" width="6" height="38" rx="3" fill="#3b3450"/><path d="M31 11q-6-9-10-9M33 11q6-9 10-9" stroke="#3b3450" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`;
+const BRK_BODY=[
+  {t:'Потягнись угору, як котик!',d:8,a:'stretch'},
+  {t:'Пострибай на місці 5 разів',d:8,a:'hop',n:5},
+  {t:'Поплескай у долоні 5 разів',d:8,a:'clap',n:5},
+  {t:'Нахилися вліво й вправо',d:8,a:'sway'},
+  {t:'Покрути плечима',d:7,a:'shoulders'},
+  {t:'Помахай руками, як Папужка крильцями',d:7,a:'flap'},
+];
+const BRK_EYES={t:'Стеж очима за метеликом. Голову не повертай!',d:12,a:'eyes'};
+const BRK_REST={t:'Заплющ очі й порахуй до 5',d:7,a:'rest',n:5};
+function renderBrkLbl(){const l=$('#brkLbl');if(l)l.innerHTML=brkMin?`Перерва кожні ${brkMin} хв гри<small>Натисни, щоб змінити: 10 / 15 / 20 хв або вимкнути</small>`:'Перерви вимкнено<small>Натисни, щоб увімкнути</small>';}
+function startBreak(){
+  if(brkOn)return;brkOn=true;const tok=++brkTok;
+  brkWasPaused=S.paused;S.paused=true;
+  const steps=(()=>{const b=shuffle(BRK_BODY.slice());return[b[0],b[1],BRK_EYES,b[2],BRK_REST];})();
+  const scene=$('#bScene'),go=$('#bBrkGo'),skip=$('#bBrkSkip');
+  $('#bDots').innerHTML=steps.map(()=>'<i></i>').join('');
+  skip.hidden=!S.teacher;
+  const fifi=(cls,open)=>`<div class="bfifi ${cls||''}">${SK().hero(open)}</div>`;
+  scene.className='bscene';scene.innerHTML=fifi('b-wave',true);
+  $('#brkT').textContent='Час відпочити!';
+  $('#bTx').textContent='Зробимо фізкультхвилинку разом із Фіфі';
+  go.hidden=false;go.textContent='Почнімо!';go.onclick=()=>{sfx.click();run(0);};
+  $('#brk').classList.add('show');say('Час відпочити! Зробимо фізкультхвилинку разом із Фіфі',true);
+  function run(i){
+    if(tok!==brkTok)return;
+    go.hidden=true;
+    const dots=[...$('#bDots').children];dots.forEach((d,k)=>{d.className=k<i?'on':k===i?'cur':'';});
+    if(i>=steps.length){finish();return;}
+    const st=steps[i];
+    $('#bTx').textContent=st.t;say(st.t,true);
+    const ring=`<svg class="bring" viewBox="0 0 64 64"><circle class="bg" cx="32" cy="32" r="28"/><circle class="fg" cx="32" cy="32" r="28" style="--d:${st.d}s"/></svg>`;
+    scene.className='bscene'+(st.a==='rest'?' dark':'');
+    if(st.a==='eyes')scene.innerHTML=`<div class="bfly">${BUTTERFLY}</div>${ring}`;
+    else if(st.a==='rest')scene.innerHTML=`<div class="bcount"></div><div class="bzz">z z z</div>${fifi('b-stretch')}${ring}`;
+    else if(st.a==='flap')scene.innerHTML=`<div class="bfifi b-flap">${G.parrotT(true)}</div>${ring}`;
+    else if(st.a==='clap')scene.innerHTML=`<div class="bcount"></div>${fifi('',true)}<span class="bpaw l"></span><span class="bpaw r"></span>${ring}`;
+    else scene.innerHTML=(st.n?'<div class="bcount"></div>':'')+fifi('b-'+st.a,true)+ring;
+    if(st.n){const c=scene.querySelector('.bcount');let k=0;
+      (function cnt(){if(tok!==brkTok||k>=st.n)return;k++;c.textContent=k;tone(st.a==='rest'?330+k*30:520+k*60,.12,'triangle',.07);setTimeout(cnt,st.a==='rest'?1200:1300);})();}
+    setTimeout(()=>{if(tok!==brkTok)return;sfx.click();run(i+1);},st.d*1000);
+  }
+  function finish(){
+    scene.className='bscene';scene.innerHTML=fifi('b-hop',true);
+    $('#brkT').textContent='Молодець!';$('#bTx').textContent='Відпочили — можна грати далі';
+    sfx.win();say('Молодець! Можна грати далі',true);
+    skip.hidden=true;go.hidden=false;go.textContent='Грати далі';go.onclick=()=>{sfx.click();endBreak();};
+  }
+}
+function endBreak(){
+  brkTok++;brkOn=false;playMs=0;$('#brk').classList.remove('show');$('#bScene').innerHTML='';
+  S.paused=brkWasPaused;try{speechSynthesis.cancel()}catch(e){}
+}
+$('#bBrkSkip').onclick=()=>{sfx.click();endBreak();};
+$('#bBrkNow').onclick=()=>{$('#modal').classList.remove('show');startBreak();};
+$('#bBrkSet').onclick=()=>{brkMin=BRK_OPTS[(BRK_OPTS.indexOf(brkMin)+1)%BRK_OPTS.length];try{localStorage.setItem('kt_brk',brkMin)}catch(e){}renderBrkLbl();sfx.click();};
+renderBrkLbl();
 
 /* ================= hidden game: «Стрибунець Фіфі» (3 кліки на Фіфі на головній) ================= */
 const JG=(()=>{
