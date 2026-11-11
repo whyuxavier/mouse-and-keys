@@ -803,6 +803,50 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
 .bzz{position:absolute;right:28%;top:24%;font:900 34px var(--hfont);color:#fbefc8;animation:floaty 2s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.bfifi,.bpaw,.bfly{animation:none!important}.bfly{left:70%;top:40%}}
 
+/* ===== нові вправи мишки ===== */
+.bring2,.hballoon{pointer-events:none}
+.hballoon>.in{transition:none}
+.mole>.in{transform-origin:50% 100%}
+.mole.molup>.in{animation:molup .25s ease-out}
+.mole.moldn>.in{animation:moldn .25s ease-in forwards}
+@keyframes molup{from{transform:translateY(40px) scaleY(.4);opacity:0}}
+@keyframes moldn{to{transform:translateY(40px) scaleY(.3);opacity:0}}
+.dpanel{position:relative;width:100%;height:100%;background:linear-gradient(#d5e6f3 0 62%,#c8e4cf 62%);border-radius:18px;box-shadow:0 4px 0 var(--pshadow),0 0 0 1px var(--pline);overflow:hidden;cursor:pointer}
+.dfi{position:absolute;pointer-events:none}.dfi svg{width:100%;height:100%}
+.dring{width:100%;height:100%;border-radius:50%;border:5px solid #e07a6a;box-shadow:0 0 0 3px #fffaf2;pointer-events:none}
+.dmiss{width:100%;height:100%;border-radius:50%;background:rgba(224,122,106,.3);animation:kpop .3s}
+.sview{position:relative;width:100%;height:100%;border-radius:20px;overflow:hidden;background:var(--paper);box-shadow:0 4px 0 var(--pshadow),0 0 0 1px var(--pline)}
+.sinner{position:absolute;left:0;top:0;width:100%;height:2000px;transition:transform .12s ease-out}
+.sbg{position:absolute;inset:0;background:linear-gradient(#cfe4f3,#e3f3ea 40%,#f6e19c 70%,#f6c6a6)}
+.sitem{position:absolute;width:100px;height:100px;cursor:pointer}.sitem svg{width:100%;height:100%}
+.sitem.found{animation:kpop .4s;filter:drop-shadow(0 0 10px #f3cf6b) drop-shadow(0 0 4px #f3cf6b)}
+.sbar{position:absolute;right:6px;top:6px;bottom:6px;width:12px;border-radius:6px;background:rgba(59,52,80,.08)}
+.sbar i{position:absolute;left:0;width:12px;height:68px;border-radius:6px;background:#b3a796}
+.wcard{width:100%;height:100%;background:var(--paper);border-radius:20px;box-shadow:0 4px 0 var(--pshadow),0 0 0 1px var(--pline);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transform:rotate(2deg)}
+.wcard span{font:800 26px var(--hfont);color:#3b3450}.wpic{width:170px;height:170px}.wpic svg{width:100%;height:100%}
+.whint{width:100%;height:100%;opacity:.8}
+.pzboard{position:relative;width:100%;height:100%;border-radius:12px;background:var(--paper);box-shadow:0 4px 0 var(--pshadow),0 0 0 1px var(--pline);padding:8px}
+.pzghost{width:100%;height:100%;opacity:.18}.pzghost svg{width:100%;height:100%}
+.pzslot{width:100%;height:100%;outline:2px dashed rgba(59,52,80,.18);outline-offset:-1px}
+.pz{position:relative;overflow:hidden;border-radius:4px;box-shadow:0 3px 0 var(--pshadow),0 0 0 2px #fffaf2}
+.pz svg{width:100%;height:100%;display:block}
+.pzp{z-index:3}.pzp.pzok{z-index:1}.pzp.pzok .pz{box-shadow:none;border-radius:0}
+.sltrack{position:relative;width:100%;height:100%;border-radius:20px;background:#e3d9ca;box-shadow:inset 0 3px 0 rgba(90,66,44,.15)}
+.sltrack i{position:absolute;top:50%;width:4px;height:16px;margin:-8px 0 0 -2px;border-radius:2px;background:#b3a796}
+.slknob{width:100%;height:100%;border-radius:50%;background:var(--coral);box-shadow:0 4px 0 #c9705f,0 0 0 4px #fffaf2;cursor:grab}
+.dlayer{pointer-events:none}.dotsvg{width:100%;height:100%}
+.ddot{width:100%;height:100%;border-radius:50%;background:#fffaf2;box-shadow:0 3px 0 var(--pshadow),0 0 0 3px #3b3450;display:grid;place-items:center;transition:background .2s}
+.ddot b{font:900 22px var(--hfont);color:#3b3450}
+.ddot.next{background:#f3cf6b;animation:pchl 1s infinite}.ddot.cur{box-shadow:0 3px 0 var(--pshadow),0 0 0 4px #ee9384,0 0 0 9px rgba(238,147,132,.3)}.ddot.done{background:#8fcfac}
+.cpic path{cursor:pointer;transition:fill .2s}.cpic path:hover{opacity:.85}
+.csample{width:100%;height:100%;background:var(--paper);border-radius:14px;padding:8px;box-shadow:0 4px 0 var(--pshadow),0 0 0 1px var(--pline);transform:rotate(2deg)}
+.csample svg{width:100%;height:100%}
+.swatch{width:100%;height:100%;border-radius:14px;background:var(--c);box-shadow:0 4px 0 rgba(90,66,44,.3);transition:transform .15s}
+.swatch.on{transform:translateY(-10px) scale(1.08);box-shadow:0 4px 0 rgba(90,66,44,.3),0 0 0 4px #fffaf2,0 0 0 7px #3b3450}
+.selr{z-index:6;pointer-events:none}
+.selbox{width:100%;height:100%;border:3px dashed #6fa6d6;background:rgba(111,166,214,.15);border-radius:4px}
+.obj.picked>.in{filter:drop-shadow(0 0 6px #6fa6d6) drop-shadow(0 0 2px #6fa6d6)}
+
 </style>
 </head>
 <body>
@@ -3205,6 +3249,308 @@ function HIDE(nBugs,small){return function(){
     }});},30);
 }}
 
+/* ================= нові вправи для мишки ================= */
+Object.assign(G,{
+  mole:(fifi)=>fifi?SK().hero(true)
+    :`<svg viewBox="0 0 100 100"><ellipse cx="50" cy="62" rx="36" ry="38" fill="#9a7a62"/><ellipse cx="50" cy="72" rx="22" ry="22" fill="#c8a990"/><circle cx="38" cy="46" r="5" fill="#3b3450"/><circle cx="62" cy="46" r="5" fill="#3b3450"/><circle cx="39.5" cy="44.5" r="1.6" fill="#fff"/><circle cx="63.5" cy="44.5" r="1.6" fill="#fff"/><ellipse cx="50" cy="58" rx="9" ry="7" fill="#f2b3c6"/><path d="M46 66h8" stroke="#3b3450" stroke-width="2.5" stroke-linecap="round"/><path d="M30 60 14 56M30 64 14 66M70 60l16-4M70 64l16 2" stroke="#6f5a4a" stroke-width="2" stroke-linecap="round"/></svg>`,
+  hole:()=>`<svg viewBox="0 0 160 60"><ellipse cx="80" cy="34" rx="78" ry="24" fill="#b08968"/><ellipse cx="80" cy="30" rx="62" ry="17" fill="#5a4636"/></svg>`,
+  pump:()=>`<svg viewBox="0 0 120 120"><rect x="20" y="80" width="80" height="30" rx="10" fill="#6fa6d6"/><rect x="52" y="30" width="16" height="54" rx="6" fill="#d9cfc0"/><rect x="26" y="20" width="68" height="16" rx="8" fill="#ee9384"/></svg>`,
+});
+/* --- 1. Затисни й тримай: надуй кульку до кола --- */
+function KN_hold(){
+  instr('L',null,'Затисни кнопку — кулька надувається. Відпусти, коли вона дістане кола');
+  const N=3;let n=0,r=40,holding=false,popped=false,goal=0,tol=22;prog(0,N);
+  const cx=600,cy=330,cols=['#ee9384','#8fcfac','#b5a0e6','#f3cf6b'];
+  const ring=put('',cx,cy,10,10,'bring2');
+  const bal=put('',cx,cy,10,10,'hballoon');
+  const pump=put(G.pump(),cx,575,120,120);
+  const fifi=put(SK().hero(),300,480,140,154,'float-slow');
+  let col;
+  function setR(v){r=v;bal._w=r*2;bal._h=r*2.35;bal.style.width=bal._w+'px';bal.style.height=bal._h+'px';place(bal,cx,cy+.18*r);}
+  function round(){
+    goal=[130,95,165][n%3]+Math.round((Math.random()-.5)*20);col=cols[n%cols.length];popped=false;
+    ring.style.width=ring.style.height=(goal*2)+'px';ring._w=ring._h=goal*2;place(ring,cx,cy);
+    ring.firstChild.innerHTML=`<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="47" fill="none" stroke="#6fb38f" stroke-width="${3*100/(goal*2)*2.2}" stroke-dasharray="6 5"/></svg>`;
+    bal.firstChild.innerHTML=`<svg viewBox="0 0 100 118"><ellipse cx="50" cy="50" rx="48" ry="48" fill="${col}"/><path d="M44 97h12l-6 9z" fill="${col}"/><path d="M50 106q-6 6 2 12" stroke="#9a8e7e" stroke-width="2" fill="none"/><ellipse cx="34" cy="30" rx="8" ry="13" fill="#fff" opacity=".45"/></svg>`;
+    setR(34);
+  }
+  function grow(){
+    if(!holding||!active())return;
+    setR(r+.6+r*.004);
+    if(r*.96>goal+tol){holding=false;popped=true;sfx.soft();burst(cx,cy,16,[col,'#fff']);bal.firstChild.innerHTML='';S.mist++;toast('Ой, забагато! Відпусти трохи раніше',true);later(()=>round(),900);return;}
+    pump.firstChild.style.transform=`translateY(${(Math.floor(r/8)%2)*6}px)`;
+    requestAnimationFrame(grow);
+  }
+  on(stage,'pointerdown',e=>{
+    if(!active()||S.busy||e.button!==0||e.target.closest('#instr')||popped)return;e.preventDefault();
+    holding=true;tone(300,.1,'sine',.05);requestAnimationFrame(grow);
+  });
+  const up=()=>{
+    if(!holding)return;holding=false;
+    if(Math.abs(r*.96-goal)<=tol){S.busy=true;sfx.collect();burst(cx,cy-r,14);retrig(fifi,'boing');n++;prog(n,N);
+      glide(bal,cx+260,-160,1200);
+      if(n===N){later(win,900);return;}
+      praise(true);later(()=>{S.busy=false;place(bal,cx,cy);round();},1300);}
+    else if(r*.96<goal-tol){gentle('Ще трохи! Затисни знову');}
+  };
+  on(window,'pointerup',up);on(window,'pointercancel',up);
+  round();
+}
+/* --- 2. Кроти: клацни, поки визирає --- */
+function L_mole(){
+  instr('L',G.mole(),'Клацни крота, поки він визирає. Фіфі не чіпай!');
+  const N=10;let n=0;prog(0,N);
+  const H=[[300,330],[600,330],[900,330],[300,540],[600,540],[900,540]];
+  const holes=H.map(([x,y])=>{put(G.hole(),x,y+38,170,64);const m=put('',x,y,110,110,'mole click');m.style.visibility='hidden';return m;});
+  let busy=new Set(),speed=1700;
+  function pop(){
+    if(n>=N)return;
+    const free=holes.map((_,i)=>i).filter(i=>!busy.has(i));if(!free.length){later(pop,300);return;}
+    const i=pick(free),m=holes[i],fifi=Math.random()<.2;
+    busy.add(i);m._fifi=fifi;m._hit=false;m.firstChild.innerHTML=G.mole(fifi);m.style.visibility='visible';retrig(m,'molup');
+    later(()=>{if(!m._hit){m.classList.remove('molup');m.classList.add('moldn');}later(()=>{m.style.visibility='hidden';m.classList.remove('moldn');busy.delete(i);},250);},speed);
+    later(pop,Math.max(500,speed*.55));
+  }
+  holes.forEach(m=>m.addEventListener('pointerdown',e=>{
+    if(!active()||m.style.visibility==='hidden'||m._hit)return;e.preventDefault();m._hit=true;
+    if(m._fifi){gentle('Це Фіфі! Її не чіпай');retrig(m,'wiggle');return;}
+    sfx.collect();burst(m._x,m._y,10,['#c8a990','#f6dc8a','#fff']);m.classList.remove('molup');m.classList.add('moldn');
+    n++;prog(n,N);speed=Math.max(1000,speed-70);
+    if(n===N){S.busy=true;later(win,700);}
+  }));
+  later(pop,700);
+}
+/* --- 3. Знайди відмінності --- */
+function EY_diff(nd){return function(){
+  instr('L',null,`Знайди ${nd} відмінност${nd<5?'і':'ей'} на правому малюнку`);
+  let found=0;prog(0,nd);
+  const PW=540,PH=420,LX=315,RX=885,PY=380;
+  const pool=[()=>G.oak(),()=>G.sunflower(),()=>SK().home(),()=>G.ladybug(),()=>G.car(),()=>G.mushroom(),()=>G.backpack(),()=>G.tent(),()=>G.apple(),()=>G.star(),()=>G.parrotT(),()=>G.bush(),()=>G.chick(),()=>G.balloon('#ee9384')];
+  const slots=[[90,90,100],[270,70,90],[450,95,90],[100,250,110],[270,230,100],[440,250,110],[110,365,80],[270,370,90],[440,370,80]];
+  const art=shuffle(pool.slice()).slice(0,slots.length).map(f=>f());
+  const kinds=shuffle(['hide','color','size','hide','color','size']);
+  const diffIdx=shuffle(slots.map((_,i)=>i)).slice(0,nd);
+  const mk=(right)=>slots.map(([x,y,s],i)=>{
+    const d=diffIdx.indexOf(i),k=d>=0?kinds[d]:null;
+    if(right&&k==='hide')return'';
+    const st=right&&k==='color'?'filter:hue-rotate(150deg) saturate(1.5)':right&&k==='size'?'transform:scale(1.45)':right&&k==='flip'?'transform:scaleX(-1)':'';
+    return `<div class="dfi" style="left:${x-s/2}px;top:${y-s/2}px;width:${s}px;height:${s}px;${st}">${art[i]}</div>`;}).join('');
+  const panel=(x,right)=>put(`<div class="dpanel">${mk(right)}</div>`,x,PY,PW,PH,'dp');
+  const L=panel(LX,false),R=panel(RX,true);
+  put(`<svg viewBox="0 0 40 40"><path d="M14 8l12 12-12 12" stroke="#6f6787" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,600,PY,36,36);
+  const done=new Set();
+  [L,R].forEach(P=>P.addEventListener('pointerdown',e=>{
+    if(!active()||S.busy)return;e.preventDefault();
+    const p=pt(e),lx=p.x-(P._x-PW/2),ly=p.y-(P._y-PH/2);
+    let hit=-1;diffIdx.forEach(i=>{const[x,y,s]=slots[i];if(!done.has(i)&&Math.hypot(lx-x,ly-y)<s*.62)hit=i;});
+    if(hit<0){gentle('Тут однаково. Шукай далі');const m=put('<div class="dmiss"></div>',p.x,p.y,40,40);setTimeout(()=>m.remove(),600);return;}
+    done.add(hit);found++;prog(found,nd);sfx.collect();
+    const[x,y,s]=slots[hit];[L,R].forEach(Q=>put('<div class="dring"></div>',Q._x-PW/2+x,Q._y-PH/2+y,s*1.35,s*1.35,'pop2'));
+    if(found===nd){S.busy=true;later(win,800);}else if(found%2===0)praise(true);
+  }));
+}}
+/* --- 4. Прокрути й знайди --- */
+function EY_scroll(){
+  const pool=[['дерево',()=>G.oak()],['соняшник',()=>G.sunflower()],['машинку',()=>G.car()],['грибочок',()=>G.mushroom()],['рюкзак',()=>G.backpack()],['намет',()=>G.tent()],['яблуко',()=>G.apple()],['сонечко',()=>G.ladybug()],['курчатко',()=>G.chick()],['кульку',()=>G.balloon('#b5a0e6')],['Папужку',()=>G.parrotT()],['скриньку',()=>G.chest()]];
+  const N=3;let n=0;prog(0,N);
+  const VW=460,VH=470,VX=470,VY=380,CH=2000;
+  const view=put(`<div class="sview"><div class="sinner"></div><div class="sbar"><i></i></div></div>`,VX,VY,VW,VH,'sv');
+  const inner=view.querySelector('.sinner'),thumb=view.querySelector('.sbar i');
+  const card=put('',930,330,260,300,'wanted');
+  put(`<div class="whint">${mouseIcon('W')}</div>`,930,560,90,90);
+  let off=0,target=null;
+  const setOff=v=>{off=Math.max(0,Math.min(CH-VH,v));inner.style.transform=`translateY(${-off}px)`;thumb.style.top=(off/(CH-VH)*(VH-80))+'px';};
+  function round(){
+    const order=shuffle(pool.slice()),tg=order[0],others=order.slice(1);
+    instr('W',null,`Прокрути коліщатком і знайди ${tg[0]}`);
+    card.firstChild.innerHTML=`<div class="wcard"><span>Знайди</span><div class="wpic">${tg[1]()}</div></div>`;retrig(card,'boing');
+    const ty=CH*.55+Math.random()*(CH*.38),items=[];
+    for(let y=60;y<CH-60;y+=150){for(let k=0;k<2;k++){const x=k?320:120;items.push({x:x+(Math.random()-.5)*60,y:y+(Math.random()-.5)*40,f:pick(others)[1]});}}
+    const ti=items.reduce((b,it,i)=>Math.abs(it.y-ty)<Math.abs(items[b].y-ty)?i:b,0);items[ti].f=tg[1];items[ti].t=1;
+    inner.innerHTML=`<div class="sbg"></div>`+items.map(it=>`<div class="sitem${it.t?' st':''}" style="left:${it.x-50}px;top:${it.y-50}px">${it.f()}</div>`).join('');
+    target=inner.querySelector('.st');setOff(0);
+  }
+  on(view,'wheel',e=>{e.preventDefault();if(!active())return;setOff(off+Math.sign(e.deltaY)*Math.min(120,Math.max(50,Math.abs(e.deltaY))));},{passive:false});
+  let ty=null,moved=0;
+  on(view,'pointerdown',e=>{if(e.pointerType!=='mouse'){ty=e.clientY;moved=0;}});
+  on(window,'pointermove',e=>{if(ty==null)return;const d=(ty-e.clientY)/SC;ty=e.clientY;moved+=Math.abs(d);setOff(off+d);});
+  on(window,'pointerup',()=>{ty=null;});
+  on(view,'click',e=>{
+    if(!active()||S.busy||moved>12){moved=0;return;}
+    const it=e.target.closest('.sitem');if(!it)return;
+    if(it!==target){retrig(it,'wiggle');gentle('Це не те. Подивись на картку праворуч');return;}
+    S.busy=true;it.classList.add('found');sfx.collect();n++;prog(n,N);
+    if(n===N){later(win,800);return;}
+    praise(true);later(()=>{S.busy=false;round();},900);
+  });
+  round();
+}
+/* --- 5. Пазл --- */
+function puzzlePic(){
+  return `<svg viewBox="0 0 420 420"><rect width="420" height="420" fill="#cfe4f3"/><circle cx="330" cy="80" r="44" fill="#f3cf6b"/><path d="M0 300Q120 250 230 290T420 270V420H0z" fill="#a8d4b6"/><path d="M0 340Q140 310 260 340T420 330V420H0z" fill="#8fcfac"/>
+  <ellipse cx="110" cy="90" rx="60" ry="24" fill="#fffaf2"/><ellipse cx="80" cy="80" rx="30" ry="22" fill="#fffaf2"/>
+  <rect x="40" y="190" width="120" height="110" rx="8" fill="#f6c6a6"/><path d="M28 196l72-64 72 64z" fill="#e07a6a"/><rect x="84" y="240" width="34" height="60" rx="6" fill="#b5a0e6"/><rect x="58" y="214" width="26" height="24" rx="4" fill="#fffaf2"/><rect x="124" y="214" width="26" height="24" rx="4" fill="#fffaf2"/>
+  <svg x="210" y="200" width="150" height="165" viewBox="0 0 100 110">${SK().hero(true).replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')}</svg>
+  <g transform="translate(360 300)"><path d="M0 60V10" stroke="#6aae8a" stroke-width="5"/><g fill="#f2b3c6">${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-6" rx="9" ry="14" transform="rotate(${a} 0 10)"/>`).join('')}</g><circle cx="0" cy="10" r="7" fill="#f3cf6b"/></g></svg>`;
+}
+function DR_puzzle(k){return function(){
+  instr('drag',null,'Перетягни шматочки на свої місця й склади картинку');
+  const S0=420,s=S0/k,BX=370,BY=360,N=k*k;let n=0;prog(0,N);
+  const pic=puzzlePic();
+  put(`<div class="pzboard">${k===2?`<div class="pzghost">${pic}</div>`:''}</div>`,BX,BY,S0+16,S0+16);
+  const slots=[];
+  for(let r=0;r<k;r++)for(let c=0;c<k;c++){const t=put('<div class="pzslot"></div>',BX-S0/2+s/2+c*s,BY-S0/2+s/2+r*s,s,s,'target');t._i=r*k+c;slots.push(t);}
+  const area=[780,1140,130,620],cols=k===2?2:3,rows=Math.ceil(N/cols),cw=(area[1]-area[0])/cols,ch=(area[3]-area[2])/rows;
+  const spots=shuffle(Array.from({length:N},(_,i)=>i));
+  for(let i=0;i<N;i++){
+    const r=Math.floor(i/k),c=i%k,sp=spots[i],sx=area[0]+cw*(sp%cols+.5),sy=area[2]+ch*(Math.floor(sp/cols)+.5);
+    const sc=Math.min(1,(Math.min(cw,ch)-14)/s);
+    const p=put(`<div class="pz" style="width:${s}px;height:${s}px"><div style="position:absolute;left:${-c*s}px;top:${-r*s}px;width:${S0}px;height:${S0}px">${pic}</div></div>`,sx,sy,s,s,'pzp');
+    p._i=i;p.firstChild.style.transform=`scale(${sc}) rotate(${(Math.random()-.5)*14}deg)`;
+    draggable(p,{targets:slots,r:s*.5,
+      onGrab:()=>{p.firstChild.style.transform='scale(1.04)';},
+      accept:(it,t)=>t._i===it._i,
+      onPlace:(it)=>{it.firstChild.style.transform='none';it.classList.add('pzok');sfx.collect();n++;prog(n,N);
+        if(n===N){S.busy=true;burst(BX,BY,20);later(win,700);}else if(n%3===0)praise();},
+      onMiss:(t)=>{p.firstChild.style.transform=`scale(${sc}) rotate(${(Math.random()-.5)*14}deg)`;if(t)gentle('Цей шматочок з іншого місця');}});
+  }
+}}
+/* --- 6. Повзунок --- */
+function DR_slider(){
+  const N=4;let n=0,dragging=false;prog(0,N);
+  const TX0=300,TX1=900,TY=470,STEPS=10;
+  const sx=v=>TX0+(TX1-TX0)*v/STEPS;
+  const tasks=shuffle([
+    {t:'Зроби сонце таким яскравим, як показує зірочка',k:'sun'},
+    {t:'Надуй кульку до зірочки',k:'bal'},
+    {t:'Постав гучність на зірочку',k:'vol'},
+    {t:'Підніми Фіфі на зірочку',k:'up'}]);
+  put(`<div class="sltrack">${Array.from({length:STEPS+1},(_,i)=>`<i style="left:${i*10}%"></i>`).join('')}</div>`,600,TY,640,40);
+  const star=put(G.star(),sx(5),TY-58,46,46,'pop2');
+  const knob=put('<div class="slknob"></div>',sx(0),TY,58,58,'drag');
+  const show=put('',600,250,460,320);
+  let val=0,goal=5,task;
+  function render(){
+    const v=val/STEPS;
+    if(task.k==='sun')show.firstChild.innerHTML=`<svg viewBox="0 0 200 140"><g opacity="${.25+v*.75}"><circle cx="100" cy="70" r="${26+v*16}" fill="#f3cf6b"/>${Array.from({length:12},(_,i)=>`<path d="M100 70l${Math.cos(i*Math.PI/6)*(44+v*22)} ${Math.sin(i*Math.PI/6)*(44+v*22)}" stroke="#f3cf6b" stroke-width="5" stroke-linecap="round"/>`).join('')}</g><circle cx="100" cy="70" r="${26+v*16}" fill="#f6dc8a" opacity="${.3+v*.7}"/></svg>`;
+    else if(task.k==='bal')show.firstChild.innerHTML=`<svg viewBox="0 0 200 140"><g transform="translate(100 74) scale(${.35+v*.75}) translate(-50 -60)">${G.balloon('#ee9384').replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')}</g></svg>`;
+    else if(task.k==='vol')show.firstChild.innerHTML=`<svg viewBox="0 0 200 140"><path d="M30 55h20l26-22v74l-26-22H30z" fill="#6f6787"/>${Array.from({length:STEPS},(_,i)=>`<rect x="${92+i*10}" y="${100-i*7}" width="7" height="${10+i*7}" rx="2" fill="${i<val?'#8fcfac':'#e3d9ca'}"/>`).join('')}</svg>`;
+    else show.firstChild.innerHTML=`<svg viewBox="0 0 200 140"><rect x="86" y="0" width="28" height="140" rx="6" fill="#efe7da"/><svg x="78" y="${96-v*92}" width="44" height="48" viewBox="0 0 100 110">${SK().hero().replace(/^<svg[^>]*>/,'').replace(/<\/svg>$/,'')}</svg></svg>`;
+  }
+  function round(){
+    task=tasks[n%tasks.length];goal=2+Math.floor(Math.random()*7);if(goal===val)goal=goal<6?goal+2:goal-2;
+    place(star,sx(goal),TY-58);retrig(star,'pop2');instr('drag',G.star(),task.t);render();
+  }
+  on(knob,'pointerdown',e=>{if(!active()||S.busy||e.button!==0)return;e.preventDefault();dragging=true;knob.classList.add('dragging');sfx.click();});
+  on(window,'pointermove',e=>{
+    if(!dragging||!active())return;const p=pt(e);const x=Math.max(TX0,Math.min(TX1,p.x));place(knob,x,TY);
+    const nv=Math.round((x-TX0)/(TX1-TX0)*STEPS);if(nv!==val){val=nv;render();tone(400+val*40,.04,'triangle',.04);}
+  });
+  const up=()=>{
+    if(!dragging)return;dragging=false;knob.classList.remove('dragging');glide(knob,sx(val),TY,120);
+    if(val===goal){S.busy=true;sfx.collect();burst(sx(goal),TY-58,12);n++;prog(n,N);
+      if(n===N){later(win,700);return;}praise(true);later(()=>{S.busy=false;round();},800);}
+    else gentle(val<goal?'Ще трохи далі!':'Забагато — трохи назад');
+  };
+  on(window,'pointerup',up);on(window,'pointercancel',up);
+  round();
+}
+/* --- 7. З'єднай точки --- */
+const DOT_PICS={
+  house:{pts:[[450,560],[450,330],[600,200],[750,330],[750,560]],close:true,fill:'#f6c6a6',extra:`<rect x="560" y="440" width="80" height="120" rx="8" fill="#b5a0e6"/><rect x="480" y="370" width="60" height="50" rx="6" fill="#fffaf2"/><rect x="660" y="370" width="60" height="50" rx="6" fill="#fffaf2"/>`},
+  star:{pts:[[600,135],[659,289],[823,297],[695,401],[738,560],[600,470],[462,560],[505,401],[377,297],[541,289]],close:true,fill:'#f3cf6b',extra:''},
+  cat:{pts:[[470,560],[455,380],[480,250],[540,330],[660,330],[720,250],[745,380],[730,560]],close:true,fill:'#d9cfc0',extra:`<circle cx="555" cy="420" r="14" fill="#3b3450"/><circle cx="645" cy="420" r="14" fill="#3b3450"/><path d="M588 462h24l-12 14z" fill="#f2b3c6"/><path d="M520 470h-50M520 486h-48M680 470h50M680 486h48" stroke="#6f6787" stroke-width="4" stroke-linecap="round"/>`},
+};
+function DRAW_dots(name){return function(){
+  instr('drag',null,'Затисни кнопку на точці 1 і веди лінію по точках 1, 2, 3…');
+  const P=DOT_PICS[name],pts=P.close?P.pts.concat([P.pts[0]]):P.pts,N=pts.length-1;let at=0,drawing=false;prog(0,N);
+  const svg=put(`<svg viewBox="0 0 1200 660" class="dotsvg"><path class="dfill" d="M${P.pts.map(p=>p.join(' ')).join('L')}Z" fill="${P.fill}" opacity="0"/><g class="dextra" opacity="0">${P.extra}</g><path class="dline" d="" stroke="#3b3450" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/><line class="drub" stroke="#ee9384" stroke-width="6" stroke-dasharray="4 10" stroke-linecap="round"/></svg>`,600,330,1200,660,'dlayer');
+  const line=svg.querySelector('.dline'),rub=svg.querySelector('.drub');
+  const dots=P.pts.map((p,i)=>put(`<div class="ddot${i===0?' next':''}"><b>${i+1}</b></div>`,p[0],p[1],56,56));
+  const upd=()=>{line.setAttribute('d','M'+pts.slice(0,at+1).map(p=>p.join(' ')).join('L'));dots.forEach((d,i)=>{d.firstChild.firstChild.classList.toggle('next',i===(at+1)%P.pts.length&&at<N);d.firstChild.firstChild.classList.toggle('cur',i===at%P.pts.length&&at<N);d.firstChild.firstChild.classList.toggle('done',i<=at&&!(i===0&&at===0&&!drawing));});};
+  on(stage,'pointerdown',e=>{
+    if(!active()||S.busy||e.button!==0)return;const p=pt(e);
+    if(Math.hypot(p.x-pts[at][0],p.y-pts[at][1])<40){e.preventDefault();drawing=true;sfx.click();upd();}
+    else if(!e.target.closest('#instr'))gentle(at?'Почни з останньої з’єднаної точки':'Почни з точки 1');
+  });
+  on(window,'pointermove',e=>{
+    if(!drawing||!active())return;const p=pt(e);
+    rub.setAttribute('x1',pts[at][0]);rub.setAttribute('y1',pts[at][1]);rub.setAttribute('x2',p.x);rub.setAttribute('y2',p.y);
+    const nx=pts[at+1];
+    if(nx&&Math.hypot(p.x-nx[0],p.y-nx[1])<32){at++;tone(500+at*45,.1,'triangle',.07);prog(at,N);upd();
+      if(at===N){drawing=false;S.busy=true;rub.setAttribute('x2',pts[at][0]);rub.setAttribute('y2',pts[at][1]);rub.setAttribute('x1',pts[at][0]);rub.setAttribute('y1',pts[at][1]);
+        svg.querySelector('.dfill').style.transition='opacity .6s';svg.querySelector('.dfill').setAttribute('opacity','1');svg.querySelector('.dextra').style.transition='opacity .6s';svg.querySelector('.dextra').setAttribute('opacity','1');
+        dots.forEach(d=>d.style.opacity='.0');burst(600,330,20);later(win,1000);}}
+  });
+  const up=()=>{if(!drawing)return;drawing=false;rub.setAttribute('x2',pts[at][0]);rub.setAttribute('y2',pts[at][1]);rub.setAttribute('x1',pts[at][0]);rub.setAttribute('y1',pts[at][1]);if(at<N)toast('Затисни кнопку на останній точці й веди далі',true);};
+  on(window,'pointerup',up);on(window,'pointercancel',up);
+  upd();
+}}
+/* --- 8. Розфарбовування --- */
+const PAL=[['#ee9384','червоний'],['#f3cf6b','жовтий'],['#8fcfac','зелений'],['#6fa6d6','синій'],['#b5a0e6','фіолетовий'],['#f0a56e','помаранчевий']];
+const COLOR_PIC=[
+  {id:'sky',d:'M0 0H600V300H0z',c:3},{id:'sun',d:'M520 70a40 40 0 1 1-80 0a40 40 0 1 1 80 0z',c:1},
+  {id:'grass',d:'M0 300H600V440H0z',c:2},{id:'wall',d:'M150 200H350V360H150z',c:5},{id:'roof',d:'M130 205L250 110L370 205z',c:0},
+  {id:'door',d:'M225 280H275V360H225z',c:4},{id:'win',d:'M170 225H215V265H170z',c:1},{id:'trunk',d:'M455 260H485V360H455z',c:5},{id:'crown',d:'M470 140a70 65 0 1 1 -0.1 0z',c:2},
+];
+function DRAW_color(sample){return function(){
+  instr('L',null,sample?'Розфарбуй так само, як на маленькому малюнку':'Обери фарбу й клацни на частину малюнка. Розфарбуй усе!');
+  const N=COLOR_PIC.length;let n=0,cur=0;prog(0,N);const filled={};
+  const CX=sample?520:600;
+  const pic=put(`<svg viewBox="0 0 600 440" class="cpic">${COLOR_PIC.map(r=>`<path data-r="${r.id}" d="${r.d}" fill="#fffaf2" stroke="#3b3450" stroke-width="4" stroke-linejoin="round"/>`).join('')}</svg>`,CX,300,600,440,'cpw');
+  if(sample)put(`<div class="csample"><svg viewBox="0 0 600 440">${COLOR_PIC.map(r=>`<path d="${r.d}" fill="${PAL[r.c][0]}" stroke="#3b3450" stroke-width="6"/>`).join('')}</svg></div>`,1015,240,250,190);
+  const sw=PAL.map((p,i)=>{const b=put(`<div class="swatch" style="--c:${p[0]}"></div>`,CX-250+i*100,600,80,64,'click');
+    b.addEventListener('pointerdown',e=>{if(!active())return;e.preventDefault();cur=i;sw.forEach((x,k)=>x.firstChild.firstChild.classList.toggle('on',k===i));sfx.click();});return b;});
+  sw[0].firstChild.firstChild.classList.add('on');
+  pic.addEventListener('pointerdown',e=>{
+    if(!active()||S.busy)return;const r=e.target.closest('[data-r]');if(!r)return;e.preventDefault();
+    const reg=COLOR_PIC.find(x=>x.id===r.dataset.r);
+    if(sample&&reg.c!==cur){gentle('На зразку тут інший колір — подивись праворуч');retrig(pic,'wiggle');return;}
+    r.setAttribute('fill',PAL[cur][0]);sfx.note(Object.keys(filled).length);
+    if(!filled[reg.id]){filled[reg.id]=1;n++;prog(n,N);}
+    if(n===N){S.busy=true;burst(CX,300,20);later(win,800);}
+  });
+}}
+/* --- 9. Виділення рамкою --- */
+function DRAW_frame(strict){return function(){
+  instr('drag',G.chick(),strict?'Обведи рамкою всіх курчат — і нікого більше':'Затисни кнопку на порожньому місці й обведи рамкою всіх курчат');
+  const N=3;let n=0,sel=null,start=null,items=[];prog(0,N);
+  const rect=put('<div class="selbox"></div>',0,0,1,1,'selr');rect.style.display='none';
+  function round(){
+    items.forEach(i=>i.remove());items=[];
+    const cx=260+Math.random()*680,cy=260+Math.random()*200,k=4+n;
+    for(let i=0;i<k;i++){const a=i/k*Math.PI*2+Math.random()*.4,rr=40+Math.random()*60;
+      const it=put(G.chick(),cx+Math.cos(a)*rr*1.3,cy+Math.sin(a)*rr*.8,64,77);it._t=1;items.push(it);}
+    if(strict||n>0){const others=[()=>G.ladybug(),()=>G.apple(),()=>G.flower(true,'#b5a0e6')];
+      for(let i=0;i<(strict?7:3);i++){let x,y,tries=0;do{x=80+Math.random()*1040;y=150+Math.random()*450;tries++;}while(tries<80&&(Math.abs(x-cx)<(strict?210:250)&&Math.abs(y-cy)<(strict?150:180)));
+        const it=put(pick(others)(),x,y,56,60);it._t=0;items.push(it);}}
+  }
+  const inside=(it,b)=>it._x-it._w*.3>=b.x0&&it._x+it._w*.3<=b.x1&&it._y-it._h*.3>=b.y0&&it._y+it._h*.3<=b.y1;
+  const box=p=>({x0:Math.min(start.x,p.x),x1:Math.max(start.x,p.x),y0:Math.min(start.y,p.y),y1:Math.max(start.y,p.y)});
+  on(stage,'pointerdown',e=>{
+    if(!active()||S.busy||e.button!==0||e.target.closest('#instr'))return;e.preventDefault();
+    start=pt(e);sel=box(start);rect.style.display='block';
+  });
+  on(window,'pointermove',e=>{
+    if(!start||!active())return;const b=box(pt(e));sel=b;
+    rect._w=b.x1-b.x0;rect._h=b.y1-b.y0;rect.style.width=rect._w+'px';rect.style.height=rect._h+'px';place(rect,(b.x0+b.x1)/2,(b.y0+b.y1)/2);
+    items.forEach(it=>it.classList.toggle('picked',inside(it,b)));
+  });
+  const up=()=>{
+    if(!start)return;start=null;rect.style.display='none';
+    const pick_=items.filter(it=>it.classList.contains('picked')),tg=items.filter(it=>it._t);
+    items.forEach(it=>it.classList.remove('picked'));
+    if(!sel||sel.x1-sel.x0<20)return;
+    const allT=tg.every(it=>pick_.includes(it)),extra=pick_.some(it=>!it._t);
+    if(allT&&!extra){S.busy=true;sfx.collect();tg.forEach(it=>{burst(it._x,it._y,5);retrig(it,'boing');});n++;prog(n,N);
+      if(n===N){later(win,800);return;}praise(true);later(()=>{S.busy=false;round();},900);}
+    else if(!allT)gentle(pick_.length?'Не всі курчата в рамці — зроби рамку більшою':'Обведи рамкою курчат');
+    else gentle('У рамці зайве — обведи лише курчат');
+  };
+  on(window,'pointerup',up);on(window,'pointercancel',up);
+  round();
+}}
+
 /* ================= catalog ================= */
 const MV='Рух мишки';
 const CATS={
@@ -3213,12 +3559,14 @@ const CATS={
    {name:'Знайди мишку',skill:'Комп’ютерна мишка серед інших пристроїв',icon:'L',scene:'clearing',build:MI_find},
    {name:'Яка кнопка?',skill:'Натискання лівої та правої кнопок',icon:'R',scene:'clearing',build:MI_btn},
    {name:'Коліщатко',skill:'Прокрутка коліщатком угору й униз',icon:'W',scene:'castle',build:MI_wheel},
+   {name:'Надуй кульку',skill:'Затиснути кнопку й вчасно відпустити',icon:'L',scene:'clearing',build:KN_hold},
   ]},
   {id:'left',title:'Наведи й клікни',desc:'Наведи мишку на предмет і натисни ліву кнопку',c:'c2',art:()=>mouseIcon('L'),levels:[
    {name:'Сонні квіти',skill:'Наведення курсора й клік лівою кнопкою',icon:'L',scene:'clearing',build:H0},
    {name:'Нагодуй {hero_acc}',skill:'Наведення та клік лівою кнопкою',icon:'L',scene:'village',build:L2},
    {name:'Лопни бульбашки',skill:'Швидкі точні кліки по цілях різного розміру',icon:'L',scene:'clearing',build:C2},
    {name:'{cont_title}',skill:'Точне наведення на маленькі цілі',icon:'L',scene:'village',build:L3},
+   {name:'Кроти',skill:'Швидкий клік по цілях, що з’являються',icon:'L',scene:'clearing',build:L_mole},
   ]},
   {id:'eyes',title:'Уважні очі',desc:'Клікай числа по черзі й шукай сховане',c:'c1',art:()=>G.ladybug(),levels:[
    {name:'Числа 1–10',skill:'Точний клік і порядок чисел до 10',icon:'L',scene:'clearing',build:NUM(10)},
@@ -3226,6 +3574,9 @@ const CATS={
    {name:'Числа 1–15',skill:'Швидкий точний клік, числа до 15',icon:'L',scene:'village',build:NUM(15)},
    {name:'Сонечка сховались краще',skill:'Пошук ледь помітних маленьких цілей',icon:'L',scene:'forest',build:HIDE(7,true)},
    {name:'Числа 1–20',skill:'Швидкий точний клік, числа до 20',icon:'L',scene:'castle',build:NUM(20)},
+   {name:'Знайди 3 відмінності',skill:'Уважно порівнювати й клікати',icon:'L',scene:'village',build:EY_diff(3)},
+   {name:'Прокрути й знайди',skill:'Прокрутка коліщатком і пошук',icon:'W',scene:'forest',build:EY_scroll},
+   {name:'Знайди 5 відмінностей',skill:'Уважно порівнювати дрібні деталі',icon:'L',scene:'castle',build:EY_diff(5)},
   ]},
   {id:'right',title:'Права кнопка',desc:'Шукай сховане й відкривай меню',c:'c3',art:()=>mouseIcon('R'),levels:[
    {name:'Знайди сховане',skill:'Клік правою кнопкою',icon:'R',scene:'forest',build:R1},
@@ -3246,6 +3597,9 @@ const CATS={
    {name:'Чотири кольори',skill:'Сортування за кольором, менші цілі',icon:'drag',scene:'village',build:S_COL4},
    {name:'Усі фігури',skill:'Сортування за формою, менші цілі',icon:'drag',scene:'clearing',build:S_HEART},
    {name:'Лабіринт {hero_gen}',skill:'Точний рух із затиснутою кнопкою',icon:'drag',scene:'forest',build:L5},
+   {name:'Пазл із 4 шматочків',skill:'Перетягування на точне місце',icon:'drag',scene:'clearing',build:DR_puzzle(2)},
+   {name:'Повзунок',skill:'Перетягування повзунка до позначки',icon:'drag',scene:'village',build:DR_slider},
+   {name:'Пазл із 9 шматочків',skill:'Точне перетягування дрібних частин',icon:'drag',scene:'forest',build:DR_puzzle(3)},
   ]},
   {id:'move',title:'Рух і лабіринти',desc:'Збирай предмети, проходь доріжки й лабіринти',c:'c1',art:()=>mouseIcon('move'),levels:[
    {name:'Збери цукерки',skill:'Рух мишки та керування курсором',icon:'move',scene:'clearing',build:L1},
@@ -3263,6 +3617,15 @@ const CATS={
     build:PATH(rnd([[110,585],[1070,585],[1070,200],[140,200],[140,490],[960,490],[960,295],[290,295],[290,395],[800,395]],45),56,()=>SK().hero(),'Пройди спіраллю до {hero_gen}',()=>[ICON.fly,SK().hero()])},
    {name:'{cave}',skill:'Точний рух мишки у вузькому лабіринті',icon:'move',scene:'cave',
     build:HM(['##############','#S#.C.#.C.#.F#','#.#.#.#.#.#.##','#.#.#.#.#.#.##','#.#.#.#.#.#.##','#...#.C.#.C.##','##############'],75,75,108,13,()=>SK().flyer(),.67,()=>G.chest(),[4,1],'Веди {flyer_acc} до скрині',()=>[SK().flyer(),G.chest()])},
+  ]},
+  {id:'draw',title:'Малюю й виділяю',desc:'Веди лінію, розфарбовуй і виділяй рамкою',c:'c6',art:()=>G.star(),levels:[
+   {name:'З’єднай точки: будиночок',skill:'Затиснути кнопку й вести лінію',icon:'drag',scene:'clearing',build:DRAW_dots('house')},
+   {name:'Розфарбуй',skill:'Вибір кольору й клік по частині малюнка',icon:'L',scene:'village',build:DRAW_color(false)},
+   {name:'Виділи рамкою',skill:'Виділення кількох предметів рамкою',icon:'drag',scene:'clearing',build:DRAW_frame(false)},
+   {name:'З’єднай точки: зірка',skill:'Точне ведення лінії',icon:'drag',scene:'forest',build:DRAW_dots('star')},
+   {name:'Розфарбуй за зразком',skill:'Вибір потрібного кольору за зразком',icon:'L',scene:'village',build:DRAW_color(true)},
+   {name:'Рамкою лише курчат',skill:'Точне виділення рамкою без зайвого',icon:'drag',scene:'castle',build:DRAW_frame(true)},
+   {name:'З’єднай точки: котик',skill:'Ведення лінії по складній фігурі',icon:'drag',scene:'clearing',build:DRAW_dots('cat')},
   ]},
   {id:'mix',title:'Усе разом',desc:'Рівні, де треба вміти все',c:'c5',art:()=>G.star(),levels:[
    {name:'Чарівна майстерня',skill:'Кілька кліків, перетягування, права кнопка',icon:'R',scene:'castle',build:X1},
