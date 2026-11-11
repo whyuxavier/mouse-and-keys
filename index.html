@@ -3041,30 +3041,6 @@ function MI_find(){
   }
   round();
 }
-/* 2. Частини мишки */
-function MI_parts(){
-  const seq=['L','R','W'].concat(shuffle(['L','R','W'])).slice(0,6);
-  const NAME={L:'ліву кнопку',R:'праву кнопку',W:'коліщатко'};
-  const N=seq.length;let n=0;prog(0,N);
-  const m=put(G.bigMouse(),600,380,220,330,'bigm');
-  const fifi=put(SK().hero(),260,470,130,143,'float-slow');
-  function ask(){
-    const p=seq[n];
-    instr(p==='W'?'W':'p'+p,null,'§Покажи на мишці '+NAME[p]);
-    m.querySelectorAll('.mp').forEach(x=>x.classList.remove('ok'));
-  }
-  m.addEventListener('pointerdown',e=>{
-    if(!active()||S.busy)return;e.preventDefault();
-    const part=e.target.closest('[data-part]');
-    if(!part){gentle('Натисни саме на мишку');return;}
-    const want=seq[n];
-    if(part.dataset.part!==want){retrig(m,'wiggle');S.mist++;sfx.soft();toast('§'+{L:'Це ліва кнопка',R:'Це права кнопка',W:'Це коліщатко'}[part.dataset.part]+'. Шукай '+NAME[want],true);return;}
-    part.classList.add('ok');sfx.collect();retrig(fifi,'boing');n++;prog(n,N);
-    if(n===N){S.busy=true;later(win,700);return;}
-    praise(true);S.busy=true;later(()=>{S.busy=false;ask();},650);
-  });
-  ask();
-}
 /* 3. Яка кнопка? — натисни ліву або праву кнопку на своїй мишці */
 function MI_btn(){
   const seq=shuffle(['L','L','L','R','R','R','L','R']);
@@ -3235,7 +3211,6 @@ const CATS={
  mouse:[
   {id:'know',title:'Знайомство з мишкою',desc:'Яка вона, мишка, де кнопки й коліщатко',c:'c5',art:()=>G.pcMouse(),levels:[
    {name:'Знайди мишку',skill:'Комп’ютерна мишка серед інших пристроїв',icon:'L',scene:'clearing',build:MI_find},
-   {name:'Частини мишки',skill:'Ліва й права кнопки, коліщатко',icon:'pL',scene:'village',build:MI_parts},
    {name:'Яка кнопка?',skill:'Натискання лівої та правої кнопок',icon:'R',scene:'clearing',build:MI_btn},
    {name:'Коліщатко',skill:'Прокрутка коліщатком угору й униз',icon:'W',scene:'castle',build:MI_wheel},
   ]},
