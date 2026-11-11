@@ -3,8 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Тренажер мишки та клавіатури</title>
-<meta name="description" content="Тренажер для дітей 6–10 років: мишка, клавіатура й перші кроки в Windows разом із котиком Фіфі та Папужкою.">
+<title>Фіфіклік — тренажер мишки та клавіатури для дітей</title>
+<meta name="description" content="Фіфіклік — безкоштовний онлайн-тренажер мишки та клавіатури для дітей 6–10 років: вправи з котиком Фіфі та Папужкою, перегони на клавіатурі й перші кроки в Windows.">
+<meta name="keywords" content="Фіфіклік, тренажер мишки, клавіатурний тренажер для дітей, комп’ютерна грамотність, НУШ, інформатика">
+<meta property="og:title" content="Фіфіклік — тренажер мишки та клавіатури">
+<meta property="og:description" content="Фіфіклік — безкоштовний онлайн-тренажер мишки та клавіатури для дітей 6–10 років: вправи з котиком Фіфі та Папужкою, перегони на клавіатурі й перші кроки в Windows.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://whyuxavier.github.io/pc-trainer/">
+<meta property="og:locale" content="uk_UA">
+<link rel="canonical" href="https://whyuxavier.github.io/pc-trainer/">
 <link rel="icon" id="favicon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b2160'/%3E%3Cpath d='M32 17c1-5 4-8 8-9' stroke='%2366b04a' stroke-width='4' fill='none' stroke-linecap='round'/%3E%3Cellipse cx='22' cy='37' rx='13' ry='17' fill='%23e8650f'/%3E%3Cellipse cx='42' cy='37' rx='13' ry='17' fill='%23e8650f'/%3E%3Cellipse cx='32' cy='37' rx='14' ry='18' fill='%23ff8a2b'/%3E%3Cpath d='M23 33l4-5 4 5zM33 33l4-5 4 5z' fill='%23ffe27a'/%3E%3Cpath d='M24 42q8 7 16 0' stroke='%23ffe27a' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3Cpath d='M43 38v20l5-4.5 3.5 7.5 3.5-1.6-3.5-7.4h6.5z' fill='%23fff' stroke='%232a1d4f' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Rubik:wght@600;700;800&display=swap" rel="stylesheet">
@@ -849,7 +856,7 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><filter id="pp" x="-15%" y="-15%" width="130%" height="140%"><feDropShadow dx="0" dy="2.2" stdDeviation="1.3" flood-color="#503c28" flood-opacity=".3"/></filter></defs></svg>
 <header>
-  <button class="brandbtn" id="brandBtn" aria-label="На головну"><span class="logo" id="logo"></span><b id="brandName">Тренажер мишки та клавіатури</b></button>
+  <button class="brandbtn" id="brandBtn" aria-label="На головну"><span class="logo" id="logo"></span><b id="brandName">Фіфіклік</b></button>
   <div class="hdr-mid">
     <button class="ib" id="bBack" title="Назад" aria-label="Назад"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="3.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     <span id="crumb"></span>
@@ -868,7 +875,7 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
     <div class="hero">
       <div class="hero-bg"></div>
       <div class="hero-text">
-        <span class="badge">Для дітей 6–10 років</span>
+        <span class="badge">Фіфіклік · для дітей 6–10 років</span>
         <h1 id="heroTitle">Тренажер мишки та клавіатури</h1>
         <p>Граємо й вчимося: рухати мишкою, перетягувати, шукати літери й друкувати — від перших слів до речень наввипередки з Папужкою.</p>
         <div class="modes">
@@ -899,7 +906,7 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
 
 <div id="modal" role="dialog" aria-modal="true" aria-labelledby="mt">
   <div class="mbox">
-    <div class="i-head"><div class="i-badge">i</div><div><h2 id="mt">Про тренажер</h2><span id="mSub">Тренажер мишки та клавіатури</span></div></div>
+    <div class="i-head"><div class="i-badge">i</div><div><h2 id="mt">Фіфіклік</h2><span id="mSub">Тренажер мишки та клавіатури</span></div></div>
     <div class="i-body">
       <p>Котик Фіфі й Папужка вчать дітей 6–10 років користуватися мишкою, клавіатурою та комп’ютером.</p>
       <ul>
@@ -4003,7 +4010,7 @@ const FAV_H=$('#favicon').getAttribute('href');
 function applyTheme(){
   document.documentElement.dataset.theme=S.theme;
   const sk=SK(),w=WORDS[S.theme];
-  $('#logo').innerHTML=sk.logo;$('#brandName').textContent=w.title;document.title=w.title;$('#mSub').textContent=w.title;
+  $('#logo').innerHTML=sk.logo;$('#brandName').textContent='Фіфіклік';document.title='Фіфіклік — тренажер мишки та клавіатури для дітей';$('#mSub').textContent=w.title;
   $('#pauseGhost').innerHTML=sk.hero();$('#pauseText').textContent=tx('{Hero} чекає на тебе!');
   $('#favicon').setAttribute('href','data:image/svg+xml,'+encodeURIComponent(sk.logo.replace('<svg ','<svg xmlns="http://www.w3.org/2000/svg" ')));
 }
