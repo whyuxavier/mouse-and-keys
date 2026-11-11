@@ -843,9 +843,6 @@ header{background:color-mix(in srgb,var(--page) 82%,transparent);border-bottom:1
 .csample svg{width:100%;height:100%}
 .swatch{width:100%;height:100%;border-radius:14px;background:var(--c);box-shadow:0 4px 0 rgba(90,66,44,.3);transition:transform .15s}
 .swatch.on{transform:translateY(-10px) scale(1.08);box-shadow:0 4px 0 rgba(90,66,44,.3),0 0 0 4px #fffaf2,0 0 0 7px #3b3450}
-.selr{z-index:6;pointer-events:none}
-.selbox{width:100%;height:100%;border:3px dashed #6fa6d6;background:rgba(111,166,214,.15);border-radius:4px}
-.obj.picked>.in{filter:drop-shadow(0 0 6px #6fa6d6) drop-shadow(0 0 2px #6fa6d6)}
 
 </style>
 </head>
@@ -2566,6 +2563,49 @@ function PM_select(){
   });
   R.go(0);
 }
+function PM_select2(){
+  const D=pcDesk();
+  const mk=(kind,pos)=>pos.map(([x,y])=>{const i=D.icon(kind,'',x,y);return i;});
+  const stars=mk('img',[[200,110],[320,110],[200,230],[320,230]]),apples=mk('music',[[600,260],[720,260],[660,370]]);
+  [['Лист',40,160],['Нотатка',480,110],['Звіт',240,400],['Казка',620,60],['Пісня.txt',880,400],['Вірш',420,410]].forEach(([l,x,y])=>D.icon('txt',l,x,y));
+  const fs=D.icon('fPhoto','Малюнки',940,30),ff=D.icon('fMusic','Музика',940,260);fs.dataset.drop='img';ff.dataset.drop='music';
+  const zone=g=>{const z=document.createElement('div');z.className='pczone';const xs=g.map(i=>i.offsetLeft),ys=g.map(i=>i.offsetTop);z.style.cssText=`left:${Math.min(...xs)-16}px;top:${Math.min(...ys)-16}px;width:${Math.max(...xs)-Math.min(...xs)+136}px;height:${Math.max(...ys)-Math.min(...ys)+136}px`;D.area.appendChild(z);return z;};
+  let Z=null;
+  const grp=()=>R.i<2?stars:apples,fold=()=>R.i<2?fs:ff;
+  const R=pcRun([
+    {act:'box',icon:'drag',pics:()=>[PCI.img(),PCI.img()],text:'Обведи рамкою лише малюнки — без текстових файлів',enter:()=>{Z=zone(stars);},
+      demo:()=>{const z=Z.getBoundingClientRect(),s=stage.getBoundingClientRect();return[{el:{x:(z.left-s.left)/SC,y:(z.top-s.top)/SC},act:'box',to:{x:(z.right-s.left)/SC,y:(z.bottom-s.top)/SC}}];}},
+    {act:'drag',icon:'drag',pics:()=>[PCI.img(),PCI.fPhoto()],text:'Перетягни виділені малюнки в папку «Малюнки»',enter:()=>{Z&&Z.remove();},hl:()=>fs,demo:()=>[{el:stars[0],act:'drag',to:fs,ghost:PCI.img()}]},
+    {act:'box',icon:'drag',pics:()=>[PCI.music(),PCI.music()],text:'Тепер обведи рамкою лише музику',enter:()=>{Z=zone(apples);},
+      demo:()=>{const z=Z.getBoundingClientRect(),s=stage.getBoundingClientRect();return[{el:{x:(z.left-s.left)/SC,y:(z.top-s.top)/SC},act:'box',to:{x:(z.right-s.left)/SC,y:(z.bottom-s.top)/SC}}];}},
+    {act:'drag',icon:'drag',pics:()=>[PCI.music(),PCI.fMusic()],text:'Перетягни музику в папку «Музика»',enter:()=>{Z&&Z.remove();},hl:()=>ff,demo:()=>[{el:apples[0],act:'drag',to:ff,ghost:PCI.music()}]},
+  ]);
+  /* rubber band */
+  D.area.addEventListener('pointerdown',e=>{
+    if(e.target!==D.area||e.button!==0||!active()||S.busy)return;
+    e.preventDefault();try{D.area.setPointerCapture(e.pointerId);}catch(_){}
+    const a=D.apt(e),box=document.createElement('div');box.className='pcsel';D.area.appendChild(box);
+    const icons=[...D.area.querySelectorAll('.pcicon')].filter(i=>!i.dataset.drop);
+    const mv=ev=>{const b=D.apt(ev),x=Math.min(a.x,b.x),y=Math.min(a.y,b.y),w=Math.abs(a.x-b.x),h=Math.abs(a.y-b.y);
+      Object.assign(box.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px'});
+      icons.forEach(i=>{const l=i.offsetLeft,t=i.offsetTop,r=l+i.offsetWidth,bb=t+i.offsetHeight;i.classList.toggle('sel',!(r<x||l>x+w||bb<y||t>y+h));});};
+    const up=ev=>{D.area.removeEventListener('pointermove',mv);D.area.removeEventListener('pointerup',up);D.area.removeEventListener('pointercancel',up);box.remove();
+      const sel=[...D.area.querySelectorAll('.pcicon.sel')];if(!sel.length)return;
+      if(R.i===0||R.i===2){const g=grp();if(sel.length===g.length&&g.every(i=>sel.includes(i)))R.ok();else R.err('select',g.some(i=>!sel.includes(i))?'Не всі потрібні файли в рамці':'У рамці зайві файли — обведи точніше');}};
+    D.area.addEventListener('pointermove',mv);D.area.addEventListener('pointerup',up);D.area.addEventListener('pointercancel',up);
+  });
+  stars.concat(apples).forEach(el=>{
+    pcClicks(el,{single:()=>{if(!el.classList.contains('sel'))D.sel(el);},right:()=>R.err('rmb','Тут потрібна ліва кнопка')});
+    pcDrag(el,{items:()=>el.classList.contains('sel')?[...D.area.querySelectorAll('.pcicon.sel')]:[el],
+      drop:(t,items)=>{
+        if(R.i===0||R.i===2){R.err('select','Спершу обведи рамкою');return false;}
+        if(!t){R.err('drag','Неси в папку');return false;}
+        const g=grp();if(!(items.length===g.length&&g.every(i=>items.includes(i)))){R.err('select','Спершу виділи рамкою всі потрібні файли');return false;}
+        if(t!==fold()){R.err('drag','Не та папка');return false;}
+        absorb(items,t);R.ok();return true;}});
+  });
+  R.go(0);
+}
 function PM_browser(){
   const D=pcDesk();
   const W=D.win({title:'Браузер',kind:'web',x:30,y:8,w:1060,h:494,body:`<div class="br"><div class="brtabs"><div class="brtab on" data-t="1"><span class="bti">${PCI.web()}</span>Тварини</div><div class="brtab" data-t="2"><span class="bti">${PCI.junk()}</span>Реклама<button class="tx" tabindex="-1">✕</button></div></div>
@@ -3511,46 +3551,6 @@ function DRAW_color(sample){return function(){
     if(n===N){S.busy=true;burst(CX,300,20);later(win,800);}
   });
 }}
-/* --- 9. Виділення рамкою --- */
-function DRAW_frame(strict){return function(){
-  instr('drag',G.chick(),strict?'Обведи рамкою всіх курчат — і нікого більше':'Затисни кнопку на порожньому місці й обведи рамкою всіх курчат');
-  const N=3;let n=0,sel=null,start=null,items=[];prog(0,N);
-  const rect=put('<div class="selbox"></div>',0,0,1,1,'selr');rect.style.display='none';
-  function round(){
-    items.forEach(i=>i.remove());items=[];
-    const cx=260+Math.random()*680,cy=260+Math.random()*200,k=4+n;
-    for(let i=0;i<k;i++){const a=i/k*Math.PI*2+Math.random()*.4,rr=40+Math.random()*60;
-      const it=put(G.chick(),cx+Math.cos(a)*rr*1.3,cy+Math.sin(a)*rr*.8,64,77);it._t=1;items.push(it);}
-    if(strict||n>0){const others=[()=>G.ladybug(),()=>G.apple(),()=>G.flower(true,'#b5a0e6')];
-      for(let i=0;i<(strict?7:3);i++){let x,y,tries=0;do{x=80+Math.random()*1040;y=150+Math.random()*450;tries++;}while(tries<80&&(Math.abs(x-cx)<(strict?210:250)&&Math.abs(y-cy)<(strict?150:180)));
-        const it=put(pick(others)(),x,y,56,60);it._t=0;items.push(it);}}
-  }
-  const inside=(it,b)=>it._x-it._w*.3>=b.x0&&it._x+it._w*.3<=b.x1&&it._y-it._h*.3>=b.y0&&it._y+it._h*.3<=b.y1;
-  const box=p=>({x0:Math.min(start.x,p.x),x1:Math.max(start.x,p.x),y0:Math.min(start.y,p.y),y1:Math.max(start.y,p.y)});
-  on(stage,'pointerdown',e=>{
-    if(!active()||S.busy||e.button!==0||e.target.closest('#instr'))return;e.preventDefault();
-    start=pt(e);sel=box(start);rect.style.display='block';
-  });
-  on(window,'pointermove',e=>{
-    if(!start||!active())return;const b=box(pt(e));sel=b;
-    rect._w=b.x1-b.x0;rect._h=b.y1-b.y0;rect.style.width=rect._w+'px';rect.style.height=rect._h+'px';place(rect,(b.x0+b.x1)/2,(b.y0+b.y1)/2);
-    items.forEach(it=>it.classList.toggle('picked',inside(it,b)));
-  });
-  const up=()=>{
-    if(!start)return;start=null;rect.style.display='none';
-    const pick_=items.filter(it=>it.classList.contains('picked')),tg=items.filter(it=>it._t);
-    items.forEach(it=>it.classList.remove('picked'));
-    if(!sel||sel.x1-sel.x0<20)return;
-    const allT=tg.every(it=>pick_.includes(it)),extra=pick_.some(it=>!it._t);
-    if(allT&&!extra){S.busy=true;sfx.collect();tg.forEach(it=>{burst(it._x,it._y,5);retrig(it,'boing');});n++;prog(n,N);
-      if(n===N){later(win,800);return;}praise(true);later(()=>{S.busy=false;round();},900);}
-    else if(!allT)gentle(pick_.length?'Не всі курчата в рамці — зроби рамку більшою':'Обведи рамкою курчат');
-    else gentle('У рамці зайве — обведи лише курчат');
-  };
-  on(window,'pointerup',up);on(window,'pointercancel',up);
-  round();
-}}
-
 /* ================= catalog ================= */
 const MV='Рух мишки';
 const CATS={
@@ -3618,13 +3618,11 @@ const CATS={
    {name:'{cave}',skill:'Точний рух мишки у вузькому лабіринті',icon:'move',scene:'cave',
     build:HM(['##############','#S#.C.#.C.#.F#','#.#.#.#.#.#.##','#.#.#.#.#.#.##','#.#.#.#.#.#.##','#...#.C.#.C.##','##############'],75,75,108,13,()=>SK().flyer(),.67,()=>G.chest(),[4,1],'Веди {flyer_acc} до скрині',()=>[SK().flyer(),G.chest()])},
   ]},
-  {id:'draw',title:'Малюю й виділяю',desc:'Веди лінію, розфарбовуй і виділяй рамкою',c:'c6',art:()=>G.star(),levels:[
+  {id:'draw',title:'Малюю мишкою',desc:'Веди лінію по точках і розфарбовуй',c:'c6',art:()=>G.star(),levels:[
    {name:'З’єднай точки: будиночок',skill:'Затиснути кнопку й вести лінію',icon:'drag',scene:'clearing',build:DRAW_dots('house')},
    {name:'Розфарбуй',skill:'Вибір кольору й клік по частині малюнка',icon:'L',scene:'village',build:DRAW_color(false)},
-   {name:'Виділи рамкою',skill:'Виділення кількох предметів рамкою',icon:'drag',scene:'clearing',build:DRAW_frame(false)},
    {name:'З’єднай точки: зірка',skill:'Точне ведення лінії',icon:'drag',scene:'forest',build:DRAW_dots('star')},
    {name:'Розфарбуй за зразком',skill:'Вибір потрібного кольору за зразком',icon:'L',scene:'village',build:DRAW_color(true)},
-   {name:'Рамкою лише курчат',skill:'Точне виділення рамкою без зайвого',icon:'drag',scene:'castle',build:DRAW_frame(true)},
    {name:'З’єднай точки: котик',skill:'Ведення лінії по складній фігурі',icon:'drag',scene:'clearing',build:DRAW_dots('cat')},
   ]},
   {id:'mix',title:'Усе разом',desc:'Рівні, де треба вміти все',c:'c5',art:()=>G.star(),levels:[
@@ -3672,6 +3670,7 @@ const CATS={
    {name:'Кошик',skill:'Відкрити Кошик і відновити файл',icon:'R',build:PM_bin},
    {name:'Прокрутка',skill:'Прокрутка коліщатком і пошук на сторінці',icon:'W',build:PM_scroll},
    {name:'Виділення рамкою',skill:'Виділення кількох значків і перенесення разом',icon:'drag',build:PM_select},
+   {name:'Рамкою без зайвого',skill:'Точне виділення рамкою лише потрібних файлів',icon:'drag',build:PM_select2},
    {name:'Міні-браузер',skill:'Посилання, кнопки ← → ⟳, закриття вкладки',icon:'L',build:PM_browser}]},
   {id:'pck',title:'Клавіатура у Windows',desc:'Назви, текст, гарячі клавіші, форми, адреси, мови',c:'c2',art:()=>`<span class="kchip">Ctrl</span>`,levels:[
    {name:'Перейменуй файл',skill:'Перейменування: надрукувати назву й Enter',icon:'K',build:PK_rename},
